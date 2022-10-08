@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @LimitlessPlaying
 - 👀 I’m interested in Programming.
-- 🌱 I’m currently learning JAVA, Python, R Programming, HTML, CSS, PHP, DBMS.
+- 🌱 I’m currently learning C,JAVA, Python, R Programming, HTML, CSS, PHP, DBMS.
 - 💞️ I’m looking to collaborate on any kind of programming work that pays me.
 - 📫 If you want to contact me then please message me on github.regmisuman@gmail.com
 <!---
