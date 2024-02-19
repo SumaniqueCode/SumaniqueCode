@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @LimitlessPlaying
+- 👋 Hi, I’m @SumaniqueCode
 - 👀 I’m interested in Programming.
 - 🌱 I’m currently learning C,JAVA, Python, R Programming, HTML, CSS, PHP, LARAVEL, REACT.
 - 💞️ I’m looking to collaborate on any kind of programming work that pays me.
