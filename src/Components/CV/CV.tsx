@@ -37,9 +37,9 @@ const CV = () => {
                     <h2 className="font-semibold xs:text-2xl sm:text-3xl mb-1.5">EDUCATION</h2>
                     <div className="flex mb-5">
                         <div className="etime w-1/3">
-                            <i className="fa-solid fa-circle-dot"></i><b> 2017 - 2019</b>
+                            <i className="fa-solid fa-circle-dot text-blue-800"></i><b> 2017 - 2019</b>
                             <p className="ms-1 border-l-4 border-blue-600 h-3/6"></p>
-                            <i className="fa-solid fa-circle-dot"></i><b> 2020 - Present</b>
+                            <i className="fa-solid fa-circle-dot text-blue-800"></i><b> 2020 - Present</b>
                         </div>
                         <div className="edesc w-2/3">
                             <dl><b>Koshi St. James College</b></dl>
@@ -54,11 +54,11 @@ const CV = () => {
                     <h2 className="font-semibold xs:text-2xl sm:text-3xl mb-2">EXPERIENCE</h2>
                     <div className="flex">
                         <div className="wtime ms-2 w-1/5">
-                            <i className="fa-solid fa-circle-dot"></i><b> 2020</b>
+                            <i className="fa-solid fa-circle-dot text-blue-800"></i><b> 2020</b>
                             <p className="ms-1 border-l-4 border-blue-600 h-1/4"></p>
-                            <i className="fa-solid fa-circle-dot"></i><b> 2019 - Present</b>
+                            <i className="fa-solid fa-circle-dot text-blue-800"></i><b> 2019 - Present</b>
                             <p className="ms-1 border-l-4 border-blue-600 h-1/3"></p>
-                            <i className="fa-solid fa-circle-dot"></i><b> 2024</b>
+                            <i className="fa-solid fa-circle-dot text-blue-800"></i><b> 2024</b>
                         </div>
                         <div className="wdesc w-4/5 mt-2">
                             <dl className="mb-2"><i className="fa fa-cog fa-spin"></i><b> Graphics Designer and IT Instructor</b></dl>
