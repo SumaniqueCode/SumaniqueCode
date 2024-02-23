@@ -65,17 +65,14 @@ const CV = () => {
                             <dd className="mb-2">
                                 <p className="xs:text-xs sm:text-base">&emsp;I worked as a graphics designer and
                                     instructed the workers on technical problems in Prime Cyber Cafe, Kathmandu.
-                                    While working at there, I also learned
-                                    how to interact with customers and the value of
-                                    time.
+                                    While working at there, I also learned the efficient way to interact with customers and the value of time.
                                 </p>
                             </dd>
                             <dl className="mb-2"><i className="fa fa-cog fa-spin mt-2"></i> <b> Part-time Jobs</b></dl>
                             <dd className="mb-2">
                                 <p className="text-xs sm:text-base">&emsp;I have been working on different online platforms
                                     for a long time. I have also worked in development of few Web based and Android
-                                    based
-                                    applications.
+                                    based applications.
                                     I have worked as a content creator
                                     on Youtube and blogger. I have also worked as a freelancer in different freelancing
                                     websites.
