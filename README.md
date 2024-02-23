@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<!-- <<<<<<< HEAD
->>>>>>> 17768f492aa5503d208e8ce029c71956c965f5f8
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -104,4 +100,3 @@ export default {
         </li>
     </ul>
 </div>
->>>>>>> 17768f492aa5503d208e8ce029c71956c965f5f8
