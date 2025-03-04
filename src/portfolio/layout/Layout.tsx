@@ -3,11 +3,12 @@ import { Outlet } from "react-router-dom"
 import Header from "./Header"
 import { useEffect, useState } from "react";
 import Landing from "../landing/Landing";
+import { useThemeContext } from "../../ThemeContext";
 
 const Layout = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const {darkMode, setDarkMode} = useThemeContext();
 
     useEffect(() => {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
