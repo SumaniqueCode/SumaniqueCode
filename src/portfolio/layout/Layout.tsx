@@ -1,8 +1,6 @@
 import Footer from "./Footer"
-import { Outlet } from "react-router-dom"
 import Header from "./Header"
 import { useEffect, useState } from "react";
-import Landing from "../landing/Landing";
 import { useThemeContext } from "../../ThemeContext";
 
 const Layout = () => {
@@ -36,8 +34,6 @@ const Layout = () => {
                 setMobileMenuOpen={setMobileMenuOpen}
                 mobileMenuOpen={mobileMenuOpen}
                 activeSection={activeSection} />
-                <Landing  darkMode={darkMode} scrollToSection={scrollToSection}/>
-            {/* <Outlet /> */}
             <Footer />
         </div>
     )
