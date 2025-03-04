@@ -1,4 +1,3 @@
-import Footer from "./Footer"
 import Header from "./Header"
 import { useEffect, useState } from "react";
 import { useThemeContext } from "../../ThemeContext";
@@ -34,7 +33,6 @@ const Layout = () => {
                 setMobileMenuOpen={setMobileMenuOpen}
                 mobileMenuOpen={mobileMenuOpen}
                 activeSection={activeSection} />
-            <Footer />
         </div>
     )
 }
