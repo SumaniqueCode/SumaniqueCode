@@ -1,18 +1,19 @@
 import DarkToggler from "./components/DarkToggler";
 import Logo from "../../../public/images/logos/admin_bw.jpg"
+import { useThemeContext } from "../../ThemeContext";
 interface headerProps {
-  darkMode: boolean,
   activeSection: string,
   scrollToSection: (sectionId: string) => void,
-  toggleDarkMode: () => void,
   mobileMenuOpen: boolean,
   setMobileMenuOpen: (mobileMenuOpen: boolean) => void,
 }
 
-const Header = ({ activeSection, scrollToSection, toggleDarkMode, darkMode, mobileMenuOpen, setMobileMenuOpen }: headerProps) => {
+const Header = ({ activeSection, scrollToSection, mobileMenuOpen, setMobileMenuOpen }: headerProps) => {
+  const {darkMode} = useThemeContext()
+  
   const navButtons = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
   return (
-    <header className={`fixed w-full z-10 border-b-6 rounded-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md`}>
+    <header className={`fixed w-full z-10 border-b-6 rounded-b-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div onClick={() => scrollToSection('home')} className="cursor-pointer flex items-center space-x-2">
         <img src={Logo} className="h-12 rounded-full" alt="SumaniqueCode" />
@@ -38,7 +39,7 @@ const Header = ({ activeSection, scrollToSection, toggleDarkMode, darkMode, mobi
         </nav>
 
         {/* Dark mode toggle */}
-        <DarkToggler darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <DarkToggler />
 
         {/* Mobile menu button */}
         <button

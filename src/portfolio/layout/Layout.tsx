@@ -1,21 +1,13 @@
 import Header from "./Header"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useThemeContext } from "../../ThemeContext";
 import Footer from "./Footer";
 
 const Layout = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const {darkMode, setDarkMode} = useThemeContext();
+    const {darkMode} = useThemeContext();
 
-    useEffect(() => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setDarkMode(prefersDark);
-    }, []);
-
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-    };
 
     const scrollToSection = (sectionId: string) => {
         setActiveSection(sectionId);
@@ -28,9 +20,8 @@ const Layout = () => {
     };
     return (
         <div className={`${darkMode ? 'dark bg-gray-900 text-white' : 'bg-gradient-to-r from-gray-50 to-gray-100 text-gray-900'}`}>
-            <Header darkMode={darkMode}
+            <Header
                 scrollToSection={scrollToSection}
-                toggleDarkMode={toggleDarkMode}
                 setMobileMenuOpen={setMobileMenuOpen}
                 mobileMenuOpen={mobileMenuOpen}
                 activeSection={activeSection} />
