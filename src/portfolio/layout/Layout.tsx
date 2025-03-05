@@ -1,6 +1,7 @@
 import Header from "./Header"
 import { useEffect, useState } from "react";
 import { useThemeContext } from "../../ThemeContext";
+import Footer from "./Footer";
 
 const Layout = () => {
     const [activeSection, setActiveSection] = useState('home');
@@ -33,6 +34,7 @@ const Layout = () => {
                 setMobileMenuOpen={setMobileMenuOpen}
                 mobileMenuOpen={mobileMenuOpen}
                 activeSection={activeSection} />
+                <Footer />
         </div>
     )
 }

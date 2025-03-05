@@ -1,3 +1,4 @@
+import DarkToggler from "./components/DarkToggler";
 import Logo from "../../../public/images/logos/admin_bw.jpg"
 interface headerProps {
   darkMode: boolean,
@@ -8,7 +9,7 @@ interface headerProps {
   setMobileMenuOpen: (mobileMenuOpen: boolean) => void,
 }
 
-const Header = ({ activeSection, scrollToSection, darkMode, mobileMenuOpen, setMobileMenuOpen }: headerProps) => {
+const Header = ({ activeSection, scrollToSection, toggleDarkMode, darkMode, mobileMenuOpen, setMobileMenuOpen }: headerProps) => {
   const navButtons = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
   return (
     <header className={`fixed w-full z-10 border-b-6 rounded-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md`}>
@@ -35,6 +36,9 @@ const Header = ({ activeSection, scrollToSection, darkMode, mobileMenuOpen, setM
             </button>
           ))}
         </nav>
+
+        {/* Dark mode toggle */}
+        <DarkToggler darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
         {/* Mobile menu button */}
         <button
