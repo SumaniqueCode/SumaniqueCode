@@ -11,6 +11,11 @@ const config: Config = {
         'xs': '320px', // Custom 'xs' breakpoint for mobile
       },
     },
+    variants: {
+      extend: {
+          transitionProperty: ['clip-path']
+      }
+  },
   },
   plugins: [],
 };
