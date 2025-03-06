@@ -1,5 +1,7 @@
+import { useThemeContext } from "../../ThemeContext";
 
-const Footer = ({ darkMode }:any) => {
+const Footer = () => {
+  const {darkMode}=useThemeContext();
   return (
     <footer className={`${darkMode ? 'bg-gray-800' : 'bg-white'} py-8`}>
       <div className="max-w-4xl mx-auto text-center">
