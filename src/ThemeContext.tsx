@@ -1,16 +1,18 @@
 import React, { createContext, useContext, useState, ReactNode, } from "react";
-
 interface ThemeContextType {
   darkMode: boolean;
   setDarkMode: (value: boolean) => void;
+  activeSection: string;
+  setActiveSection: (value: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
   return (
-    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode, activeSection, setActiveSection }}>
       {children}
     </ThemeContext.Provider>
   );
