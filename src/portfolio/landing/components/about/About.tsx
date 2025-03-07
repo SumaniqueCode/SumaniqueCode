@@ -25,18 +25,18 @@ const About = ({ darkMode }: aboutProps) => {
                 <ProfileWithShinyBorder darkMode={darkMode} profile={Profile} />
 
                 <div className="md:w-2/3">
-                    <p className="text-lg mb-6">
+                    <p className=" text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
                         Hello! I'm a passionate full-stack developer with 4 years of experience building web applications.
                         I specialize in React, Laravel, Django and other modern web technologies as per the requirements.
                         My journey in software development started during my bachelor in computer application studies,
                         and I've been hooked on creating elegant solutions to complex problems ever since.
                     </p>
-                    <p className="text-lg mb-6">
+                    <p className="text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
                         I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends.
                         When I'm not coding, you can find me contributing to open-source projects,
                         writing technical articles, or exploring new technologies.
                     </p>
-                    <div className="flex flex-wrap gap-4 mt-8">
+                    <div className="flex flex-wrap gap-4 mt-4 md:mt-8">
                         <a
                             href="#"
                             target="_blank"
