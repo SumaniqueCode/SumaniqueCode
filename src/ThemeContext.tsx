@@ -11,7 +11,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
-  const [activeSection, setActiveSection] = useState<string>("home");
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const element = document.getElementById(activeSection);
