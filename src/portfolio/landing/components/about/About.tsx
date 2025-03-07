@@ -7,7 +7,7 @@ interface aboutProps {
 const About = ({ darkMode }: aboutProps) => {
     return (
         <section id="about" className="py-4">
-            <h2 className={`text-3xl font-bold mb-12 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+            <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                 About Me
             </h2>
             <div className="flex flex-col md:flex-row gap-12 items-center">

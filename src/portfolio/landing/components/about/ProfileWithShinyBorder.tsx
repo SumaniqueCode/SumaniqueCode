@@ -202,7 +202,7 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
           gradient.addColorStop(0, `rgba(255,255,255, ${point.opacity})`);
           gradient.addColorStop(0.5, `rgba(30,144,255, ${point.opacity * 0.6})`);
         }
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        gradient.addColorStop(1, 'rgba(204, 255, 255, 0)');
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
