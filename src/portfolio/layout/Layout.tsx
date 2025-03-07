@@ -13,7 +13,9 @@ const Layout = () => {
             {/* Content container */}
             <div className="relative z-10">
                 <Header />
+                <div className="pt-24">
                 <Outlet />
+                </div>
                 <Footer />
             </div>
         </div>

@@ -18,7 +18,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
             if (displayText.length < techs[techIndex].length) {
                 timer = setTimeout(() => {
                     setDisplayText(techs[techIndex].substring(0, displayText.length + 1));
-                }, 200);
+                }, 150);
             } else {
                 // Pause before starting to erase
                 timer = setTimeout(() => {
