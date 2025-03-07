@@ -1,4 +1,5 @@
 import Profile from '../../../../../public/images/logos/pp.png'
+import ProfileWithShinyBorder from './ProfileWithShinyBorder'
 
 interface aboutProps {
     darkMode: boolean
@@ -10,15 +11,19 @@ const About = ({ darkMode }: aboutProps) => {
                 About Me
             </h2>
             <div className="flex flex-col md:flex-row gap-12 items-center">
-                <div className="md:w-1/3 flex justify-center">
-                    <div className={`w-64 h-64 rounded-full overflow-hidden border-4 ${darkMode ? 'border-blue-400' : 'border-blue-600'}`}>
+                {/* <div className="md:w-1/3 flex justify-center">
+                    <div
+                        className={`w-64 h-64 rounded-full overflow-hidden border-4 ${darkMode ? 'border-blue-400' : 'border-blue-600'} rotating-border`}
+                    >
                         <img
                             src={Profile}
                             alt="Profile"
                             className="w-full h-full object-cover"
                         />
-                    </div>
-                </div>
+                    </div> 
+                </div>*/}
+                <ProfileWithShinyBorder darkMode={darkMode} profile={Profile} />
+
                 <div className="md:w-2/3">
                     <p className="text-lg mb-6">
                         Hello! I'm a passionate full-stack developer with 4 years of experience building web applications.
