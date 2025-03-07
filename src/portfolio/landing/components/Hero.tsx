@@ -12,8 +12,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
     const [isTyping, setIsTyping] = useState(true);
 
     useEffect(() => {
-        let timer = undefined;
-
+        let timer: NodeJS.Timeout | undefined;
         if (isTyping) {
             // Typing phase
             if (displayText.length < techs[techIndex].length) {
