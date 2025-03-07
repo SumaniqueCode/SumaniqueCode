@@ -50,7 +50,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
                     <div className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer
                         <span className="inline-block animate-blink ml-1">|</span>
                     </div>
-                    <div className="text-blue-600 ml-2">{displayText} <span className="inline-block font-extrabold animate-pulse ml-1">|</span> </div>
+                    <div className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-2`}>{displayText} <span className="inline-block font-extrabold animate-pulse ml-1">|</span> </div>
                 </h2>
                 <p className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-lg md:text-xl mb-8 max-w-2xl`}>
                     I build engaging web applications with modern technologies. Passionate about creating
