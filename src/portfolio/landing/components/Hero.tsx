@@ -46,10 +46,11 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Hi, I'm <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Suman Regmi</span>
                 </h1>
-                <h2 className="text-2xl md:text-4xl font-semibold mb-6">
-                    <span className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer</span>
-                    <span className="inline-block animate-blink ml-1">|</span>
-                    <span className="text-blue-600 ml-2">{displayText}</span>
+                <h2 className="md:flex text-2xl md:text-4xl font-semibold mb-6">
+                    <div className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer
+                        <span className="inline-block animate-blink ml-1">|</span>
+                    </div>
+                    <div className="text-blue-600 ml-2">{displayText} <span className="inline-block font-extrabold animate-pulse ml-1">|</span> </div>
                 </h2>
                 <p className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-lg md:text-xl mb-8 max-w-2xl`}>
                     I build engaging web applications with modern technologies. Passionate about creating
