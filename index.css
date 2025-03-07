@@ -1,21 +1,25 @@
 @import "tailwindcss";
+
 @layer utilities {
     .clip-path-circle {
         /* circle(radius at pos-x pos-y) */
-        clip-path: circle(0 at calc(100% - 2rem) 2rem); /* 1rem from top and right */
+        clip-path: circle(0 at 100% 50%);
     }
+
     .clip-path-full {
-        clip-path: circle(150% at calc(100% - 2rem) 2rem);
+        clip-path: circle(150% at 100% 50%);
     }
 }
 
- /* Hide scrollbar for chrome*/
+/* Hide scrollbar for chrome*/
 *::-webkit-scrollbar {
     display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
