@@ -43,16 +43,16 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
     return (
         <section id="home" className="flex flex-col justify-center py-4 duration-500">
             <div className="max-w-4xl">
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                <h1 className="text-3xl lg:text-6xl font-bold mb-4">
                     Hi, I'm <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Suman Regmi</span>
                 </h1>
-                <h2 className="md:flex text-2xl md:text-4xl font-semibold mb-6">
-                    <div className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer
-                        <span className="inline-block animate-blink ml-1">|</span>
-                    </div>
-                    <div className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-2`}>{displayText} <span className="inline-block font-extrabold animate-pulse ml-1">|</span> </div>
+                <h2 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-6">
+                    <span className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer</span>
+                    <span className="inline-block animate-blink ml-1">|</span>
+                    <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-1`}>{displayText} </span>
+                    <span className="inline-block font-extrabold animate-pulse ml-1">|</span> 
                 </h2>
-                <p className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-lg md:text-xl mb-8 max-w-2xl`}>
+                <p className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-md md:text-lg lg:text-xl mb-8 max-w-2xl`}>
                     I build engaging web applications with modern technologies. Passionate about creating
                     efficient, scalable, and user-friendly solutions to complex problems.
                 </p>
