@@ -74,10 +74,12 @@ const Header = () => {
         navButtons={navButtons}
       />
 
-      <ScrollUpArrow
-        darkMode={darkMode}
-        scrollToSection={scrollToSection}
-      />
+      {showSideNav && (
+        <ScrollUpArrow
+          darkMode={darkMode}
+          scrollToSection={scrollToSection}
+        />
+      )}
     </>
   );
 };
