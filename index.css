@@ -3,7 +3,7 @@
 @layer utilities {
     .clip-path-circle {
         /* circle(radius at pos-x pos-y) */
-        clip-path: circle(0 at 100% 50%);
+        clip-path: circle(0 at 110% 50%);
     }
 
     .clip-path-full {
