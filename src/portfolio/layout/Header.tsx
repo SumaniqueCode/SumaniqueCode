@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useThemeContext } from "../../ThemeContext";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
-import MobileNav from "./components/MobileNav";
 
 const Header = () => {
   const { darkMode, activeSection, setActiveSection } = useThemeContext();
@@ -52,20 +51,11 @@ const Header = () => {
 
   return (
     <>
-      {/* <MobileNav mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen} /> */}
-      <div
-        className={`fixed right-0 top-1/5 -translate-y-1/2 z-50 rounded-tl-2xl rounded-bl-2xl border-4 shadow-lg p-2 mt-4 
-        duration-500 ease-in-out opacity-100  md:opacity-0 ${mobileMenuOpen && "w-1/4"} ${showSideNav ? "translate-x-0" : "translate-x-full"} 
-        ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
-      >        <MobileNav mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen} /></div>
       <aside
-        className={`fixed right-0 top-1/2 -translate-y-1/2 z-50 rounded-tl-2xl rounded-bl-2xl border-4 shadow-lg px-1 py-4 
-        duration-500 ease-in-out ${mobileMenuOpen ? "opacity-100" : "opacity-0"} md:opacity-100 md:${showSideNav ? "md:translate-x-0" : "translate-x-full"} 
+        className={`fixed right-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tl-2xl rounded-bl-2xl border-4 shadow-lg px-1 py-4 
+        transition-transform duration-500 ease-in-out opacity-0 md:opacity-100 ${showSideNav ? "translate-x-0" : "translate-x-full"} 
         ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
       >
-
         <SideNav
           darkMode={darkMode}
           activeSection={activeSection}
