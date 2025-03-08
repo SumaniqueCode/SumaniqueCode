@@ -1,90 +1,78 @@
-import DarkToggler from "./components/DarkToggler";
-import Logo from "../../../public/images/logos/admin_bw.jpg";
+import { useEffect, useState } from "react";
 import { useThemeContext } from "../../ThemeContext";
-import { useState } from "react";
+import SideNav from "./components/SideNav";
+import TopNav from "./components/TopNav";
 
 const Header = () => {
-  const { activeSection, setActiveSection, darkMode } = useThemeContext();
+  const { darkMode, activeSection, setActiveSection } = useThemeContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showSideNav, setShowSideNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navButtons.map((id) => document.getElementById(id));
+      let closestSection = "home";
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const distance = Math.abs(rect.top);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section.id;
+          }
+        }
+      });
+      setActiveSection(closestSection);
+      if (window.scrollY > window.innerHeight * 0.1) {
+        setShowSideNav(true);
+      } else {
+        setShowSideNav(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
+    if (sectionId === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }
   };
-
-
-  const navButtons = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+  const navButtons = ["home", "about", "skills", "projects", "experience", "contact"];
 
   return (
-    <header className="fixed w-full z-10 border-b-6 rounded-b-2xl shadow-md overflow-hidden bg-white">
-      {/* Animated background constrained to header */}
-      <div className={`absolute inset-0 bg-gray-900 transition-[clip-path] duration-500 ease-in-out
-        ${darkMode ? 'clip-path-full' : 'clip-path-circle'}`} />
+    <>
+      <aside
+        className={`fixed right-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tl-2xl rounded-bl-2xl border-4 shadow-lg px-1 py-4 
+        transition-transform duration-500 ease-in-out opacity-0 md:opacity-100 ${showSideNav ? "translate-x-0" : "translate-x-full"} 
+        ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
+      >
+        <SideNav
+          darkMode={darkMode}
+          activeSection={activeSection}
+          scrollToSection={scrollToSection}
+          navButtons={navButtons}
+        />
+      </aside>
 
-      {/* Content container */}
-      <div className="relative z-10">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div onClick={() => scrollToSection('home')} className="cursor-pointer flex items-center space-x-2">
-            <img src={Logo} className="h-12 rounded-full" alt="SumaniqueCode" />
-            <span className="text-2xl font-bold">
-              <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Dev</span>Portfolio
-            </span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navButtons.map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`capitalize ${activeSection === section
-                  ? `${darkMode ? 'text-blue-400' : 'text-blue-600'} font-semibold`
-                  : `${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
-                  } transition-colors hover:scale-115 ease-in-out duration-400 cursor-pointer`}
-              >
-                {section}
-              </button>
-            ))}
-          </nav>
-
-          {/* Dark mode toggle */}
-          <DarkToggler />
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden focus:outline-none"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className={`md:hidden ${darkMode ? 'bg-gray-900' : 'bg-white'} py-4 px-6 space-y-3`}>
-            {navButtons.map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`block capitalize w-full text-left py-2 ${activeSection === section
-                  ? `${darkMode ? 'text-blue-400' : 'text-blue-600'} font-medium`
-                  : `${darkMode ? 'text-gray-300' : 'text-gray-600'}`
-                  }`}
-              >
-                {section}
-              </button>
-            ))}
-          </nav>
-        )}
-      </div>
-    </header>
+      <TopNav
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        darkMode={darkMode}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+        navButtons={navButtons}
+      />
+    </>
   );
 };
 
