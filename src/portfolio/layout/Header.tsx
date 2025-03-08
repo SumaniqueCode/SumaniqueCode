@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useThemeContext } from "../../ThemeContext";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
+import ScrollUpArrow from "./components/ScrollUpArrow";
 
 const Header = () => {
   const { darkMode, activeSection, setActiveSection } = useThemeContext();
@@ -71,6 +72,11 @@ const Header = () => {
         activeSection={activeSection}
         scrollToSection={scrollToSection}
         navButtons={navButtons}
+      />
+
+      <ScrollUpArrow
+        darkMode={darkMode}
+        scrollToSection={scrollToSection}
       />
     </>
   );
