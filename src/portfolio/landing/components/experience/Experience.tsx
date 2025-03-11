@@ -41,16 +41,13 @@ const Experience = ({ darkMode }: SkillProps) => {
   ];
 
   return (
-    <section
-      id="experience"
-      className='py-4'
-    >
-      <div className="container mx-auto px-4">
+    <section id="experience" className='py-4' >
+      <div className="container mx-auto">
         <h2 className={`text-3xl font-bold mb-12 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
           Professional Experience
         </h2>
 
-        <div className="grid gap-8 md:grid-cols-1 lg:max-w-4xl lg:mx-auto">
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mx-auto">
           {experiences.map((exp, index) => (
             <ExperienceCard key={index} darkMode={darkMode} exp={exp} />
           ))}
