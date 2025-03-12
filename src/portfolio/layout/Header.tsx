@@ -5,7 +5,7 @@ import TopNav from "./components/TopNav";
 import ScrollUpArrow from "./components/ScrollUpArrow";
 
 const Header = () => {
-  const { darkMode, activeSection, setActiveSection } = useThemeContext();
+  const { darkMode, activeSection, setActiveSection, scroller } = useThemeContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -41,12 +41,13 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
-    if (sectionId === "top") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }
+    // if (sectionId === "top") {
+    //   window.scrollTo({ top: 0, behavior: "smooth" });
+    // } else {
+    //   const element = document.getElementById(sectionId);
+    //   if (element) element.scrollIntoView({ behavior: "smooth" });
+    // }
+    scroller(sectionId);
   };
   const navButtons = ["home", "about", "skills", "projects", "experience", "contact"];
 

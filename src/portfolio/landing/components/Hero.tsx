@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useThemeContext } from "../../../ThemeContext";
 
 interface heroProps {
     darkMode: boolean,
@@ -10,6 +11,12 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
     const [displayText, setDisplayText] = useState("");
     const [techIndex, setTechIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(true);
+    const {scroller} = useThemeContext();
+
+    const scrollToSection = (stringId:string)=>{
+        scroller(stringId);
+        setActiveSection(stringId);
+    }
 
     useEffect(() => {
         let timer: NodeJS.Timeout | undefined;
@@ -41,7 +48,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
         return () => clearTimeout(timer);
     }, [displayText, isTyping, techIndex, techs]);
     return (
-        <section id="home" className="flex flex-col justify-center py-4 duration-500">
+        <section id="home" className="flex flex-col justify-center py-4 ">
             <div className="max-w-4xl">
                 <h1 className="text-3xl lg:text-6xl font-bold mb-4">
                     Hi, I'm <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Suman Regmi</span>
@@ -58,13 +65,13 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
                 </p>
                 <div className="flex flex-wrap gap-4">
                     <button
-                        onClick={() => setActiveSection('projects')}
-                        className={`px-6 py-3 rounded-md ${darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-600 hover:bg-blue-700'} text-white font-medium cursor-pointer`}
+                        onClick={() => scrollToSection('projects')}
+                        className={`px-6 py-3 rounded-md ${darkMode ? 'bg-blue-800 hover:bg-blue-900' : 'bg-blue-600 hover:bg-blue-700'} text-white font-medium cursor-pointer`}
                     >
                         View My Work
                     </button>
                     <button
-                        onClick={() => setActiveSection('contact')}
+                        onClick={() => scrollToSection('contact')}
                         className={`px-6 py-3 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-800' : 'bg-gray-200 hover:bg-gray-300'} font-medium cursor-pointer`}
                     >
                         Contact Me
