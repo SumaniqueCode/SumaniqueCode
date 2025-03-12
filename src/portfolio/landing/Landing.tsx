@@ -1,5 +1,6 @@
 import { useThemeContext } from "../../ThemeContext"
 import About from "./components/about/About"
+import Contact from "./components/contact/Contact"
 import Experience from "./components/experience/Experience"
 import Hero from "./components/Hero"
 import Projects from "./components/projects/Projects"
@@ -24,6 +25,9 @@ const Landing = () => {
 
             {/*Experience Section */}
             <Experience darkMode={darkMode} />
+
+            {/*Contact Section */}
+            <Contact darkMode={darkMode} />
         </main>
     )
 }
