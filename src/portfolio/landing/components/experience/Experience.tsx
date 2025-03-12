@@ -43,7 +43,7 @@ const Experience = ({ darkMode }: SkillProps) => {
   return (
     <section id="experience" className='py-4' >
       <div className="container mx-auto">
-        <h2 className={`text-3xl font-bold mb-12 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+        <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
           Professional Experience
         </h2>
 

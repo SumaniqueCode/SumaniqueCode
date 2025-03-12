@@ -1,4 +1,4 @@
-import Profile2 from '../../../public/assets/profile2.jpeg'
+import Profile2 from '../../../public/images/profile2.jpeg'
 
 const CV = () => {
     return (

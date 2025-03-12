@@ -67,13 +67,10 @@ const Contact = ({ darkMode }: contactProps) => {
 
 
   return (
-    <div id='contact' className={`py-4 px-4 ${darkMode ? 'bg-gray-900' : ' bg-gradient-to-r from-gray-50 to-gray-100'}`}>
+    <div id='contact'>
       <div className="mx-auto">
-        <h2 className={`text-4xl font-bold text-center mb-12 ${darkMode ? 'text-blue-400' : 'text-gray-800'} relative`}>
-          <span className="relative inline-block">
-            Contact Me
-            <div className="absolute -bottom-3 left-0 right-0 h-1 w-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-          </span>
+        <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+          Contact Me
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
