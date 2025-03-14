@@ -55,7 +55,7 @@ const Header = () => {
     <>
       <aside
         className={`fixed right-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tl-2xl rounded-bl-2xl border-4 shadow-lg px-1 py-4 
-        transition-transform duration-500 ease-in-out opacity-0 md:opacity-100 ${showSideNav ? "translate-x-0" : "translate-x-full"} 
+        transition-transform duration-500 ease-in-out hidden md:block ${showSideNav ? "translate-x-0" : "translate-x-full"} 
         ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
       >
         <SideNav
