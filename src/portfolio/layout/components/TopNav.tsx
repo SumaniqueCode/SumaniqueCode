@@ -31,7 +31,7 @@ const TopNav = ({ darkMode, navButtons, activeSection, scrollToSection,setMobile
               activeSection === section
                 ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
                 : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
-            } transition-colors hover:scale-115 ease-in-out duration-400 cursor-pointer`}
+            } hover:scale-115 ease-in-out duration-400 cursor-pointer`}
           >
             {section}
           </button>

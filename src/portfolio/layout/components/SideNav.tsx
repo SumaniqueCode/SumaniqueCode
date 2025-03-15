@@ -22,7 +22,7 @@ const SideNav = ({ darkMode, navButtons, activeSection, scrollToSection }: navPr
                         className={`capitalize text-lg ${activeSection === section
                             ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-bold`
                             : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
-                            } transition-colors duration-300 font-semibold`}
+                            } hover:scale-110 ease-in-out duration-400 font-semibold`}
                     >
                         {section}
                     </button>

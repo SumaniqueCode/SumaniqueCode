@@ -30,7 +30,7 @@ const ScrollUpArrow = ({ darkMode, scrollToSection }: ArrowProps) => {
   }, []);
 
   return (
-    <div className="fixed right-5 bottom-5 z-50" onClick={() => scrollToSection("top")}>
+    <div className="" onClick={() => scrollToSection("top")}>
       {/* Fixed and simplified CSS */}
       <style>{`
         .progress-ring {
