@@ -75,12 +75,12 @@ const Header = () => {
         navButtons={navButtons}
       />
 
-      {showSideNav && (
+      <div className={`fixed right-5 bottom-5 transform -translate-y-1/2 z-50 transition-all duration-500 ease-in-out ${showSideNav ? "translate-x-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`}>
         <ScrollUpArrow
           darkMode={darkMode}
           scrollToSection={scrollToSection}
         />
-      )}
+      </div>
     </>
   );
 };
