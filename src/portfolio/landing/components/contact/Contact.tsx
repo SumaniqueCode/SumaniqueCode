@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Github, } from 'lucide-react';
 import ContactCard from './components/ContactCard';
 
 
@@ -8,6 +8,15 @@ interface contactProps {
 const Contact = ({ darkMode }: contactProps) => {
 
   const contactInfo = [
+    {
+      type: 'Github',
+      value: 'SumaniqueCode',
+      icon: <Github className="w-6 h-6" />,
+      link: 'https://github.com/sumaniquecode',
+      color: 'text-black',
+      bgColor: 'bg-gray-50',
+      hoverColor: 'hover:bg-gray-100'
+    },
     {
       type: 'LinkedIn',
       value: 'suman-regmi-0b2440244',
