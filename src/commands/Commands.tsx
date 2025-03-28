@@ -7,8 +7,9 @@ const Commands = () => {
     const stacks = ["Laravel", "Django"]
     const [currentStack, setCurrentStack] = useState<string>("Laravel")
     const {darkMode}=useThemeContext();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   return (
-    <div className="flex">
+    <div id="commands" className="flex">
    <nav className="flex flex-col w-1/7 my-2 py-2">
         {stacks.map(stack=>(
                 <button onClick={()=>setCurrentStack(stack)} className={`capitalize text-lg ${
