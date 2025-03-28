@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />} >
           <Route index element={<Landing />} />
-          <Route path='commands' element={<Commands />} />
+          <Route path='/commands' element={<Commands />} />
         </Route>
       </Routes>
     </Router>
