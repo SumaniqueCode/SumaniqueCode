@@ -49,7 +49,7 @@ const Header = () => {
     // }
     scroller(sectionId);
   };
-  const navButtons = ["home", "about", "skills", "projects", "experience", "contact", "commands"];
+  const navButtons = ["about", "skills", "projects", "experience", "contact",];
 
   return (
     <>
