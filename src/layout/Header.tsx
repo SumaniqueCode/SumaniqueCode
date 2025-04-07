@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useThemeContext } from "../../ThemeContext";
+import { useThemeContext } from "../ThemeContext";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
 import ScrollUpArrow from "./components/ScrollUpArrow";

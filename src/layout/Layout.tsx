@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Header from "./Header";
-import { useThemeContext } from "../../ThemeContext";
+import { useThemeContext } from "../ThemeContext";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 

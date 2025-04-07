@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useThemeContext } from "../../../ThemeContext";
+import { useThemeContext } from "../../ThemeContext";
 
 const DarkToggler = () => {
     const { darkMode, setDarkMode } = useThemeContext()
