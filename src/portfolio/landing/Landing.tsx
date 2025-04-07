@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useThemeContext } from "../../ThemeContext"
 import About from "./components/about/About"
 import Contact from "./components/contact/Contact"
@@ -8,7 +9,11 @@ import Skills from "./components/skills/Skills"
 
 // Main App Component
 const Landing = () => {
-    const { darkMode, setActiveSection, } = useThemeContext()
+    const sideNavs = ['home','about','skills','projects','experience','contact']
+    const { darkMode, setActiveSection,setSideNavs } = useThemeContext()
+    useEffect(()=>(
+        setSideNavs(sideNavs)
+    ),[]);
     return (
         <main className="container w-9/10 mx-auto px-4 pb-12">
             {/* Hero Section */}

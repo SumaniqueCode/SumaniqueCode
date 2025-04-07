@@ -5,14 +5,14 @@ import TopNav from "./components/TopNav";
 import ScrollUpArrow from "./components/ScrollUpArrow";
 
 const Header = () => {
-  const { darkMode, activeSection, setActiveSection, scroller } = useThemeContext();
+  const { darkMode, activeSection, setActiveSection, scroller,sideNavs } = useThemeContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navButtons.map((id) => document.getElementById(id));
-      let closestSection = "home";
+      let closestSection = "top";
       let minDistance = Infinity;
 
       sections.forEach((section) => {
@@ -41,12 +41,6 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
-    // if (sectionId === "top") {
-    //   window.scrollTo({ top: 0, behavior: "smooth" });
-    // } else {
-    //   const element = document.getElementById(sectionId);
-    //   if (element) element.scrollIntoView({ behavior: "smooth" });
-    // }
     scroller(sectionId);
   };
   const navButtons = ["about", "skills", "projects", "experience", "contact",];
@@ -62,7 +56,7 @@ const Header = () => {
           darkMode={darkMode}
           activeSection={activeSection}
           scrollToSection={scrollToSection}
-          navButtons={navButtons}
+          navButtons={sideNavs}
         />
       </aside>
 
