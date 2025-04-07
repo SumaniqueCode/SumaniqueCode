@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, } from "react"
 import { useThemeContext } from "../ThemeContext"
 import Laravel from "./components/laravel/Laravel"
 import Django from "./components/django/Django"
 
 const Commands = () => {
     const stacks = ["laravel", "django"]
-    const [currentStack, setCurrentStack,] = useState<string>("Laravel")
     const { darkMode, setSideNavs, activeSection, setActiveSection } = useThemeContext();
     useEffect(() => (
+        setActiveSection('laravel'),
         setSideNavs(stacks)
     ), []);
     return (

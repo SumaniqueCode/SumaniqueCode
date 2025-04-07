@@ -2,12 +2,12 @@ import DarkToggler from "./DarkToggler";
 
 interface navProps {
     darkMode: boolean;
-    navButtons: string[];
+    sideNavs: string[];
     activeSection: string;
     scrollToSection: (section: string) => void;
 }
 
-const SideNav = ({ darkMode, navButtons, activeSection, scrollToSection }: navProps) => {
+const SideNav = ({ darkMode, sideNavs, activeSection, scrollToSection }: navProps) => {
     return (
         <header className="flex flex-col items-center space-y-6">
             <div onClick={() => scrollToSection("top")} className="cursor-pointer flex items-center space-x-2">
@@ -15,7 +15,7 @@ const SideNav = ({ darkMode, navButtons, activeSection, scrollToSection }: navPr
             </div>
 
             <nav className="flex flex-col space-y-4">
-                {navButtons.map((section) => (
+                {sideNavs.map((section) => (
                     <button
                         key={section}
                         onClick={() => scrollToSection(section)}

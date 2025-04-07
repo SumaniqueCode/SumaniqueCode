@@ -11,7 +11,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navButtons.map((id) => document.getElementById(id));
+      const sections = sideNavs.map((id) => document.getElementById(id));
       let closestSection = "top";
       let minDistance = Infinity;
 
@@ -36,14 +36,14 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [sideNavs]);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
     scroller(sectionId);
   };
-  const navButtons = ["about", "skills", "projects", "experience", "contact",];
+  const navButtons = ["home","commands",];
 
   return (
     <>
@@ -56,7 +56,7 @@ const Header = () => {
           darkMode={darkMode}
           activeSection={activeSection}
           scrollToSection={scrollToSection}
-          navButtons={sideNavs}
+          sideNavs={sideNavs}
         />
       </aside>
 
@@ -64,8 +64,6 @@ const Header = () => {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         darkMode={darkMode}
-        activeSection={activeSection}
-        scrollToSection={scrollToSection}
         navButtons={navButtons}
       />
 

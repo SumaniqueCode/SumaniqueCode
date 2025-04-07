@@ -164,29 +164,27 @@ const Layout: React.FC = () => {
   return (
     <div className={`relative min-h-screen ${darkMode ? 'text-white' : 'text-gray-900'} transition-colors duration-500`}>
       {/* Dark mode overlay */}
-      <div 
+      <div
         className={`fixed inset-0 bg-gray-900 transition-[clip-path] duration-800 ease-in-out
-          ${darkMode ? 'clip-path-full' : 'clip-path-circle'}`} 
+          ${darkMode ? 'clip-path-full' : 'clip-path-circle'}`}
       />
 
       {/* Canvas for constellation network */}
-      <canvas 
-        ref={canvasRef} 
-        className="fixed inset-0 pointer-events-none" 
-        style={{ zIndex: 20 }} 
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 pointer-events-none"
+        style={{ zIndex: 10 }}
       />
 
       {/* Content container */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        
         <main className="flex-grow relative">
           {/* Page content */}
           <div className="relative">
             <Outlet />
           </div>
         </main>
-        
         <Footer />
       </div>
     </div>

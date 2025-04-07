@@ -9,7 +9,7 @@ import Skills from "./components/skills/Skills"
 
 // Main App Component
 const Landing = () => {
-    const sideNavs = ['home','about','skills','projects','experience','contact']
+    const sideNavs = ['about','skills','projects','experience','contact']
     const { darkMode, setActiveSection,setSideNavs } = useThemeContext()
     useEffect(()=>(
         setSideNavs(sideNavs)
