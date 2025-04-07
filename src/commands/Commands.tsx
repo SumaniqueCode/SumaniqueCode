@@ -7,7 +7,6 @@ const Commands = () => {
     const stacks = ["laravel", "django"]
     const { darkMode, setSideNavs, activeSection, setActiveSection } = useThemeContext();
     useEffect(() => (
-        setActiveSection('laravel'),
         setSideNavs(stacks)
     ), []);
     return (
@@ -20,12 +19,10 @@ const Commands = () => {
                 ))}
             </nav>
             <div className="mx-auto w-5/7">
-                {activeSection == "laravel" &&
-                    <Laravel />
-                }
-                {
-                    activeSection == "django" &&
+                {activeSection == "django" ?
                     <Django />
+                    :
+                    <Laravel />
                 }
             </div>
         </div>
