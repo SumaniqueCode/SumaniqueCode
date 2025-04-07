@@ -48,7 +48,7 @@ const Layout: React.FC = () => {
 
     // Initialize points
     const initPoints = () => {
-      const pointCount = Math.min(20, Math.max(12, Math.floor(canvas.width * canvas.height / 50000)));
+      const pointCount = Math.min(100, Math.max(60, Math.floor(canvas.width * canvas.height / 50000)));
       const points: Point[] = [];
 
       for (let i = 0; i < pointCount; i++) {
