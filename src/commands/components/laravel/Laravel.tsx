@@ -63,7 +63,7 @@ const Laravel = () => {
   };
 
   return (
-    <div className="p-6 mx-auto rounded-xl shadow-md">
+    <div id='laravel' className="p-6 mx-auto rounded-xl shadow-md">
       <h2 className="text-2xl font-bold mb-4">Laravel Commands Reference</h2>
       <div className="space-y-4">
         {commands.map((cmd, index) => (

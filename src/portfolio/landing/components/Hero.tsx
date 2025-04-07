@@ -48,7 +48,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
         return () => clearTimeout(timer);
     }, [displayText, isTyping, techIndex, techs]);
     return (
-        <section id="home" className="flex flex-col justify-center py-4 ">
+        <section id="hero" className="flex flex-col justify-center py-4 ">
             <div className="max-w-4xl">
                 <h1 className="text-3xl lg:text-6xl font-bold mb-4">
                     Hi, I'm <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Suman Regmi</span>

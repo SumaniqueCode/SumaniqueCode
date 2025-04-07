@@ -1,43 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import DarkToggler from "./DarkToggler";
+import { useEffect, useState } from "react";
 
 interface navProps {
   darkMode: boolean;
   navButtons: string[];
-  activeSection: string;
-  scrollToSection: (section: string) => void;
   setMobileMenuOpen: (mobileMenuOpen: boolean) => void;
   mobileMenuOpen: boolean;
 }
 
-const TopNav = ({ darkMode, navButtons, activeSection, scrollToSection, setMobileMenuOpen, mobileMenuOpen }: navProps) => {
+const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: navProps) => {
+  const [activeNav, setActiveNav] = useState<string>("home")
+  const location = useLocation();
+  useEffect(() => {
+    const currentPath = location.pathname.split("/")[1];
+    setActiveNav(currentPath);
+  }, [location.pathname]);
+
   return (
-    <header className="w-full z-10 border-b-6 rounded-b-2xl shadow-md overflow-hidden">
+    <header className="w-full z-20 border-b-6 rounded-b-2xl shadow-md overflow-hidden">
       {/* Content container */}
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div onClick={() => scrollToSection("top")} className="cursor-pointer flex items-center space-x-2">
+        <Link to='home' className="flex items-center space-x-2">
           <img src="/images/logos/admin_bw.jpg" className="h-12 rounded-full" alt="SumaniqueCode" />
           <span className="text-2xl font-bold">
             <span className={`${darkMode ? "text-blue-400" : "text-blue-600"}`}>Dev</span>Portfolio
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-        <Link to='home'>Home</Link>
           {navButtons.map((section) => (
-            <button
+            <Link to={section}
               key={section}
-              onClick={() => scrollToSection(section)}
-              className={`capitalize ${activeSection === section
-                  ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
-                  : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
+              className={`capitalize ${activeNav === section
+                ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
+                : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
                 } hover:scale-115 ease-in-out duration-400 cursor-pointer`}
             >
               {section}
-            </button>
+            </Link>
           ))}
-          <Link to='commands'>Commands</Link>
         </nav>
 
         {/* Dark mode toggle */}
@@ -61,18 +64,17 @@ const TopNav = ({ darkMode, navButtons, activeSection, scrollToSection, setMobil
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className={`${darkMode ? "bg-gray-900" : "bg-white"} md:hidden py-4 px-6 space-y-3`}>
+        <nav className="md:hidden py-4 px-6 space-y-3">
           {navButtons.map((section) => (
-            <button
+            <Link to={section}
               key={section}
-              onClick={() => scrollToSection(section)}
-              className={`block capitalize w-full text-left py-2 ${activeSection === section
-                  ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-medium`
-                  : `${darkMode ? "text-gray-300" : "text-gray-600"}`
-                }`}
+              className={`capitalize block w-full text-left ${activeNav === section
+                ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
+                : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
+                } hover:scale-115 ease-in-out duration-400 cursor-pointer`}
             >
               {section}
-            </button>
+            </Link>
           ))}
         </nav>
       )}

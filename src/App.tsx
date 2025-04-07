@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './portfolio/layout/Layout';
+import Layout from './layout/Layout';
 import '../index.css';
 import Landing from './portfolio/landing/Landing';
 import Commands from './commands/Commands';
