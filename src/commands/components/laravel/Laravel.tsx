@@ -13,6 +13,7 @@ const Laravel = () => {
         {
           command: 'Install Xampp',
           description: 'Xampp is used to store data in local server using MySQL',
+          note:'check apachefriends.org'
         },
       ]
     },

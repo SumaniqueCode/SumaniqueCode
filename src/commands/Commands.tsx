@@ -14,7 +14,7 @@ const Commands = () => {
 
     return (
         <div id="commands" className="flex">
-            <nav className="flex flex-col w-1/7 my-2 py-2">
+            <nav className="flex flex-col w-2/7 lg:w-1/7 my-2 py-2">
                 {stacks.map(stack => (
                     <button
                         key={stack}
@@ -25,7 +25,7 @@ const Commands = () => {
                     </button>
                 ))}
             </nav>
-            <div className="mx-auto w-5/7">
+            <div className="mx-auto w-3/7 lg:w-5/7">
                 {activeSection === "django" ? (
                     <Django />
                 ) : activeSection === "laravel" ? (
