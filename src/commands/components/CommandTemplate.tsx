@@ -17,32 +17,54 @@ const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
                 {section.commands.map((cmd, index) => (
                     <div
                         key={index}
-                        className="flex items-center justify-between p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                        className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
                     >
-                        <div>
+                        <div className='flex items-center justify-between'>
                             <code className="text-sm font-mono text-blue-700 block mb-1">
                                 {cmd.command}
                             </code>
-                            <p className="text-xs text-gray-600">
-                                {cmd.description}
-                            </p>
-                            {cmd.note && (
-                                <p className="text-xs text-orange-600 italic">
-                                    Note: {cmd.note}
-                                </p>
-                            )}
+                            <button
+                                onClick={() => copyToClipboard(cmd.command)}
+                                className="text-gray-500 hover:text-blue-600 transition-colors"
+                                title="Copy command"
+                            >
+                                {copiedCommand === cmd.command ? (
+                                    <span className="text-xs text-green-600">Copied!</span>
+                                ) : (
+                                    <Copy size={20} />
+                                )}
+                            </button>
                         </div>
-                        <button
-                            onClick={() => copyToClipboard(cmd.command)}
-                            className="text-gray-500 hover:text-blue-600 transition-colors"
-                            title="Copy command"
-                        >
-                            {copiedCommand === cmd.command ? (
-                                <span className="text-xs text-green-600">Copied!</span>
-                            ) : (
-                                <Copy size={20} />
-                            )}
-                        </button>
+                        {cmd.alternateCommand && (
+                            <div className='flex justify-between'>
+                                <div>
+                                    <p>Alternate Command</p>
+                                    <code className="text-sm font-mono text-blue-700 block mb-1">
+                                        {cmd.alternateCommand}
+                                    </code>
+                                </div>
+                                <button
+                                    onClick={() => copyToClipboard(cmd.alternateCommand || "")}
+                                    className="text-gray-500 hover:text-blue-600 transition-colors"
+                                    title="Copy alternate command"
+                                >
+                                    {copiedCommand === cmd.alternateCommand ? (
+                                        <span className="text-xs text-green-600">Copied!</span>
+                                    ) : (
+                                        <Copy size={20} />
+                                    )}
+                                </button>
+                            </div>
+                        )}
+                        <p className="text-xs text-gray-600">
+                            {cmd.description}
+                        </p>
+                        {cmd.note && (
+                            <p className="text-xs text-orange-600 italic">
+                                Note: {cmd.note}
+                            </p>
+                        )}
+
                     </div>
                 ))}
             </div>

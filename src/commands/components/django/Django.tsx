@@ -35,7 +35,9 @@ const Django = () => {
         {
           command: 'virtualenv env',
           alternateCommand: 'python -m virtualenv env',
-          description: 'Creating the virtual environment in project'
+          description: 'Creating the virtual environment in project',
+          note: 'Use alternate command if virtualenv is not found'
+
         },
         {
           command: 'cd env/Scripts/activate',
