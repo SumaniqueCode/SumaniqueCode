@@ -13,7 +13,7 @@ const Projects = ({ darkMode }: projectProps) => {
       image: "/images/projects/shareinsightnepal/landingpage.jpg",
       techs: ["Laravel", "PHP", "Tailwind", "MySQL"],
       codelink: "https://github.com/SumaniqueCode/shareInsightNepal",
-      livelink: "https://shareinsightnepal.up.railway.app",
+      livelink: "#",
     },
     {
       id: "2",
