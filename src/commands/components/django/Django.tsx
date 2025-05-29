@@ -40,10 +40,8 @@ const Django = () => {
 
         },
         {
-          command: 'cd env/Scripts/activate',
+          command: 'env\Scripts\activate',
           description: 'Activating virtual environment (Windows)',
-          alternateCommand: 'source env/bin/activate',
-          note: 'Use alternate command for macOS/Linux'
         },
         {
           command: 'pip install django',
