@@ -40,7 +40,7 @@ const Django = () => {
 
         },
         {
-          command: 'env\Scripts\activate',
+          command: 'env\\Scripts\\activate',
           description: 'Activating virtual environment (Windows)',
         },
         {
@@ -65,8 +65,9 @@ const Django = () => {
           description: 'Running Django development server'
         },
         {
-          command: 'python manage.py startapp <new_app_name>',
-          description: 'Creating a new app in Django project'
+          command: 'python manage.py startapp <new_app_name> .',
+          description: 'Creating a new app in Django project',
+          note: 'Note the dot at the end of the command creates the app in the current directory'
         },
         {
           command: 'python manage.py makemigrations',
