@@ -88,7 +88,11 @@ const Django = () => {
         {
           command: 'pip install djangorestframework',
           description: 'Installing Django REST Framework'
-        }]
+        },{
+          command: "pip install psycopg2-binary",
+          description: "Installing PostgreSQL database adapter"
+        },
+      ]
     }
   ];
   return (
