@@ -48,8 +48,10 @@ const Django = () => {
           description: 'Installing Django in project'
         },
         {
-          command: 'django-admin startproject <project_name>',
-          description: 'Creating a new Django project'
+          command: 'django-admin startproject <project_name> .',
+          description: 'Creating a new Django project', 
+          note: 'Note the dot at the end of the command creates the app in the current directory'
+
         },
         {
           command: 'cd <project_name>',
@@ -65,9 +67,8 @@ const Django = () => {
           description: 'Running Django development server'
         },
         {
-          command: 'python manage.py startapp <new_app_name> .',
+          command: 'python manage.py startapp <new_app_name>',
           description: 'Creating a new app in Django project',
-          note: 'Note the dot at the end of the command creates the app in the current directory'
         },
         {
           command: 'python manage.py makemigrations',
@@ -88,7 +89,8 @@ const Django = () => {
         {
           command: 'pip install djangorestframework',
           description: 'Installing Django REST Framework'
-        },{
+        },
+        {
           command: "pip install psycopg2-binary",
           description: "Installing PostgreSQL database adapter"
         },
