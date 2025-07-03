@@ -7,8 +7,9 @@ const ReactJS = () => {
             commands: [
                 {
                     command: 'npm create vite@latest projectName',
+                    alternateCommand: 'npm create vite@latest projectName -- --template react',
                     description: 'Creates a new React app using Vite, options will be given to select the package',
-                    note: 'Add -- --template template_name to install template directly'
+                    note: '-- --template react installs react directly without givin option , replace react with react-ts for typescript',
                 },
                 {
                     command: 'cd projectName',
