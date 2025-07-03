@@ -3,9 +3,10 @@ import { useThemeContext } from "../ThemeContext";
 import Laravel from "./components/laravel/Laravel";
 import Django from "./components/django/Django";
 import Github from "./components/github/Github";
+import ReactJS from "./components/react/ReactJs";
 
 const Commands = () => {
-    const stacks = ["github", "laravel", "django"];
+    const stacks = ["github", "laravel", "django", "reactJS",];
     const { darkMode, setSideNavs, activeSection, setActiveSection } = useThemeContext();
 
     useEffect(() => {
@@ -30,9 +31,12 @@ const Commands = () => {
                     <Django />
                 ) : activeSection === "laravel" ? (
                     <Laravel />
-                ) : (
-                    <Github />
-                )}
+                ) : activeSection === "reactJS" ? (
+                    <ReactJS />
+                ) :
+                    (
+                        <Github />
+                    )}
             </div>
         </div>
     );
