@@ -3,6 +3,7 @@ import Header from "./Header";
 import { useThemeContext } from "../ThemeContext";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/vue';
 
 interface Point {
   x: number;
@@ -183,6 +184,7 @@ const Layout: React.FC = () => {
           {/* Page content */}
           <div className="relative">
             <Outlet />
+            <Analytics />
           </div>
         </main>
         <Footer />
