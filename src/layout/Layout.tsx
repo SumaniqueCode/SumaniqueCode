@@ -3,7 +3,8 @@ import Header from "./Header";
 import { useThemeContext } from "../ThemeContext";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
-import { Analytics } from '@vercel/analytics/vue';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 interface Point {
   x: number;
@@ -185,6 +186,7 @@ const Layout: React.FC = () => {
           <div className="relative">
             <Outlet />
             <Analytics />
+            <SpeedInsights />
           </div>
         </main>
         <Footer />
