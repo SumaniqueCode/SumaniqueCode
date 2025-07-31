@@ -70,7 +70,7 @@ const Layout: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Set colors based on the theme
-      const pointColor = darkMode ? 'rgba(180, 180, 255, 0.8)' : 'rgba(100, 100, 255, 0.8)';
+      const pointColor = darkMode ? 'rgba(180, 180, 255, 0.8)' : 'rgba(122, 122, 255, 0.8)';
       const lineColor = darkMode ? 'rgba(180, 180, 255, ' : 'rgba(100, 100, 255, ';
       const points = pointsRef.current;
       const maxDist = Math.min(canvas.width, canvas.height) * 0.3;
