@@ -29,7 +29,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
     const height = canvas.height;
     const centerX = width / 2;
     const centerY = height / 2;
-    const radius = Math.min(width, height) / 2 - 10;
+    const radius = Math.min(width, height) / 2 -30;
 
     const initParticles = () => {
       particlesRef.current = [];
@@ -238,7 +238,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
-        <canvas ref={canvasRef} width={280} height={280} className="inset-0 z-4 mt-7" />
+        <canvas ref={canvasRef} width={320} height={320} className="inset-0 z-4 mt-7" />
         <div className="absolute w-[310px] h-[310px] rounded-full z-5">
           <img src={background} alt="Profile Background" className="w-full h-full object-cover" />
         </div>
