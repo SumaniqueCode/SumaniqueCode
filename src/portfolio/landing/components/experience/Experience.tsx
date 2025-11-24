@@ -30,7 +30,7 @@ const Experience = ({ darkMode }: SkillProps) => {
     },
     {
       id: 3,
-      year: "2024",
+      year: "2023",
       title: "Jr. FullStack Web Developer",
       company: "Hunchha Digital",
       location: "Itahari",
