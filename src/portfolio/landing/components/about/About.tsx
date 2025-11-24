@@ -21,7 +21,7 @@ const About = ({ darkMode }: aboutProps) => {
                         />
                     </div> 
                 </div>*/}
-                <ProfileWithShinyBorder darkMode={darkMode} background="/images/logos/pp3.png" profile="images/logos/pp1.png" />
+                <ProfileWithShinyBorder darkMode={darkMode} background="/images/logos/ppbg.png" profile="images/logos/pp1.png" />
 
                 <div className="md:w-2/3">
                     <p className=" text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
