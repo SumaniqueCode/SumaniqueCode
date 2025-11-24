@@ -9,7 +9,7 @@ const Skills = ({ darkMode }: skillProps) => {
         {
             id: 1,
             name: "Frontend Development",
-            techs: ["React JS", "Redux", "TypeScript", "MUI", "Tailwind", "Bootstrap"],
+            techs: ["React JS", "Redux", "TypeScript", "MUI", "Next.js", "Tailwind", "Bootstrap"],
             iconClass: "fa fa-desktop",
         },
         {
