@@ -72,18 +72,18 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
         const ringWidth = 3 - i * 0.5;
         const ringOpacity = 0.7 - i * 0.2;
         const ringRadius = radius - i * 2;
-        
+
         ctx.beginPath();
         ctx.arc(centerX, centerY, ringRadius, 0, Math.PI * 2);
         ctx.lineWidth = ringWidth;
-        
+
         const gradient = ctx.createLinearGradient(
-          centerX - ringRadius, 
-          centerY - ringRadius, 
-          centerX + ringRadius, 
+          centerX - ringRadius,
+          centerY - ringRadius,
+          centerX + ringRadius,
           centerY + ringRadius
         );
-        
+
         if (darkModeRef.current) {
           gradient.addColorStop(0, `rgba(96, 165, 250, ${ringOpacity})`);
           gradient.addColorStop(0.3, `rgba(147, 197, 253, ${ringOpacity + 0.1})`);
@@ -95,7 +95,7 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
           gradient.addColorStop(0.6, `rgba(29, 78, 216, ${ringOpacity})`);
           gradient.addColorStop(1, `rgba(37, 99, 235, ${ringOpacity})`);
         }
-        
+
         ctx.strokeStyle = gradient;
         ctx.stroke();
       }
@@ -104,7 +104,7 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
         centerX, centerY, radius - 10,
         centerX, centerY, radius + 20
       );
-      
+
       if (darkModeRef.current) {
         glowGradient.addColorStop(0, 'rgba(96, 165, 250, 0.2)');
         glowGradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
@@ -112,7 +112,7 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
         glowGradient.addColorStop(0, 'rgba(37, 99, 235, 0.2)');
         glowGradient.addColorStop(1, 'rgba(37, 99, 235, 0)');
       }
-      
+
       ctx.fillStyle = glowGradient;
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius + 20, 0, Math.PI * 2);
@@ -121,14 +121,14 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
 
     const drawRotatingRing = () => {
       rotationAngleRef.current += 0.005;
-      
+
       ctx.save();
       ctx.translate(centerX, centerY);
       ctx.rotate(rotationAngleRef.current);
       ctx.translate(-centerX, -centerY);
-      
+
       const ringGradient = ctx.createConicGradient(0, centerX, centerY);
-      
+
       if (darkModeRef.current) {
         ringGradient.addColorStop(0, 'rgba(96, 165, 250, 0.8)');
         ringGradient.addColorStop(0.25, 'rgba(147, 197, 253, 0.9)');
@@ -142,43 +142,43 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
         ringGradient.addColorStop(0.75, 'rgba(59, 130, 246, 0.9)');
         ringGradient.addColorStop(1, 'rgba(37, 99, 235, 0.8)');
       }
-      
+
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
       ctx.lineWidth = 4;
       ctx.strokeStyle = ringGradient;
       ctx.stroke();
-      
+
       ctx.restore();
     };
 
     const drawParticles = () => {
       const time = Date.now() / 1000;
-      
+
       particlesRef.current.forEach(particle => {
         particle.pulse += particle.pulseSpeed;
         particle.angle += particle.speed;
-        
+
         const distVariation = Math.sin(time * particle.distanceSpeed) * particle.distanceVariation;
         particle.distance = particle.baseDistance + distVariation;
-        
+
         particle.x = centerX + Math.cos(particle.angle) * particle.distance;
         particle.y = centerY + Math.sin(particle.angle) * particle.distance;
-        
+
         const pulseOpacity = particle.opacity * (0.6 + 0.4 * Math.sin(particle.pulse));
         const pulseSize = particle.size * (0.7 + 0.3 * Math.sin(particle.pulse));
-        
+
         const glow = ctx.createRadialGradient(
           particle.x, particle.y, 0,
           particle.x, particle.y, pulseSize * 2
         );
-        
+
         const hueVariation = Math.sin(time * 0.3) * 10;
         const currentHue = particle.hue + hueVariation;
-        
+
         glow.addColorStop(0, `hsla(${currentHue}, ${particle.saturation}%, ${particle.brightness}%, ${pulseOpacity})`);
         glow.addColorStop(1, `hsla(${currentHue}, ${particle.saturation}%, ${particle.brightness}%, 0)`);
-        
+
         ctx.fillStyle = glow;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, pulseSize * 2, 0, Math.PI * 2);
@@ -189,12 +189,12 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
     const drawShimmerEffect = () => {
       shimmerPointsRef.current.forEach(point => {
         point.angle += point.speed * 0.01;
-        
+
         const x = centerX + Math.cos(point.angle) * radius;
         const y = centerY + Math.sin(point.angle) * radius;
-        
+
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, point.size);
-        
+
         if (darkModeRef.current) {
           gradient.addColorStop(0, `rgba(255, 255, 255, ${point.opacity})`);
           gradient.addColorStop(0.5, `rgba(191, 219, 254, ${point.opacity * 0.6})`);
@@ -203,7 +203,7 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
           gradient.addColorStop(0.5, `rgba(30,144,255, ${point.opacity * 0.6})`);
         }
         gradient.addColorStop(1, 'rgba(204, 255, 255, 0)');
-        
+
         ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(x, y, point.size, 0, Math.PI * 2);
@@ -213,13 +213,13 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
 
     const animate = () => {
       if (!ctx) return;
-      
+
       ctx.clearRect(0, 0, width, height);
       drawBaseRing();
       drawRotatingRing();
       drawParticles();
       drawShimmerEffect();
-      
+
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
@@ -236,10 +236,10 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative w-[300px] h-[300px] flex items-center justify-center">
-        <canvas ref={canvasRef} width={300} height={300} className="absolute inset-0 z-4" />
-        <div className="relative w-[250px] h-[250px] rounded-full overflow-hidden shadow-xl z-5">
-          <img src={profile} alt="Profile" className="w-full h-full object-cover" />
+      <div className="relative w-[320px] h-[320px] flex items-center justify-center">
+        <canvas ref={canvasRef} width={260} height={260} className="inset-0 z-4 mt-11" />
+        <div className="absolute w-[295px] h-[320px] rounded-full z-5">
+          <img src={profile} alt="Profile Background" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
