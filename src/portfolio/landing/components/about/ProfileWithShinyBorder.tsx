@@ -101,20 +101,20 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
         ctx.stroke();
       }
 
-      const glowGradient = ctx.createRadialGradient(
-        centerX, centerY, radius - 10,
-        centerX, centerY, radius + 20
-      );
+      // const glowGradient = ctx.createRadialGradient(
+      //   centerX, centerY, radius - 10,
+      //   centerX, centerY, radius + 20
+      // );
 
-      if (darkModeRef.current) {
-        glowGradient.addColorStop(0, 'rgba(96, 165, 250, 0.2)');
-        glowGradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
-      } else {
-        glowGradient.addColorStop(0, 'rgba(37, 99, 235, 0.2)');
-        glowGradient.addColorStop(1, 'rgba(37, 99, 235, 0)');
-      }
+      // if (darkModeRef.current) {
+      //   glowGradient.addColorStop(0, 'rgba(96, 165, 250, 0.2)');
+      //   glowGradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
+      // } else {
+      //   glowGradient.addColorStop(0, 'rgba(37, 99, 235, 0.2)');
+      //   glowGradient.addColorStop(1, 'rgba(37, 99, 235, 0)');
+      // }
 
-      ctx.fillStyle = glowGradient;
+      // ctx.fillStyle = glowGradient;
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius + 20, 0, Math.PI * 2);
       ctx.fill();
@@ -239,10 +239,10 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
     <div className="flex flex-col items-center justify-center">
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
         <canvas ref={canvasRef} width={320} height={320} className="inset-0 z-4 mt-7" />
-        <div className="absolute w-[310px] h-[310px] rounded-full z-5">
+        <div className="absolute w-[328px] h-[328px] rounded-full z-0">
           <img src={background} alt="Profile Background" className="w-full h-full object-cover" />
         </div>
-        <div className="absolute w-[310px] h-[310px] rounded-full z-6">
+        <div className="absolute w-[328px] h-[328px] rounded-full z-6">
           <img src={profile} alt="Profile" className="w-full h-full object-cover" />
         </div>
       </div>
