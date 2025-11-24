@@ -3,9 +3,10 @@ import { useEffect, useRef } from 'react';
 interface PremiumProfileBorderProps {
   darkMode: boolean;
   profile: string;
+  background: string;
 }
 
-const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) => {
+const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileBorderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const particlesRef = useRef<any[]>([]);
@@ -238,8 +239,11 @@ const PremiumProfileBorder = ({ darkMode, profile }: PremiumProfileBorderProps) 
     <div className="flex flex-col items-center justify-center">
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
         <canvas ref={canvasRef} width={260} height={260} className="inset-0 z-4 mt-11" />
-        <div className="absolute w-[295px] h-[320px] rounded-full z-5">
-          <img src={profile} alt="Profile Background" className="w-full h-full object-cover" />
+        <div className="absolute w-[295px] h-[320px] rounded-full z-5 overflow-hidden">
+          <img src={background} alt="Profile Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute w-[295px] h-[320px] rounded-full z-6">
+          <img src={profile} alt="Profile" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
