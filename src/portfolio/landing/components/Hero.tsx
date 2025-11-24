@@ -7,7 +7,7 @@ interface heroProps {
 }
 
 const Hero = ({ darkMode, setActiveSection }: heroProps) => {
-    const techs = ['Laravel', 'React', 'Django']
+    const techs = ['Laravel', 'React', 'Django', "MERN", "NEXT.js", "TypeScript", "MUI"]
     const [displayText, setDisplayText] = useState("");
     const [techIndex, setTechIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(true);
