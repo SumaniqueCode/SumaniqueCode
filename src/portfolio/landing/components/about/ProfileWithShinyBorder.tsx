@@ -238,11 +238,11 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
-        <canvas ref={canvasRef} width={260} height={260} className="inset-0 z-4 mt-11" />
-        <div className="absolute w-[295px] h-[320px] rounded-full z-5 overflow-hidden">
+        <canvas ref={canvasRef} width={270} height={270} className="inset-0 z-4 mt-10" />
+        <div className="absolute w-[300px] h-[320px] rounded-full z-5 overflow-hidden">
           <img src={background} alt="Profile Background" className="w-full h-full object-cover" />
         </div>
-        <div className="absolute w-[295px] h-[320px] rounded-full z-6">
+        <div className="absolute w-[300px] h-[320px] rounded-full z-6">
           <img src={profile} alt="Profile" className="w-full h-full object-cover" />
         </div>
       </div>
