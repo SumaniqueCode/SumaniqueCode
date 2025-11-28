@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, Github, Youtube, } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Instagram, Github, Youtube, } from 'lucide-react';
 import ContactCard from './components/ContactCard';
 
 
