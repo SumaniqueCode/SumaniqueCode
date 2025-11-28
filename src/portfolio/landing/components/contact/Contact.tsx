@@ -15,7 +15,7 @@ const Contact = ({ darkMode }: contactProps) => {
       link: 'https://github.com/sumaniquecode',
       color: 'text-black',
       bgColor: 'bg-gray-50',
-      hoverColor: 'hover:bg-gray-100'
+      hoverColor: 'hover:bg-gray-200'
     },
     {
       type: 'LinkedIn',
@@ -23,7 +23,7 @@ const Contact = ({ darkMode }: contactProps) => {
       icon: <Linkedin className="w-6 h-6" />,
       link: 'https://linkedin.com/in/suman-regmi-0b2440244',
       color: 'text-blue-700',
-      bgColor: 'bg-blue-50',
+      bgColor: 'bg-gray-50',
       hoverColor: 'hover:bg-blue-100'
     },
     // {
@@ -41,7 +41,7 @@ const Contact = ({ darkMode }: contactProps) => {
       icon: <Instagram className="w-6 h-6" />,
       link: 'https://instagram.com/regmisuman_2000',
       color: 'text-pink-600',
-      bgColor: 'bg-pink-50',
+      bgColor: 'bg-gray-50',
       hoverColor: 'hover:bg-pink-100'
     },
     {
@@ -49,9 +49,9 @@ const Contact = ({ darkMode }: contactProps) => {
       value: 'helpmeforhelp@gmail.com',
       icon: <Mail className="w-6 h-6" />,
       link: 'mailto:helpmeforhelp@gmail.com',
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
-      hoverColor: 'hover:bg-red-100'
+      color: 'text-green-600',
+      bgColor: 'bg-gray-50',
+      hoverColor: 'hover:bg-green-100'
     },
     // {
     //   type: 'Phone',
@@ -68,8 +68,8 @@ const Contact = ({ darkMode }: contactProps) => {
       icon: <Youtube className="w-6 h-6" />,
       link: 'https://www.youtube.com/@sumaniquecode',
       color: 'text-red-700',
-      bgColor: 'bg-red-100',
-      hoverColor: 'hover:bg-red-200'
+      bgColor: 'bg-gray-50',
+      hoverColor: 'hover:bg-red-100'
     },
     {
       type: 'Location',
@@ -77,7 +77,7 @@ const Contact = ({ darkMode }: contactProps) => {
       icon: <MapPin className="w-6 h-6" />,
       link: 'https://maps.google.com/?q=Itahari,Nepal',
       color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
+      bgColor: 'bg-gray-50',
       hoverColor: 'hover:bg-yellow-100'
     }
   ];
