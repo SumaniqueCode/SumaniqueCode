@@ -68,8 +68,8 @@ const Contact = ({ darkMode }: contactProps) => {
       icon: <Youtube className="w-6 h-6" />,
       link: 'https://www.youtube.com/@sumaniquecode',
       color: 'text-red-700',
-      bgColor: 'bg-red-200',
-      hoverColor: 'hover:bg-green-100'
+      bgColor: 'bg-red-100',
+      hoverColor: 'hover:bg-red-200'
     },
     {
       type: 'Location',
