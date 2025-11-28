@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, Github, } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Github, Youtube, } from 'lucide-react';
 import ContactCard from './components/ContactCard';
 
 
@@ -53,13 +53,22 @@ const Contact = ({ darkMode }: contactProps) => {
       bgColor: 'bg-red-50',
       hoverColor: 'hover:bg-red-100'
     },
-    {
-      type: 'Phone',
-      value: '+977 9800000000',
-      icon: <Phone className="w-6 h-6" />,
-      link: 'tel:+9779800000000',
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
+    // {
+    //   type: 'Phone',
+    //   value: '+977 9800000000',
+    //   icon: <Phone className="w-6 h-6" />,
+    //   link: 'tel:+9779800000000',
+    //   color: 'text-green-600',
+    //   bgColor: 'bg-green-50',
+    //   hoverColor: 'hover:bg-green-100'
+    // },
+        {
+      type: 'Youtube',
+      value: '@SumaniqueCode',
+      icon: <Youtube className="w-6 h-6" />,
+      link: 'https://www.youtube.com/@sumaniquecode',
+      color: 'text-red-700',
+      bgColor: 'bg-red-200',
       hoverColor: 'hover:bg-green-100'
     },
     {
