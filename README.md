@@ -73,3 +73,4 @@
 <a target="_blank" href="mailto:helpmeforhelp@gmail.com" target="_blank">
     ![Gmail](https://img.shields.io/badge/Gmail-%230077B5.svg?logo=gmail&logoColor=white)
 </a>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=sumaniquecode&label=Profile%20views&color=0e75b6&style=flat" alt="sumaniquecode" /> </p>
