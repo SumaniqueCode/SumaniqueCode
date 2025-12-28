@@ -72,7 +72,9 @@
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/suman-regmi-0b2440244) 
-<a target="_blank" href="mailto:helpmeforhelp@gmail.com" target="_blank">
+<a target="_blank" href="mailto:helpmeforhelp@gmail.com">
     ![Gmail](https://img.shields.io/badge/Gmail-%230077B5.svg?logo=gmail&logoColor=white)
+</a>
+<a target="_blank" href="www.sumanr.com.np"> ![Portfolio](https://img.shields.io/badge/Portfolio🌐-%230077B5.svg?logoColor=white)
 </a>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=sumaniquecode&label=Profile%20views&color=0e75b6&style=flat" alt="sumaniquecode" /> </p>
