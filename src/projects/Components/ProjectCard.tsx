@@ -28,11 +28,11 @@ const ProjectCard = ({ darkMode, project }: projectCardProps) => {
         <p className="mb-4">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1 mb-4">
           {project.techs.map((tech) => (
             <span
               key={tech}
-              className={`px-3 py-1 rounded-full text-sm ${darkMode ? 'bg-gray-700 text-blue-100' : 'bg-gray-200 text-blue-800'}`}
+              className={`px-2 py-1 rounded-full text-xs ${darkMode ? 'bg-green-700 text-blue-50' : 'bg-green-600 text-white'}`}
             >
               {tech}
             </span>
