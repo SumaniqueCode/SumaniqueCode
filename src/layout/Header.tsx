@@ -43,7 +43,7 @@ const Header = () => {
     setMobileMenuOpen(false);
     scroller(sectionId);
   };
-  const navButtons = ["home","commands",];
+  const navButtons = ["home","projects","commands"];
 
   return (
     <>
