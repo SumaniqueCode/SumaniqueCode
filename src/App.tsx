@@ -3,6 +3,7 @@ import Layout from './layout/Layout';
 import '../index.css';
 import Landing from './portfolio/landing/Landing';
 import Commands from './commands/Commands';
+import AllProjects from './projects/AllProjects';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path='home' element={<Landing />} />
           <Route path='commands' element={<Commands />} />
           <Route index element={<Navigate to="home" replace />} />
+          <Route path = 'projects' element={<AllProjects />} />
         </Route>
       </Routes>
     </Router>
