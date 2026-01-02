@@ -6,7 +6,7 @@ interface projectCardProps {
     id: string
     name: string
     description: string
-    image: string
+    images: string[]
     techs: string[]
     codelink: string
     livelink: string
@@ -18,15 +18,17 @@ const ProjectCard = ({ darkMode, project }: projectCardProps) => {
     <div className="rounded-2xl overflow-hidden border-2 shadow-xl">
       <div className="relative pb-[56.25%]">
         <img
-          src={project.image}
+          src={project.images[0]}
           alt={project.name}
-          className="absolute m-1 w-[99%] h-[99%] object-cover border-b-4 rounded-2xl border-gray-400"
+          className="absolute m-1 w-[99%] h-[99%] object-contain border-b-4 rounded-2xl border-gray-400"
         />
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{project.name}</h3>
         <p className="mb-4">
-          {project.description}
+          {project.description.length > 150
+            ? project.description.slice(0, 150) + "..."
+            : project.description}
         </p>
         <div className="flex flex-wrap gap-1 mb-4">
           {project.techs.map((tech) => (
