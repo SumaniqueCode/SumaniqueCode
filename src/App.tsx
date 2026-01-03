@@ -4,6 +4,7 @@ import '../index.css';
 import Landing from './portfolio/landing/Landing';
 import Commands from './commands/Commands';
 import AllProjects from './projects/AllProjects';
+import ProjectDetailCard from './projects/Components/ProjectDetailCard';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='commands' element={<Commands />} />
           <Route index element={<Navigate to="home" replace />} />
           <Route path = 'projects' element={<AllProjects />} />
+          <Route path = 'project/:id' element={<ProjectDetailCard />} />
         </Route>
       </Routes>
     </Router>
