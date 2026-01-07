@@ -138,7 +138,7 @@ export const projects = [
     description:
       "CC Hub is a multivendor e-commerce platform built for selling computer components and accessories online. The system allows multiple vendors to manage their own storefronts, list products, and handle orders independently. Customers benefit from a smooth shopping experience with integrated payment gateways, order tracking, and product reviews. CC Hub bridges the gap between vendors and customers by providing a scalable, secure, and user-friendly online marketplace.",
     images: [
-      "/images/projects/cchub/landing.jpg",
+      "/images/projects/cchub/Landing.jpg",
       "/images/projects/cchub/login.jpg",
       "/images/projects/cchub/register.jpg",
       "/images/projects/cchub/products.png",
