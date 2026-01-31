@@ -48,8 +48,9 @@
 </table>
     -->
 <p>
-    I’m looking to collaborate on any type of programming work that pays me.<br>
-    If you want to contact me then please follow the social media links given below:
+    A Full Stack Web Developer with 4+ years of experience building and deploying production-ready web applications.
+Skilled in Python (Django, Django REST Framework), Laravel, and JavaScript technologies, including React,
+Next.js and TypeScript, with strong experience in secure APIs and scalable backend systems.
 </p>
 
 
