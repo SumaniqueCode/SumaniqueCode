@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './layout/Layout';
 import '../index.css';
-import Landing from './portfolio/landing/Landing';
+import Landing from './portfolio/Landing';
 import Commands from './commands/Commands';
 import AllProjects from './projects/AllProjects';
 import ProjectDetailCard from './projects/Components/ProjectDetailCard';

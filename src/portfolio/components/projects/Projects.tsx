@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import ProjectCard from "../../../../projects/Components/ProjectCard";
-import { projects } from "../../../../projects/ProjectData";
+import ProjectCard from "../../../projects/Components/ProjectCard";
+import { projects } from "../../../projects/ProjectData";
 interface projectProps {
   darkMode: boolean
 }

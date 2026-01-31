@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useThemeContext } from "../../../ThemeContext";
+import { useThemeContext } from "../../ThemeContext";
 
 interface heroProps {
     darkMode: boolean,
