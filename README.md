@@ -1,56 +1,8 @@
 <h1><img src="https://avatars.githubusercontent.com/u/113495119?v=4" alt="SumaniqueCode" style="height: 100px; width: 100px; border-radius: 10px;" />Hi, I’m @SumaniqueCode 👋</h1>
 <p>
-    <b>I am a full-stack web developer and I’m highly interested in Programming.</b>
+    <b>A Full Stack Web Developer with 4+ years of experience building and deploying production-ready web applications.</b>
 </p>
-<!--
-<table>
-    <b style="text-decoration: underline;">My expertise are: </b>
-    <tbody>
-        <tr>
-            <th colspan="3" align="left">HTML</th>
-        </tr>
-        <tr>
-            <th rowspan="2">CSS</th>
-            <th>┏━━━━━━━━━━━━━━━➤</th>
-            <th>TAILWIND</th>
-        </tr>
-        <tr>
-            <th>┗━━━━━━━━━━━━━━━➤</th>
-            <th>BOOTSTRAP</th>
-        </tr>
-        <tr>
-            <th>PHP</th>
-            <th>━━━━━━━━━━━━━━━━➤</th>
-            <th>LARAVEL</th>
-        </tr>
-        <tr>
-            <th rowspan="2">JavaScript</th>
-            <th>━━━━━━━━━━━━━━━━➤</th>
-            <th>REACT JS</th>
-        </tr>
-        <tr>
-            <th>━━━━━━━━━━━━━━━━➤</th>
-            <th>VUE JS</th>
-        </tr>
-        <tr>
-            <th colspan="3" align="left">MYSQL</th>
-        </tr>
-        <tr>
-            <th colspan="3" align="left">C Programming</th>
-        </tr>
-        <tr>
-            <th colspan="3" align="left">Java</th>
-        </tr>
-        <tr>
-            <th colspan="3" align="left">PYTHON</th>
-        </tr>
-    </tbody>
-</table>
-    -->
-<p>
-    A Full Stack Web Developer with 4+ years of experience building and deploying production-ready web applications.
-Skilled in Python (Django, Django REST Framework), Laravel, and JavaScript technologies, including React,
-Next.js and TypeScript, with strong experience in secure APIs and scalable backend systems.
+I build engaging web applications with modern technologies. Passionate about creating efficient, scalable, and user-friendly solutions to complex problems. Skilled in Python (Django, Django REST Framework), Laravel, and JavaScript technologies, including React, Next.js and TypeScript, with strong experience in secure APIs and scalable backend systems.
 </p>
 
 
