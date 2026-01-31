@@ -172,11 +172,11 @@ const Layout: React.FC = () => {
       />
 
       {/* Canvas for constellation network */}
-      <canvas
+      {/* <canvas
         ref={canvasRef}
         className="fixed inset-0 pointer-events-none"
         style={{ zIndex: 10 }}
-      />
+      /> */}
 
       {/* Content container */}
       <div className="relative z-20 flex flex-col min-h-screen">
