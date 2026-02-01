@@ -53,7 +53,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
                 <h1 className="text-3xl lg:text-6xl font-bold mb-4"  style={{ animation: ' fadeInDown 0.5s ease-out' }}>
                     Hi, I'm <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Suman Regmi</span>
                 </h1>
-                <h2 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-6"  style={{ animation: ' fadeInDown 0.5s ease-out' }}>
+                <h2 className="text-md md:text-2xl lg:text-4xl font-bold md:font-semibold mb-2 md:mb-4 lg:mb-6"  style={{ animation: ' fadeInDown 0.5s ease-out' }}>
                     <span className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer</span>
                     <span className="inline-block animate-blink ml-1">|</span>
                     <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-1`}>{displayText} </span>
