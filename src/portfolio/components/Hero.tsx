@@ -50,20 +50,20 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
     return (
         <section id="hero" className="flex flex-col justify-center py-4 ">
             <div className="max-w-4xl">
-                <h1 className="text-3xl lg:text-6xl font-bold mb-4">
+                <h1 className="text-3xl lg:text-6xl font-bold mb-4"  style={{ animation: ' fadeInDown 0.5s ease-out' }}>
                     Hi, I'm <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Suman Regmi</span>
                 </h1>
-                <h2 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-6"  style={{ animation: ' fadeInDown 0.5s ease-out' }}>
                     <span className={`${darkMode ? 'text-gray-300' : 'text-gray-800'}`}>Full Web Stack Developer</span>
                     <span className="inline-block animate-blink ml-1">|</span>
                     <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-1`}>{displayText} </span>
                     <span className="inline-block font-extrabold animate-pulse ml-1">|</span> 
                 </h2>
-                <p className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-md md:text-lg lg:text-xl mb-8 max-w-2xl`}>
+                <p  style={{ animation: 'fadeInUp 0.5s ease-out' }} className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-md md:text-lg lg:text-xl mb-8 max-w-2xl`}>
                     I build engaging web applications with modern technologies. Passionate about creating
                     efficient, scalable, and user-friendly solutions to complex problems.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4"  style={{ animation: ' slideInRight 0.5s ease-out' }}>
                     <button
                         onClick={() => scrollToSection('projects')}
                         className={`px-6 py-3 rounded-md ${darkMode ? 'bg-blue-800 hover:bg-blue-900' : 'bg-blue-600 hover:bg-blue-700'} text-white font-medium cursor-pointer`}
