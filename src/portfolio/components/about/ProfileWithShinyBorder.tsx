@@ -236,7 +236,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center" style={{ animation: ' slideInLeft 0.5s ease-out' }}>
+    <div className="flex flex-col items-center justify-center" style={{ animation: ' slideInLeft 0.6s ease-out' }}>
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
         <canvas ref={canvasRef} width={320} height={320} className="inset-0 z-4 mt-7" />
         <div className="absolute w-[328px] h-[328px] rounded-full z-0">
