@@ -59,7 +59,7 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
                     <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-1`}>{displayText} </span>
                     <span className="inline-block font-extrabold animate-pulse ml-1">|</span> 
                 </h2>
-                <p  style={{ animation: 'fadeInUp 0.5s ease-out' }} className={`${darkMode ? 'text-white' : 'text-gray-700'} font-semibold text-md md:text-lg lg:text-xl mb-8 max-w-2xl`}>
+                <p  style={{ animation: 'fadeInUp 0.5s ease-out' }} className={`${darkMode ? 'text-white' : 'text-gray-700'} md:font-semibold text-md md:text-lg lg:text-xl mb-8 max-w-2xl`}>
                     I build engaging web applications with modern technologies. Passionate about creating
                     efficient, scalable, and user-friendly solutions to complex problems.
                 </p>
