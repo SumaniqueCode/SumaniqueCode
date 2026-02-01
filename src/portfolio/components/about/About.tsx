@@ -6,10 +6,24 @@ interface aboutProps {
 const About = ({ darkMode }: aboutProps) => {
     return (
         <section id="about" className="py-4">
-            <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                About Me
-            </h2>
-            <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="text-center">
+                <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? "text-white" : "text-gray-900"}`} style={{ animation: "fadeInDown 0.6s ease-out" }}
+                >
+                    About{" "}
+                    <span
+                        className={`bg-gradient-to-r ${darkMode
+                            ? "from-blue-400 to-purple-400"
+                            : "from-blue-600 to-purple-600"
+                            } bg-clip-text text-transparent`}
+                    >
+                        Me
+                    </span>
+                </h2>
+                {/* <p className={`text-base max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-gray-600"}`} style={{ animation: "fadeInUp 0.6s ease-out 0.2s both" }} >
+                    Let's have a talk!
+                </p> */}
+            </div>
+            <div className="flex flex-col md:flex-row gap-2 md:gap-12 items-center">
                 {/* <div className="md:w-1/3 flex justify-center">
                     <div
                         className={`w-64 h-64 rounded-full overflow-hidden border-4 ${darkMode ? 'border-blue-400' : 'border-blue-600'} rotating-border`}
@@ -23,7 +37,7 @@ const About = ({ darkMode }: aboutProps) => {
                 </div>*/}
                 <ProfileWithShinyBorder darkMode={darkMode} background="/images/logos/ppbg1.png" profile="images/logos/pp1.png" />
 
-                <div className="md:w-2/3">
+                <div className="md:w-2/3" style={{ animation: 'slideInRight 0.5s ease-out' }} >
                     <p className=" text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
                         Hello! I'm a passionate full-stack developer with 4 years of experience building web applications.
                         I specialize in React, Laravel, Django and other modern web technologies as per the requirements.
@@ -35,10 +49,7 @@ const About = ({ darkMode }: aboutProps) => {
                         When I am not coding, you can find me exploring new technologies or helping others learn and solve the problems they encounter.
                     </p>
                     <div className="flex flex-wrap gap-4 mt-4 md:mt-8">
-                        <a
-                            href="https://github.com/SumaniqueCode"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <a href="https://github.com/SumaniqueCode" target="_blank" rel="noopener noreferrer"
                             className={`flex items-center gap-2 px-4 py-2 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'}`}
                         >
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -46,10 +57,7 @@ const About = ({ darkMode }: aboutProps) => {
                             </svg>
                             GitHub
                         </a>
-                        <a
-                            href="https://www.linkedin.com/in/suman-regmi-0b2440244/"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <a href="https://www.linkedin.com/in/suman-regmi-0b2440244/" target="_blank" rel="noopener noreferrer"
                             className={`flex items-center gap-2 px-4 py-2 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'}`}
                         >
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -57,10 +65,7 @@ const About = ({ darkMode }: aboutProps) => {
                             </svg>
                             LinkedIn
                         </a>
-                        <a
-                            href="mailto:helpmeforhelp@gmail.com"
-                            className={`flex items-center gap-2 px-4 py-2 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'}`}
-                        >
+                        <a href="mailto:helpmeforhelp@gmail.com" className={`flex items-center gap-2 px-4 py-2 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'}`} >
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" />
                             </svg>
