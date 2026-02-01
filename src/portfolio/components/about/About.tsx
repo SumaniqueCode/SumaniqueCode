@@ -5,7 +5,7 @@ interface aboutProps {
 }
 const About = ({ darkMode }: aboutProps) => {
     return (
-        <section id="about" className="py-4">
+        <section id="about" className="">
             <div className="text-center">
                 <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? "text-white" : "text-gray-900"}`} style={{ animation: "fadeInDown 0.6s ease-out" }}
                 >

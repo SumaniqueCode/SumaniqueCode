@@ -59,20 +59,20 @@ const Hero = ({ darkMode, setActiveSection }: heroProps) => {
                     <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} ml-1`}>{displayText} </span>
                     <span className="inline-block font-extrabold animate-pulse ml-1">|</span> 
                 </h2>
-                <p  style={{ animation: 'fadeInUp 0.5s ease-out' }} className={`${darkMode ? 'text-white' : 'text-gray-700'} md:font-semibold text-md md:text-lg lg:text-xl mb-8 max-w-2xl`}>
+                <p  style={{ animation: 'fadeInUp 0.5s ease-out' }} className={`${darkMode ? 'text-white' : 'text-gray-700'} md:font-semibold text-md md:text-lg lg:text-xl mb-3 md:mb-5 lg:mb-8 max-w-2xl`}>
                     I build engaging web applications with modern technologies. Passionate about creating
                     efficient, scalable, and user-friendly solutions to complex problems.
                 </p>
                 <div className="flex flex-wrap gap-4"  style={{ animation: ' slideInRight 0.5s ease-out' }}>
                     <button
                         onClick={() => scrollToSection('projects')}
-                        className={`px-6 py-3 rounded-md ${darkMode ? 'bg-blue-800 hover:bg-blue-900' : 'bg-blue-600 hover:bg-blue-700'} text-white font-medium cursor-pointer`}
+                        className={`px-4 md:px-6 py-2 md:py-3 rounded-md ${darkMode ? 'bg-blue-800 hover:bg-blue-900' : 'bg-blue-600 hover:bg-blue-700'} text-white font-medium cursor-pointer`}
                     >
                         View My Work
                     </button>
                     <button
                         onClick={() => scrollToSection('contact')}
-                        className={`px-6 py-3 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-800' : 'bg-gray-200 hover:bg-gray-300'} font-medium cursor-pointer`}
+                        className={`px-4 md:px-6 py-2 md:py-3 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-800' : 'bg-gray-200 hover:bg-gray-300'} font-medium cursor-pointer`}
                     >
                         Contact Me
                     </button>
