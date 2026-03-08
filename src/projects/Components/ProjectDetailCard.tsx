@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { projects } from '../ProjectData';
 import { useThemeContext } from '../../ThemeContext';
+import imagePlaceHolder from '../../../public/images/placeholders/place-holder-image.jpeg';
 
 const ProjectDetailCard = () => {
   const { darkMode } = useThemeContext();
@@ -33,7 +34,7 @@ const ProjectDetailCard = () => {
           <div className="lg:col-span-3 space-y-4">
             <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg duration-300 ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
               <div className="relative aspect-video">
-                <img draggable={false} loading='lazy' src={project.images[selectedImage]} alt={`${project.name} - Image ${selectedImage + 1}`} className="w-full h-full object-contain" />
+                <img draggable={false} loading='lazy' src={project.images.length>0 ?project.images[selectedImage]: imagePlaceHolder} alt={`${project.name} - Image ${selectedImage + 1}`} className="w-full h-full object-contain" />
                 {project.images.length > 1 && (
                   <div className="absolute top-3 right-3 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
                     {selectedImage + 1} / {project.images.length}
