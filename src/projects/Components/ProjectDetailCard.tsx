@@ -31,9 +31,9 @@ const ProjectDetailCard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
         <div className="grid lg:grid-cols-5 gap-6">
           <div className="lg:col-span-3 space-y-4">
-            <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+            <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg duration-300 ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
               <div className="relative aspect-video">
-                <img src={project.images[selectedImage]} alt={`${project.name} - Image ${selectedImage + 1}`} className="w-full h-full object-contain" />
+                <img draggable={false} loading='lazy' src={project.images[selectedImage]} alt={`${project.name} - Image ${selectedImage + 1}`} className="w-full h-full object-contain" />
                 {project.images.length > 1 && (
                   <div className="absolute top-3 right-3 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
                     {selectedImage + 1} / {project.images.length}
@@ -74,7 +74,7 @@ const ProjectDetailCard = () => {
                           }`}
                         style={{ width: '90px', height: '60px' }}
                       >
-                        <img src={image} alt={`Thumbnail ${index + 1}`} className="${darkMode ? 'bg-gray-700' : 'bg-white'}`w-full h-full object-cover" />
+                        <img draggable={false} loading='lazy' src={image} alt={`Thumbnail ${index + 1}`} className="${darkMode ? 'bg-gray-700' : 'bg-white'}`w-full h-full object-cover" />
                       </button>
                     ))}
                   </div>
