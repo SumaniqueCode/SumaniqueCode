@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ProjectCard from "../../../projects/Components/ProjectCard";
-import { projects } from "../../../projects/ProjectData";
+import { projects } from "../../../data/ProjectData";
 import LazySection from "../../../global/LazySection";
 interface projectProps {
   darkMode: boolean
