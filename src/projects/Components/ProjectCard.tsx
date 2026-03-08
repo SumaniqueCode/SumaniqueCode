@@ -1,77 +1,180 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Github, ExternalLink, ArrowRight, Code2 } from "lucide-react";
+import { useState } from "react";
+import LazySection from "../../global/LazySection";
 
-interface projectCardProps {
-  darkMode: boolean
+interface ProjectCardProps {
+  darkMode: boolean;
   project: {
-    id: string
-    name: string
-    description: string
-    images: string[]
-    techs: string[]
-    codelink: string
-    livelink: string
-  }
+    id: string;
+    name: string;
+    description: string;
+    images: string[];
+    techs: string[];
+    codelink: string;
+    livelink: string;
+  };
 }
 
-const ProjectCard = ({ darkMode, project }: projectCardProps) => {
+const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="rounded-2xl overflow-hidden border-2 shadow-xl">
-      <div className="relative pb-[56.25%]">
-        <img
-          src={project.images[0]}
-          alt={project.name}
-          className="absolute m-1 w-[99%] h-[99%] object-contain border-b-4 rounded-2xl border-gray-400"
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-        <p className="mb-4">
-          {project.description.length > 150
-            ? project.description.slice(0, 150) + "..."
-            : project.description}
-        </p>
-        <div className="flex flex-wrap gap-1 mb-4">
-          {project.techs.map((tech) => (
-            <span
-              key={tech}
-              className={`px-2 py-1 rounded-full text-xs ${darkMode ? 'bg-green-700 text-blue-50' : 'bg-green-600 text-white'}`}
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-        <div className="flex space-x-4 justify-between items-center">
-          <div className="flex space-x-4">
-            <a
-              href={project.codelink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-1 px-4 py-2 rounded-md ${darkMode ? 'bg-blue-800 hover:bg-blue-900' : 'bg-blue-600 hover:bg-blue-700'} text-white`}
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-              Code
-            </a>
-            <a
-              href={project.livelink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-1 px-4 py-2 rounded-md ${darkMode ? 'bg-gray-700 hover:bg-gray-800' : 'bg-gray-200 hover:bg-gray-300'}`}
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              Live Demo
-            </a>
-          </div>
-          <Link to={'/project/' + project.id} className={`flex items-center gap-1 px-4 py-2 rounded-md ${darkMode ? 'bg-blue-800 hover:bg-blue-900' : 'bg-blue-600 hover:bg-blue-700'} text-white`}>
-            View details
-          </Link>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <LazySection>
+      <Link
+        to={"/project/" + project.id}
+        className={`group relative block overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02] ${darkMode ? "bg-gray-800/50 border-gray-700" : "bg-white border-gray-200"
+          } backdrop-blur-sm border shadow-xl hover:shadow-2xl cursor-pointer`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Gradient Background on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
 
-export default ProjectCard
+        {/* Animated Border Effect */}
+        <div className="absolute inset-0 rounded-2xl overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background:
+                "linear-gradient(45deg, transparent 30%, #3B82F620 50%, transparent 70%)",
+              animation: "shimmer 3s infinite",
+            }}
+          />
+        </div>
+
+        {/* Image Container */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+          <div className="relative pb-[56.25%]">
+            {/* Loading Skeleton */}
+            {!imageLoaded && (
+              <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700" />
+            )}
+
+            {/* Project Image */}
+            <img
+              draggable={false}
+              loading="lazy"
+              src={project.images[0]}
+              alt={project.name}
+              onLoad={() => setImageLoaded(true)}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-110"
+                } ${isHovered ? "scale-110" : "scale-100"}`}
+            />
+
+            {/* Overlay on Hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            {/* Quick Actions Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+              <a href={project.codelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                className="p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-lg"
+                title="View Code"
+              >
+                <Github className={`w-5 h-5 ${darkMode ? "text-white" : "text-gray-900"}`} />
+              </a>
+              <a href={project.livelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                className="p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-lg"
+                title="Live Demo"
+              >
+                <ExternalLink className={`w-5 h-5 ${darkMode ? "text-white" : "text-gray-900"}`} />
+              </a>
+            </div>
+
+            {/* Tech Badge */}
+            <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg">
+              <Code2 className="w-4 h-4 text-blue-600" />
+              <span className={`text-xs font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}>
+                {project.techs.length} Technologies
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative p-6">
+          {/* Project Title */}
+          <h3 className={`text-xl font-bold mb-3 line-clamp-1 ${darkMode ? "text-white" : "text-gray-900"  }`} >
+            {project.name}
+          </h3>
+
+          {/* Description */}
+          <LazySection>
+            <p className={`text-sm leading-relaxed mb-4 line-clamp-3 ${darkMode ? "text-gray-300" : "text-gray-600"}`} >
+              {project.description}
+            </p>
+          </LazySection>
+
+          <LazySection>
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-2 mb-5">
+              {project.techs.slice(0, 4).map((tech, index) => (
+                <span
+                  key={tech}
+                  className={`px-3 py-1 rounded-lg text-xs font-medium transition-all duration-300 ${darkMode
+                    ? "bg-blue-900/50 text-blue-300 hover:bg-blue-900"
+                    : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+                    }`}
+                  style={{
+                    animation: `fadeInUp 0.4s ease-out ${index * 0.05}s both`,
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+              {project.techs.length > 4 && (
+                <span className={`px-3 py-1 rounded-lg text-xs font-medium ${darkMode ? "bg-gray-700 text-gray-300" : "bg-gray-200 text-gray-700" }`}>
+                  +{project.techs.length - 4}
+                </span>
+              )}
+            </div>
+          </LazySection>
+
+          {/* Action Buttons */}
+          <div className=" md:hidden flex items-center justify-between gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+            {/* Code & Live Links */}
+            <div className="flex gap-2">
+              <a href={project.codelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 hover:scale-105 ${darkMode
+                  ? "bg-gray-700 hover:bg-gray-600 text-white"
+                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                  }`}
+                title="View Source Code"
+              >
+                <Github className="w-4 h-4" />
+                <span className="hidden sm:inline">Code</span>
+              </a>
+              <a href={project.livelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 hover:scale-105 ${darkMode
+                  ? "bg-gray-700 hover:bg-gray-600 text-white"
+                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                  }`}
+                title="View Live Demo"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span className="hidden sm:inline">Demo</span>
+              </a>
+            </div>
+
+            {/* View Details Indicator */}
+            <div
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-300 bg-gradient-to-r ${darkMode
+                ? "from-blue-600 to-purple-600 group-hover:from-blue-500 group-hover:to-purple-500"
+                : "from-blue-600 to-purple-600 group-hover:from-blue-700 group-hover:to-purple-700"
+                } text-white shadow-lg group-hover:shadow-xl`}
+            >
+              <span>View Details</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Accent Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      </Link>
+    </LazySection>
+  );
+};
+
+export default ProjectCard;
