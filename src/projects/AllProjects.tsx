@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useThemeContext } from "../ThemeContext";
 import ProjectCard from "./Components/ProjectCard"
-import { projects } from "./ProjectData"
+import { projects } from "../data/ProjectData"
 
 const AllProjects = () => {
   const sideNavs = [''];

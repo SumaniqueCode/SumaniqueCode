@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { projects } from '../ProjectData';
+import { projects } from '../../data/ProjectData';
 import { useThemeContext } from '../../ThemeContext';
 import imagePlaceHolder from '../../../public/images/placeholders/place-holder-image.jpeg';
 
