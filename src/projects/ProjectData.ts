@@ -1,6 +1,6 @@
 export const projects = [
   {
-    id: "1",
+    id: 1,
     name: "Share Insight Nepal",
     description:
       "Share Insight Nepal is a full-featured stock market management web application built specifically for Nepalese investors. The platform allows users to track their shareholdings in detail, monitor real-time profit and loss, and analyze overall portfolio performance with clarity. It integrates real-time market data to keep investors updated on price movements and market trends. In addition, the system provides risk assessment tools that help users understand exposure and make strategic investment decisions. By combining data accuracy, analytical insights, and a user-friendly interface, Share Insight Nepal aims to simplify stock portfolio management and empower investors to make confident, well-informed financial decisions in the Nepalese stock market.",
@@ -37,7 +37,7 @@ export const projects = [
     livelink: "https://shareinsightnepal.up.railway.app",
   },
   {
-    id: "2",
+    id: 2,
     name: "Daily Repo",
     description:
       "Daily Repo is a collaborative daily task and reporting system designed to improve transparency, accountability, and productivity within teams. The platform enables team members to log their daily tasks, share progress updates in real time, and generate structured reports effortlessly. Its clean and intuitive user interface ensures that users can focus on their work rather than managing complex tools. By centralizing daily reporting and progress tracking, Daily Repo helps teams stay aligned on goals, identify bottlenecks early, and maintain consistent communication across projects.",
@@ -65,7 +65,7 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: "3",
+    id: 3,
     name: "Skill Karma",
     description:
       "Skill Karma is an innovative time-based skill exchange platform that connects individuals who want to offer, exchange, or monetize their skills. Users can create detailed profiles, showcase their expertise, and discover skill providers nearby through an interactive map-based discovery system. The platform also includes a Kanban-style task tracking board that helps users manage ongoing exchanges, collaborations, and commitments visually. By promoting skill sharing and community collaboration, Skill Karma creates opportunities for learning, networking, and mutual growth.",
@@ -99,7 +99,7 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: "4",
+    id: 4,
     name: "Sanno Kaam",
     description:
       "Sanno Kaam is a Nepal-focused micro job platform designed to connect freelancers with clients looking to outsource small tasks and short-term gigs. Freelancers can create profiles, showcase their skills, and apply for jobs, while clients can post tasks, review applicants, and securely process payments. The platform also features a review and rating system that helps build trust within the community. By addressing local market needs and payment challenges, Sanno Kaam supports the growth of Nepal’s gig economy.",
@@ -133,7 +133,7 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: "5",
+    id: 5,
     name: "CC Hub",
     description:
       "CC Hub is a multivendor e-commerce platform built for selling computer components and accessories online. The system allows multiple vendors to manage their own storefronts, list products, and handle orders independently. Customers benefit from a smooth shopping experience with integrated payment gateways, order tracking, and product reviews. CC Hub bridges the gap between vendors and customers by providing a scalable, secure, and user-friendly online marketplace.",
@@ -169,7 +169,7 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: "6",
+    id: 6,
     name: "Pathshala TMS",
     description:
       "Pathshala TMS is a task management system designed to help organizations streamline project tracking, improve team collaboration, and manage deadlines effectively. Users can create tasks, assign responsibilities, set priorities, and track progress in real time. With a focus on simplicity and productivity, the platform ensures teams stay organized and projects move forward efficiently.",
@@ -192,7 +192,7 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: "7",
+    id: 7,
     name: "Pathshala BMS",
     description:
       "Pathshala BMS is a blog management system that simplifies the process of creating, editing, and publishing blog content. It includes role-based access control for collaborative writing, built-in SEO optimization tools to improve search visibility, post scheduling for content planning, and analytics for tracking performance. The system is designed to help bloggers and teams maintain a consistent and professional online presence.",

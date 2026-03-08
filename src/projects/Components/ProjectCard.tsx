@@ -6,7 +6,7 @@ import LazySection from "../../global/LazySection";
 interface ProjectCardProps {
   darkMode: boolean;
   project: {
-    id: string;
+    id: number;
     name: string;
     description: string;
     images: string[];
