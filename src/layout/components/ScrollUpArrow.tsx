@@ -1,5 +1,5 @@
 import { ArrowUp } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface ArrowProps {
   darkMode: boolean;
@@ -7,31 +7,38 @@ interface ArrowProps {
 }
 
 const ScrollUpArrow = ({ darkMode, scrollToSection }: ArrowProps) => {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
   const progressRingRef = useRef<HTMLDivElement>(null);
+  const scrollPercentage = useRef(0);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const currentScroll = window.scrollY;
-      const calculatedPercentage = scrollHeight > 0 ? Math.min(100, Math.max(0, (currentScroll / scrollHeight) * 100)) : 0;
-      setScrollPercentage(calculatedPercentage);
-      if (progressRingRef.current) {
-        const bgColor = darkMode ? '#4b5563' : '#d1d5db';
-        progressRingRef.current.style.background =
-          `conic-gradient(#3b82f6 0% ${calculatedPercentage}%, ${bgColor} ${calculatedPercentage}% 100%)`;
-        progressRingRef.current.style.filter =
-          `drop-shadow(0 0 3px ${calculatedPercentage > 5 ? '#3b82f6' : 'transparent'})`;
-      }
+      scrollPercentage.current = scrollHeight > 0 ? Math.min(100, Math.max(0, (currentScroll / scrollHeight) * 100)) : 0;
     };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    const updateRing = () => {
+      if (progressRingRef.current) {
+        const bgColor = darkMode ? "#4b5563" : "#d1d5db";
+        const percent = scrollPercentage.current;
+        progressRingRef.current.style.background = ` conic-gradient( #3b82f6 0% ${percent}%, ${bgColor} ${percent}% 100% ) `;
+        progressRingRef.current.style.filter = percent > 5 ? "drop-shadow(0 0 4px #3b82f6)" : "none";
+      }
+      rafRef.current = requestAnimationFrame(updateRing);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    rafRef.current = requestAnimationFrame(updateRing);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, [darkMode]);
 
   return (
-    <div className="" onClick={() => scrollToSection("top")}>
-      {/* Fixed and simplified CSS */}
+    <div onClick={() => scrollToSection("top")} className="cursor-pointer">
       <style>{`
         .progress-ring {
           transform: rotate(270deg);
@@ -40,20 +47,10 @@ const ScrollUpArrow = ({ darkMode, scrollToSection }: ArrowProps) => {
           transition: filter 0.3s ease;
         }
       `}</style>
-      <div
-        className={`relative w-16 h-16 rounded-full flex justify-center items-center cursor-pointer shadow-lg
-                   ${darkMode ? 'bg-gray-800' : 'bg-white'}`} >
-        {/* Progress ring with ref */}
-        <div
-          ref={progressRingRef}
-          className="progress-ring absolute inset-0 rounded-full"
-          style={{
-            background: `conic-gradient(#3b82f6 0% ${scrollPercentage}%, ${darkMode ? '#4b5563' : '#d1d5db'} ${scrollPercentage}% 100%)`,
-            filter: `drop-shadow(0 0 3px ${scrollPercentage > 5 ? '#3b82f6' : 'transparent'})`
-          }}
-        />
-        <div className={`relative z-10 flex justify-center items-center w-12 h-12 rounded-full
-                        ${darkMode ? 'bg-gray-800' : 'bg-white'} duration-500`}>
+
+      <div className={`relative w-16 h-16 rounded-full flex items-center justify-center shadow-lg ${darkMode ? "bg-gray-800" : "bg-white"}`} >
+        <div ref={progressRingRef} className="progress-ring absolute inset-0 rounded-full" />
+        <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 ${darkMode ? "bg-gray-800" : "bg-white"}`} >
           <ArrowUp size={28} className={darkMode ? "text-white" : "text-gray-900"} />
         </div>
       </div>
