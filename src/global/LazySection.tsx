@@ -23,7 +23,7 @@ const LazySection = ({
       },
       {
         threshold,
-        rootMargin: "40px", // Start loading 40px before element enters viewport
+        rootMargin: "20px", // Start loading 40px before element enters viewport
       }
     );
 
