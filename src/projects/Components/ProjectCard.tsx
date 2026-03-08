@@ -95,7 +95,7 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
         {/* Content */}
         <div className="relative p-6">
           {/* Project Title */}
-          <h3 className={`text-xl font-bold mb-3 line-clamp-1 ${darkMode ? "text-white" : "text-gray-900"  }`} >
+          <h3 className={`text-xl font-bold mb-3 line-clamp-1 ${darkMode ? "text-white" : "text-gray-900"}`} >
             {project.name}
           </h3>
 
@@ -124,7 +124,7 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
                 </span>
               ))}
               {project.techs.length > 4 && (
-                <span className={`px-3 py-1 rounded-lg text-xs font-medium ${darkMode ? "bg-gray-700 text-gray-300" : "bg-gray-200 text-gray-700" }`}>
+                <span className={`px-3 py-1 rounded-lg text-xs font-medium ${darkMode ? "bg-gray-700 text-gray-300" : "bg-gray-200 text-gray-700"}`}>
                   +{project.techs.length - 4}
                 </span>
               )}
