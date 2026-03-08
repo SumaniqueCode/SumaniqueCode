@@ -1,6 +1,6 @@
 import ContactCard from './components/ContactCard';
 import LazySection from '../../../global/LazySection';
-import { ContactData } from '../../../data/ContactData';
+import { contacts } from '../../../data/ContactData';
 
 interface ContactProps {
   darkMode: boolean;
@@ -36,7 +36,7 @@ const Contact = ({ darkMode }: ContactProps) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6 max-w-7xl mx-auto">
-            {ContactData.map((info, index) => (
+            {contacts.map((info, index) => (
               <ContactCard darkMode={darkMode} key={index} info={info} index={index} />
             ))}
           </div>
