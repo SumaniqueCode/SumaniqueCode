@@ -1,9 +1,15 @@
 import { useEffect, useRef } from 'react';
 
+interface OptimizedImage {
+  avif?: string;
+  webp?: string;
+  fallback: string;
+}
+
 interface PremiumProfileBorderProps {
   darkMode: boolean;
-  profile: string;
-  background: string;
+  profile: string | OptimizedImage;
+  background: string | OptimizedImage;
 }
 
 const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileBorderProps) => {
@@ -240,10 +246,26 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
         <canvas ref={canvasRef} width={320} height={320} className="inset-0 z-4 mt-7" />
         <div className="absolute w-[328px] h-[328px] rounded-full z-0">
-          <img draggable={false} loading={'lazy'} src={background} alt="Profile Background" className="w-full h-full object-cover" />
+          {typeof background === 'object' ? (
+            <picture>
+              <source srcSet={background.avif} type="image/avif" />
+              <source srcSet={background.webp} type="image/webp" />
+              <img draggable={false} loading={'lazy'} src={background.fallback} alt="Profile Background" className="w-full h-full object-cover" />
+            </picture>
+          ) : (
+            <img draggable={false} loading={'lazy'} src={background} alt="Profile Background" className="w-full h-full object-cover" />
+          )}
         </div>
         <div className="absolute w-[328px] h-[328px] rounded-full z-6">
-          <img draggable={false} loading={'lazy'} src={profile} alt="Profile" className="w-full h-full object-cover" />
+          {typeof profile === 'object' ? (
+            <picture>
+              <source srcSet={profile.avif} type="image/avif" />
+              <source srcSet={profile.webp} type="image/webp" />
+              <img draggable={false} loading={'lazy'} src={profile.fallback} alt="Profile" className="w-full h-full object-cover" />
+            </picture>
+          ) : (
+            <img draggable={false} loading={'lazy'} src={profile} alt="Profile" className="w-full h-full object-cover" />
+          )}
         </div>
       </div>
     </div>
