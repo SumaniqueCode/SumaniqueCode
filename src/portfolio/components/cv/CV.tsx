@@ -1,4 +1,4 @@
-import Profile2 from '../../../public/images/profile2.jpeg'
+import { optimizedProfile } from '../../../assets/images/logos'
 
 const CV = () => {
     return (
@@ -7,7 +7,11 @@ const CV = () => {
             <div className="grid grid-cols-12">
                 <div className="profile hidden sm:block sm:col-span-3 lg:col-span-2 mt-auto">
                     <div className="image mb-2">
-                        <img src={Profile2} alt="Photo" className="xs:w-32 md:w-36 xl:40 rounded" />
+                        <picture>
+                            <source srcSet={optimizedProfile.avif} type="image/avif" />
+                            <source srcSet={optimizedProfile.webp} type="image/webp" />
+                            <img src={optimizedProfile.fallback} alt="Photo" className="xs:w-32 md:w-36 xl:40 rounded" />
+                        </picture>
                     </div>
                 </div>
 

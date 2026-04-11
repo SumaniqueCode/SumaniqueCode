@@ -1,4 +1,5 @@
 import ProfileWithShinyBorder from './ProfileWithShinyBorder'
+import { optimizedPp1, optimizedPpbg1 } from '../../../assets/images/logos'
 
 interface aboutProps {
     darkMode: boolean
@@ -35,7 +36,7 @@ const About = ({ darkMode }: aboutProps) => {
                         />
                     </div> 
                 </div>*/}
-                <ProfileWithShinyBorder darkMode={darkMode} background="/images/logos/ppbg1.png" profile="images/logos/pp1.png" />
+                <ProfileWithShinyBorder darkMode={darkMode} background={optimizedPpbg1} profile={optimizedPp1} />
 
                 <div className="md:w-2/3" style={{ animation: 'slideInRight 0.5s ease-out' }} >
                     <p className=" text-md md:text-lg mb-2 md:mb-4 lg:mb-6">

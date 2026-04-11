@@ -23,7 +23,7 @@ const LazySection = ({
       },
       {
         threshold,
-        rootMargin: "20px", // Start loading 40px before element enters viewport
+        rootMargin: "20px", // Reverted to 20px so that CSS mount animations trigger visibly on screen
       }
     );
 
@@ -41,10 +41,8 @@ const LazySection = ({
   return (
     <div ref={sectionRef} className="">
       {isVisible ? children : (
-        // Optional: Loading skeleton
-        <div className="animate-pulse">
-          <div className="h-96 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-        </div>
+        // Invisible placeholder to maintain scroll position without layout shift or ugly gray flashes
+        <div className="h-96 opacity-0"></div>
       )}
     </div>
   );
