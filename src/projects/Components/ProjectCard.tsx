@@ -72,20 +72,20 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
                 className="p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-lg"
                 title="View Code"
               >
-                <Github className={`w-5 h-5 ${darkMode ? "text-white" : "text-gray-900"}`} />
+                <Github className="w-5 h-5 text-gray-900" />
               </a>
               <a href={project.livelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
                 className="p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-lg"
                 title="Live Demo"
               >
-                <ExternalLink className={`w-5 h-5 ${darkMode ? "text-white" : "text-gray-900"}`} />
+                <ExternalLink className="w-5 h-5 text-gray-900" />
               </a>
             </div>
 
             {/* Tech Badge */}
             <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg">
               <Code2 className="w-4 h-4 text-blue-600" />
-              <span className={`text-xs font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}>
+              <span className="text-xs font-semibold text-gray-900">
                 {project.techs.length} Technologies
               </span>
             </div>
@@ -136,20 +136,14 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
             {/* Code & Live Links */}
             <div className="flex gap-2">
               <a href={project.codelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 hover:scale-105 ${darkMode
-                  ? "bg-gray-700 hover:bg-gray-600 text-white"
-                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                  }`}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 hover:scale-105 bg-gray-100 hover:bg-gray-200 text-gray-700"
                 title="View Source Code"
               >
                 <Github className="w-4 h-4" />
                 <span className="hidden sm:inline">Code</span>
               </a>
               <a href={project.livelink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 hover:scale-105 ${darkMode
-                  ? "bg-gray-700 hover:bg-gray-600 text-white"
-                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                  }`}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 hover:scale-105 bg-gray-100 hover:bg-gray-200 text-gray-700"
                 title="View Live Demo"
               >
                 <ExternalLink className="w-4 h-4" />
