@@ -1,4 +1,5 @@
 import DarkToggler from "./DarkToggler";
+import { optimizedAdminBw } from "../../assets/images/logos";
 
 interface navProps {
     darkMode: boolean;
@@ -11,7 +12,11 @@ const SideNav = ({ darkMode, sideNavs, activeSection, scrollToSection }: navProp
     return (
         <header className="flex flex-col items-center space-y-6">
             <div onClick={() => scrollToSection("top")} className="cursor-pointer flex items-center space-x-2">
-                <img src="/images/logos/admin_bw.jpg" className="h-12 rounded-full" alt="SumaniqueCode" />
+                <picture>
+                    <source srcSet={optimizedAdminBw.avif} type="image/avif" />
+                    <source srcSet={optimizedAdminBw.webp} type="image/webp" />
+                    <img src={optimizedAdminBw.fallback} className="h-12 rounded-full" alt="SumaniqueCode" />
+                </picture>
             </div>
 
             <nav className="flex flex-col space-y-4">

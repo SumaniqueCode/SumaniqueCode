@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import DarkToggler from "./DarkToggler";
 import { useEffect, useState } from "react";
+import { optimizedAdminBw } from "../../assets/images/logos";
 
 interface navProps {
   darkMode: boolean;
@@ -22,7 +23,11 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
       {/* Content container */}
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to='home' className="flex items-center space-x-2">
-          <img src="/images/logos/admin_bw.jpg" className="h-12 rounded-full" alt="SumaniqueCode" />
+          <picture>
+            <source srcSet={optimizedAdminBw.avif} type="image/avif" />
+            <source srcSet={optimizedAdminBw.webp} type="image/webp" />
+            <img src={optimizedAdminBw.fallback} className="h-12 rounded-full" alt="SumaniqueCode" />
+          </picture>
           <span className="text-2xl font-bold">
             <span className={`${darkMode ? "text-blue-400" : "text-blue-600"}`}>Dev</span>Portfolio
           </span>

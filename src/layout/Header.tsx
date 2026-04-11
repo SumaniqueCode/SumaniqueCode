@@ -5,7 +5,7 @@ import TopNav from "./components/TopNav";
 import ScrollUpArrow from "./components/ScrollUpArrow";
 
 const Header = () => {
-  const { darkMode, activeSection, setActiveSection, scroller,sideNavs } = useThemeContext();
+  const { darkMode, activeSection, setActiveSection, scroller, sideNavs } = useThemeContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -43,13 +43,13 @@ const Header = () => {
     setMobileMenuOpen(false);
     scroller(sectionId);
   };
-  const navButtons = ["home","projects","commands"];
+  const navButtons = ["home", "projects", "commands"];
 
   return (
     <>
       <aside
-        className={`fixed right-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tl-2xl rounded-bl-2xl border-4 shadow-lg px-1 py-4 
-        transition-transform duration-500 ease-in-out hidden md:block ${showSideNav ? "translate-x-0" : "translate-x-full"} 
+        className={`fixed left-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tr-2xl rounded-br-2xl border-4 shadow-lg px-1 py-4 
+        transition-transform duration-500 ease-in-out hidden md:block ${showSideNav ? "translate-x-0" : "-translate-x-full"} 
         ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
       >
         <SideNav
@@ -67,7 +67,7 @@ const Header = () => {
         navButtons={navButtons}
       />
 
-      <div className={`fixed right-5 bottom-5 transform -translate-y-1/2 z-50 transition-all duration-500 ease-in-out ${showSideNav ? "translate-x-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`}>
+      <div className={`fixed left-2 bottom-10 transform -translate-y-1/2 z-50 transition-all duration-500 ease-in-out ${showSideNav ? "translate-x-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`}>
         <ScrollUpArrow
           darkMode={darkMode}
           scrollToSection={scrollToSection}
