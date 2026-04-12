@@ -1,14 +1,14 @@
 export const experiences = [
     {
         id: 1,
-        year: "Feb 2026 – Now",
+        year: "Feb 2026 - Now",
         title: "React Django Full Stack Developer",
         type: "Remote",
         company: "GoretoX",
         location: "Virginia, United States",
         description: "Developing microservice-based web applications using React and Django, focusing on responsive design, performance, and SEO optimization.",
         gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
-        color: "#6366F1",
+        color: "#4169e1",
         companyLogo: "/images/companies/goretox/logos/logo.png",
         achievements: [
             "Developed React components using shadcn/ui and handled time-zone based logic.",
