@@ -16,7 +16,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <main className="container w-9/10 mx-auto px-4 pb-12">
+    <main className="container w-9/10 mx-auto px-2 md:px-4 pb-12">
       <Hero darkMode={darkMode} setActiveSection={setActiveSection} />
         <About darkMode={darkMode} />
         <Skills darkMode={darkMode} />

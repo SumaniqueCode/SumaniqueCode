@@ -67,7 +67,7 @@ const Header = () => {
         navButtons={navButtons}
       />
 
-      <div className={`fixed left-2 bottom-10 transform -translate-y-1/2 z-50 transition-all duration-500 ease-in-out ${showSideNav ? "translate-x-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`}>
+      <div className={`fixed left-5 -bottom-3 transform -translate-y-1/2 z-50 transition-all duration-500 ease-in-out ${showSideNav ? "translate-x-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`}>
         <ScrollUpArrow
           darkMode={darkMode}
           scrollToSection={scrollToSection}
