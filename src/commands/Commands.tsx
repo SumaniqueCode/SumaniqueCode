@@ -14,19 +14,19 @@ const Commands = () => {
     }, []);
 
     return (
-        <div id="commands" className="flex">
-            <nav className="flex flex-col w-2/7 lg:w-1/7 my-2 py-2">
+        <div id="commands" className="flex flex-col md:flex-row gap-4 px-2 md:px-0">
+            <nav className="flex md:flex-col overflow-x-auto md:overflow-visible w-full md:w-48 lg:w-64 my-2 py-2 gap-2 scrollbar-hide">
                 {stacks.map(stack => (
                     <button
                         key={stack}
                         onClick={() => setActiveSection(stack)}
-                        className={`capitalize text-lg ${darkMode ? "text-white" : "text-blue-600"} font-bold hover:scale-110 ease-in-out duration-400 border-b-2 border-r-2 rounded-md py-1`}
+                        className={`capitalize text-base md:text-lg whitespace-nowrap px-4 md:px-2 ${darkMode ? "text-white" : "text-blue-600"} font-bold hover:scale-105 md:hover:scale-110 ease-in-out duration-300 border-b-2 border-r-2 rounded-md py-1`}
                     >
                         {stack}
                     </button>
                 ))}
             </nav>
-            <div className="mx-auto w-3/7 lg:w-5/7">
+            <div className="flex-1 w-full max-w-full overflow-hidden">
                 {activeSection === "django" ? (
                     <Django />
                 ) : activeSection === "laravel" ? (

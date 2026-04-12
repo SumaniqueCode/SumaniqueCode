@@ -9,7 +9,7 @@ const AllProjects = () => {
   useEffect(() => (
     setSideNavs(sideNavs)
   ), []); return (
-    <section className={'min-h-screen w-9/10 mx-auto py-6 px-4'} >
+    <section className={'min-h-screen w-9/10 mx-auto py-6 px-2 md:px-4'} >
       <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
         All Projects
       </h2>
