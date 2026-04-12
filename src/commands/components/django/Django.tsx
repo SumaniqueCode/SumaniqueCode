@@ -94,6 +94,28 @@ const Django = () => {
           command: "pip install psycopg2-binary",
           description: "Installing PostgreSQL database adapter"
         },
+        {
+          command: 'python manage.py shell',
+          description: 'Open interactive Python shell within Django environment',
+          note: 'Useful for testing model queries and logic'
+        },
+        {
+          command: 'python manage.py collectstatic',
+          description: 'Gather all static files into STATIC_ROOT',
+          note: 'Required for production deployment'
+        },
+        {
+          command: 'python manage.py test',
+          description: 'Run automated tests defined in your apps'
+        },
+        {
+          command: 'pip freeze > requirements.txt',
+          description: 'Save all project dependencies into a text file'
+        },
+        {
+          command: 'pip install -r requirements.txt',
+          description: 'Install all dependencies from requirements.txt'
+        },
       ]
     }
   ];
