@@ -56,9 +56,9 @@ const SkillCard = ({ darkMode, skill, index }: SkillCardProps) => {
 
             {/* Tech Count Badge */}
             <div
-              className={`px-2 py-1 rounded-full text-xs font-semibold ${darkMode
-                ? 'bg-gray-700/50 text-gray-300'
-                : 'bg-gray-100 text-gray-600'
+              className={`px-2 py-0.5 rounded-full text-xs font-semibold  border-2 ${darkMode
+                ? 'bg-gray-700/50 text-white border-white'
+                : 'bg-white text-blue-600 border-blue-500'
                 }`}
             >
               {skill.techs.length} skills
