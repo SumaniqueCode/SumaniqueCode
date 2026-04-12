@@ -7,6 +7,7 @@ interface ExperienceProps {
     id: number;
     year: string;
     title: string;
+    type: string;
     company: string;
     location: string;
     description: string;
@@ -69,9 +70,19 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
                 <h3 className={` text-md md:text-xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   {exp.title}
                 </h3>
-                <div className={`flex items-center gap-1.5 mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                  <Briefcase className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span className="font-medium text-sm">{exp.company}</span>
+                <div className={`flex items-center gap-2 mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <div className="flex items-center gap-1.5">
+                    <Briefcase className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span className="font-medium text-sm">{exp.company}</span>
+                  </div>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${exp.type === 'Remote'
+                      ? 'bg-green-500/10 text-green-500'
+                      : exp.type === 'Hybrid'
+                        ? 'bg-yellow-500/10 text-yellow-500'
+                        : 'bg-blue-500/10 text-blue-500'
+                    }`}>
+                    {exp.type}
+                  </span>
                 </div>
                 <div className={`flex items-center gap-1.5 text-xs ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
