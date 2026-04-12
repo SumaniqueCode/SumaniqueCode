@@ -21,66 +21,75 @@ const Github = () => {
             ]
         },
         {
-            title: "Initializing Git in a File",
+            title: "Getting a Repository",
             commands: [
                 {
+                    command: 'git clone <url>',
+                    description: "Clone a remote GitHub repository to your local machine"
+                },
+                {
                     command: 'git init',
-                    description: "Initialize a new Git repository"
+                    description: "Initialize a new local Git repository"
                 },
                 {
-                    command: 'git remote add origin https://github.com/username/repo-name',
-                    description: "Connect to remote GitHub repository"
-                },
-                {
-                    command: 'git branch -M main',
-                    description: "Rename current branch to main"
-                },
-                {
-                    command: 'git add filename',
-                    description: "Add a specific file to staging"
-                },
-                {
-                    command: 'git add *',
-                    description: "Add all files to staging"
-                },
-                {
-                    command: 'git commit -m "Your message"',
-                    description: "Commit your changes with a message"
-                },
-                {
-                    command: 'git push -u origin main',
-                    description: "Push commits to GitHub"
+                    command: 'git remote add origin <url>',
+                    description: "Connect your local repository to a remote server"
                 },
             ]
         },
         {
-            title: "Pushing to GitHub Repository",
+            title: "Basic Git Workflow",
             commands: [
                 {
                     command: 'git status',
-                    description: "Check the status of your files"
+                    description: "Check which files Git is tracking"
                 },
                 {
-                    command: 'git add filename',
-                    description: "Add a specific file to staging"
+                    command: 'git add <filename>',
+                    description: "Add a specific file to the staging area"
                 },
                 {
-                    command: 'git add *',
-                    description: "Add all files to staging"
+                    command: 'git add .',
+                    description: "Add all new and changed files to staging"
                 },
                 {
-                    command: 'git commit -m "Commit message"',
-                    description: "Set Commit message"
+                    command: 'git commit -m "Your message"',
+                    description: "Record your staged changes with a descriptive message"
                 },
                 {
                     command: 'git push -u origin main',
-                    description: "Push commits to GitHub"
+                    description: "Upload local commits to the remote main branch"
                 },
+            ]
+        },
+        {
+            title: "Remote & Syncing Commands",
+            commands: [
+                {
+                    command: 'git remote -v',
+                    description: "View remote URLs (fetch & push)"
+                },
+                {
+                    command: 'git fetch',
+                    description: "Get updates from remote but don't merge"
+                },
+                {
+                    command: 'git pull origin branch-name',
+                    description: "Update your local branch with remote changes"
+                },
+                {
+                    command: 'git remote set-url origin New-URL',
+                    description: "Change the URL of the remote origin"
+                }
             ]
         },
         {
             title: "Working with Branches in Git",
             commands: [
+                {
+                    command: 'git branch',
+                    description: "List all local branches"
+                },
                 {
                     command: 'git checkout -b branch-name',
                     description: "Create and switch to a new branch"
@@ -114,6 +123,27 @@ const Github = () => {
                     description: "Tag a specific commit version"
                 }
             ]
+        },
+        {
+            title: "Stashing & Comparing",
+            commands: [
+                {
+                    command: 'git stash',
+                    description: "Temporarily save changed tracked files"
+                },
+                {
+                    command: 'git stash pop',
+                    description: "Apply and remove the last stashed changes"
+                },
+                {
+                    command: 'git diff',
+                    description: "Show changes between commits, commit and working tree"
+                },
+                {
+                    command: 'git diff --staged',
+                    description: "Show differences between staged files and last commit"
+                }
+            ]
         }, {
             title: "Other Git Commands",
             commands: [
@@ -130,12 +160,8 @@ const Github = () => {
                     description: "Amend the previous commit"
                 },
                 {
-                    command: 'git reset --hard sha-code-from-github',
-                    description: "Revert to a specific commit version"
-                },
-                {
-                    command: 'git clone username@host:/path/to/repository',
-                    description: "Clone a remote GitHub repository"
+                    command: 'git reset --hard <sha>',
+                    description: "Revert to a specific commit version using its SHA code"
                 },
             ]
         }

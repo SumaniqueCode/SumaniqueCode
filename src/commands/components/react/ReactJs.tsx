@@ -23,6 +23,14 @@ const ReactJS = () => {
                     command: 'npm run dev',
                     description: 'Starts development server for Vite projects'
                 },
+                {
+                    command: 'npm run build',
+                    description: 'Build project for production deployment'
+                },
+                {
+                    command: 'npm run preview',
+                    description: 'Preview the production build locally'
+                },
             ]
         },
         {
@@ -56,6 +64,18 @@ const ReactJS = () => {
                 {
                     command: 'npm i react-icons',
                     description: 'Installs popular icon packs for React'
+                },
+                {
+                    command: 'npm i lucide-react',
+                    description: 'Modern and clean icon library (replacement for feather icons)'
+                },
+                {
+                    command: 'npm i @tanstack/react-query',
+                    description: 'Powerful data fetching and state management for APIs'
+                },
+                {
+                    command: 'npm i clsx tailwind-merge',
+                    description: 'Manage dynamic Tailwind classes easily'
                 },
             ]
         },
@@ -117,6 +137,23 @@ const ReactJS = () => {
                     command: 'npm i classnames',
                     description: 'Installs helper for dynamic className management'
                 },
+            ]
+        },
+        {
+            title: "Testing & Quality Assurance",
+            commands: [
+                {
+                    command: 'npm i -D vitest @testing-library/react jsdom',
+                    description: 'Set up Unit and UI testing for React'
+                },
+                {
+                    command: 'npm i -D eslint-plugin-react-hooks eslint-plugin-react-refresh',
+                    description: 'Install essential ESLint plugins for React'
+                },
+                {
+                    command: 'npm i -D prettier-plugin-tailwindcss',
+                    description: 'Auto-sort Tailwind classes with Prettier'
+                }
             ]
         },
         {

@@ -52,10 +52,48 @@ const Laravel = () => {
           command: 'php artisan migrate:fresh --seed',
           description: 'Refresh migrations and seed database'
         },
-        ]
-      },
-      {
-        title: "Installing Auth template",
+        {
+          command: 'php artisan migrate:rollback',
+          description: 'Rollback the last database migration'
+        },
+        {
+          command: 'php artisan tinker',
+          description: 'REPL for interacting with your application',
+          note: 'Powerfull shell for testing models and relations'
+        },
+        {
+          command: 'php artisan make:controller <Name> --resource',
+          description: 'Create a controller with boilerplate for CRUD'
+        },
+        {
+          command: 'php artisan key:generate',
+          description: 'Generate and set the APP_KEY in .env'
+        },
+      ]
+    },
+    {
+      title: "Models & Middlewares",
+      commands: [
+        {
+          command: 'php artisan make:model <Name> -m',
+          description: 'Create a model with its migration file',
+        },
+        {
+          command: 'php artisan make:middleware <Name>',
+          description: 'Create a new middleware class',
+        },
+        {
+          command: 'php artisan make:request <Name>',
+          description: 'Create a custom Form Request class for validation',
+        },
+        {
+          command: 'php artisan make:mail <Name>',
+          description: 'Create a new Mailable class'
+        }
+      ]
+    },
+    {
+      title: "Installing Auth template",
         commands: [
         {
           command: 'composer require laravel/ui',
