@@ -98,7 +98,7 @@ const Django = () => {
     }
   ];
   return (
-    <div id='django' className="p-6 mx-auto rounded-xl shadow-md">
+    <div id='django' className="p-4 md:p-6 mx-auto rounded-xl shadow-md w-full">
       <h2 className="text-2xl font-bold mb-4 ">Python & Django Commands Reference</h2>
       {sections.map((section, secIdx) => (
         <CommandTemplate secIdx={secIdx} section={section} />

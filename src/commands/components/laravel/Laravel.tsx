@@ -79,7 +79,7 @@ const Laravel = () => {
   ];
 
     return (
-    <div id='laravel' className="p-6 mx-auto rounded-xl shadow-md">
+    <div id='laravel' className="p-4 md:p-6 mx-auto rounded-xl shadow-md w-full">
       <h2 className="text-2xl font-bold mb-4">Laravel Commands Reference</h2>
       {sections.map((section, secIdx) => (
         <CommandTemplate secIdx={secIdx} section={section} />

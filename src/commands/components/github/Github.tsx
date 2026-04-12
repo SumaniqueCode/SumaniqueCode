@@ -142,7 +142,7 @@ const Github = () => {
     ];
 
     return (
-        <div id='github' className="p-6 mx-auto rounded-xl shadow-md">
+        <div id='github' className="p-4 md:p-6 mx-auto rounded-xl shadow-md w-full">
             <h2 className="text-2xl font-bold mb-6">GitHub Commands Reference</h2>
             {sections.map((section, secIdx) => (
                 <CommandTemplate secIdx={secIdx} section={section} />
