@@ -84,3 +84,18 @@
         transform: translateX(100%) translateY(100%) rotate(45deg);
     }
 }
+
+/* Reusable hover gradient + shimmer utilities (kept generic for reuse later) */
+@layer utilities {
+    /* Hover gradient overlay: intended to be used inside a parent with `group` */
+    .bb-commandcard-hover-gradient {
+        background: linear-gradient(45deg, rgba(59, 130, 246, 0.95), rgba(34, 211, 238, 0.95));
+        filter: saturate(1.1);
+    }
+
+    /* Shimmer border: uses existing `shimmer` keyframes */
+    .bb-commandcard-shimmer-border {
+        background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.15) 50%, transparent 70%);
+        animation: shimmer 3s infinite;
+    }
+}
