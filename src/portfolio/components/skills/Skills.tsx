@@ -1,5 +1,5 @@
-import { skills } from "../../../data/SkillsData";
-import LazySection from "../../../global/LazySection";
+import { skills } from "@/data/SkillsData";
+import LazySection from "@/components/LazySection";
 import SkillCard from "./components/SkillCard";
 
 interface SkillsProps {
@@ -8,7 +8,7 @@ interface SkillsProps {
 
 const Skills = ({ darkMode }: SkillsProps) => {
     return (
-        <section id="skills" className="pt-4 pb-8 relative overflow-hidden">
+        <section id="skills" className="pt-4 pb-8 px-6 relative overflow-hidden">
             <LazySection>
                 <div className="relative z-10">
                     {/* Section Header */}

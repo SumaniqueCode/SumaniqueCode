@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Copy } from 'lucide-react';
 import { CommandTemplateProps } from '../../../interface/commandInterface'
-import LazySection from '../../global/LazySection';
-import { useThemeContext } from '../../ThemeContext';
-import ShimmerGradientOverlay from '../../global/ui/ShimmerGradientOverlay';
+import LazySection from '@/components/LazySection';
+import { useThemeContext } from '@/ThemeContext';
+import Card from '@/components/Card';
 
 const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
     const [copiedCommand, setCopiedCommand] = useState<string>("");
@@ -22,21 +22,18 @@ const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
             <div className="space-y-4">
                 {section.commands.map((cmd, index) => (
                     <LazySection key={index}>
-                        <div
-                            style={{ animation: "fadeInDown 0.6s ease-out" }}
-                            className={`group relative p-3 rounded-lg transition-colors ${darkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-gray-100 border border-gray-200'} hover:shadow-xl`}
+                        <Card
+                            className={`group relative p-3 rounded-md overflow-hidden ${darkMode? "bg-gray-700": "bg-slate-50"}`}
                         >
-                            <ShimmerGradientOverlay />
-
                             <div className='relative flex items-start justify-between gap-2 overflow-hidden'>
                                 <div className="flex-1 overflow-x-auto scrollbar-thin">
-                                    <code className="text-xs md:text-sm font-mono text-blue-700 dark:text-blue-300 block mb-1 whitespace-nowrap">
+                                    <code className={`text-xs md:text-sm font-mono block mb-1 whitespace-nowrap ${darkMode? "text-white" : "text-blue-700"}`}>
                                         {cmd.command}
                                     </code>
                                 </div>
                                 <button
                                     onClick={() => copyToClipboard(cmd.command)}
-                                    className={`text-gray-500 hover:text-blue-600 dark:hover:text-blue-300 transition-colors flex-shrink-0 ${darkMode ? 'dark:text-gray-400' : ''}`}
+                                    className={`text-gray-500 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 transition-colors flex-shrink-0 ${darkMode ? 'dark:text-gray-400' : ''}`}
                                     title="Copy command"
                                 >
                                     {copiedCommand === cmd.command ? (
@@ -58,7 +55,7 @@ const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
                                         </div>
                                         <button
                                             onClick={() => copyToClipboard(cmd.alternateCommand || "")}
-                                            className={`text-gray-500 hover:text-blue-600 dark:hover:text-blue-300 transition-colors flex-shrink-0 ${darkMode ? 'dark:text-gray-400' : ''}`}
+                                            className={`text-gray-500 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 transition-colors flex-shrink-0 ${darkMode ? 'dark:text-gray-400' : ''}`}
                                             title="Copy alternate command"
                                         >
                                             {copiedCommand === cmd.alternateCommand ? (
@@ -80,7 +77,7 @@ const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
                                     Note: {cmd.note}
                                 </p>
                             )}
-                        </div>
+                        </Card>
                     </LazySection>
 
                 ))}

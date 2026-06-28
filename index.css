@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+/* Shimmer animation keyframes */
+@keyframes shimmer-slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes shimmer-once {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
 @layer utilities {
     .clip-path-circle {
         /* circle(radius at pos-x pos-y) */
@@ -25,77 +53,184 @@
 }
 
 
-/* Card animations */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%) translateY(-100%) rotate(45deg);
-    }
-
-    100% {
-        transform: translateX(100%) translateY(100%) rotate(45deg);
-    }
-}
-
 /* Reusable hover gradient + shimmer utilities (kept generic for reuse later) */
+/* Light mode classes */
 @layer utilities {
-    /* Hover gradient overlay: intended to be used inside a parent with `group` */
-    .bb-commandcard-hover-gradient {
+
+    /* Blue (default) */
+    .card-hover-gradient-blue {
         background: linear-gradient(45deg, rgba(59, 130, 246, 0.95), rgba(34, 211, 238, 0.95));
         filter: saturate(1.1);
     }
+    .card-shimmer-border-blue {
+        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.6) 50%, transparent 70%);
+        background-size: 200% 100%;
+        animation: shimmer-slide 2s infinite linear;
+    }
 
-    /* Shimmer border: uses existing `shimmer` keyframes */
-    .bb-commandcard-shimmer-border {
-        background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.15) 50%, transparent 70%);
-        animation: shimmer 3s infinite;
+    .group:hover .card-shimmer-border-blue {
+        animation: shimmer-once 2s;
+    }
+    .group:hover .card-shimmer-border-purple {
+        animation: shimmer-once 2s;
+    }
+    .group:hover .card-shimmer-border-cyan {
+        animation: shimmer-once 2s;
+    }
+    .group:hover .card-shimmer-border-green {
+        animation: shimmer-once 2s;
+    }
+    .group:hover .card-shimmer-border-orange {
+        animation: shimmer-once 2s;
+    }
+    .group:hover .card-shimmer-border-pink {
+        animation: shimmer-once 2s;
+    }
+    .group:hover .card-shimmer-border-red {
+        animation: shimmer-once 2s;
+    }
+
+    /* Purple */
+    .card-hover-gradient-purple {
+        background: linear-gradient(45deg, rgba(147, 51, 234, 0.95), rgba(34, 211, 238, 0.95));
+        filter: saturate(1.1);
+    }
+    .card-shimmer-border-purple {
+        background: linear-gradient(45deg, transparent 30%, rgba(147, 51, 234, 0.15) 50%, transparent 70%);
+    }
+
+    /* Cyan */
+    .card-hover-gradient-cyan {
+        background: linear-gradient(45deg, rgba(6, 182, 212, 0.95), rgba(59, 130, 246, 0.95));
+        filter: saturate(1.1);
+    }
+    .card-shimmer-border-cyan {
+        background: linear-gradient(45deg, transparent 30%, rgba(6, 182, 212, 0.15) 50%, transparent 70%);
+    }
+
+    /* Green */
+    .card-hover-gradient-green {
+        background: linear-gradient(45deg, rgba(34, 197, 94, 0.95), rgba(6, 182, 212, 0.95));
+        filter: saturate(1.1);
+    }
+    .card-shimmer-border-green {
+        background: linear-gradient(45deg, transparent 30%, rgba(34, 197, 94, 0.15) 50%, transparent 70%);
+    }
+
+    /* Orange */
+    .card-hover-gradient-orange {
+        background: linear-gradient(45deg, rgba(249, 115, 22, 0.95), rgba(234, 179, 8, 0.95));
+        filter: saturate(1.1);
+    }
+    .card-shimmer-border-orange {
+        background: linear-gradient(45deg, transparent 30%, rgba(249, 115, 22, 0.15) 50%, transparent 70%);
+    }
+
+    /* Pink */
+    .card-hover-gradient-pink {
+        background: linear-gradient(45deg, rgba(236, 72, 153, 0.95), rgba(249, 115, 22, 0.95));
+        filter: saturate(1.1);
+    }
+    .card-shimmer-border-pink {
+        background: linear-gradient(45deg, transparent 30%, rgba(236, 72, 153, 0.15) 50%, transparent 70%);
+    }
+
+    /* Red */
+    .card-hover-gradient-red {
+        background: linear-gradient(45deg, rgba(239, 68, 68, 0.95), rgba(236, 72, 153, 0.95));
+        filter: saturate(1.1);
+    }
+    .card-shimmer-border-red {
+        background: linear-gradient(45deg, transparent 30%, rgba(239, 68, 68, 0.15) 50%, transparent 70%);
+    }
+}
+
+/* Dark mode classes */
+@layer utilities {
+
+    /* Blue */
+    .dark .card-hover-gradient-blue {
+        background: linear-gradient(45deg, rgba(96, 165, 250, 0.95), rgba(56, 189, 248, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-blue {
+        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+        background-size: 200% 100%;
+        animation: shimmer-slide 2s infinite linear;
+    }
+    .dark.group:hover .card-shimmer-border-blue {
+        animation: shimmer-once 2s;
+    }
+    .dark.group:hover .card-shimmer-border-purple {
+        animation: shimmer-once 2s;
+    }
+    .dark.group:hover .card-shimmer-border-cyan {
+        animation: shimmer-once 2s;
+    }
+    .dark.group:hover .card-shimmer-border-green {
+        animation: shimmer-once 2s;
+    }
+    .dark.group:hover .card-shimmer-border-orange {
+        animation: shimmer-once 2s;
+    }
+    .dark.group:hover .card-shimmer-border-pink {
+        animation: shimmer-once 2s;
+    }
+    .dark.group:hover .card-shimmer-border-red {
+        animation: shimmer-once 2s;
+    }
+
+    /* Purple */
+    .dark .card-hover-gradient-purple {
+        background: linear-gradient(45deg, rgba(192, 132, 252, 0.95), rgba(56, 189, 248, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-purple {
+        background: linear-gradient(45deg, transparent 30%, rgba(192, 132, 252, 0.25) 50%, transparent 70%);
+    }
+
+    /* Cyan */
+    .dark .card-hover-gradient-cyan {
+        background: linear-gradient(45deg, rgba(103, 232, 249, 0.95), rgba(96, 165, 250, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-cyan {
+        background: linear-gradient(45deg, transparent 30%, rgba(103, 232, 249, 0.25) 50%, transparent 70%);
+    }
+
+    /* Green */
+    .dark .card-hover-gradient-green {
+        background: linear-gradient(45deg, rgba(74, 222, 128, 0.95), rgba(103, 232, 249, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-green {
+        background: linear-gradient(45deg, transparent 30%, rgba(74, 222, 128, 0.25) 50%, transparent 70%);
+    }
+
+    /* Orange */
+    .dark .card-hover-gradient-orange {
+        background: linear-gradient(45deg, rgba(251, 146, 60, 0.95), rgba(253, 224, 71, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-orange {
+        background: linear-gradient(45deg, transparent 30%, rgba(251, 146, 60, 0.25) 50%, transparent 70%);
+    }
+
+    /* Pink */
+    .dark .card-hover-gradient-pink {
+        background: linear-gradient(45deg, rgba(244, 114, 182, 0.95), rgba(251, 146, 60, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-pink {
+        background: linear-gradient(45deg, transparent 30%, rgba(244, 114, 182, 0.25) 50%, transparent 70%);
+    }
+
+    /* Red */
+    .dark .card-hover-gradient-red {
+        background: linear-gradient(45deg, rgba(248, 113, 113, 0.95), rgba(244, 114, 182, 0.95));
+        filter: saturate(1.1);
+    }
+    .dark .card-shimmer-border-red {
+        background: linear-gradient(45deg, transparent 30%, rgba(248, 113, 113, 0.25) 50%, transparent 70%);
     }
 }

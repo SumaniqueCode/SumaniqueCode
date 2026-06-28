@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { projects } from '../../data/ProjectData';
-import { useThemeContext } from '../../ThemeContext';
-import imagePlaceHolder from '../../../public/images/placeholders/place-holder-image.jpeg';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { projects } from '@/data/ProjectData';
+import { useThemeContext } from '@/ThemeContext';
+import imagePlaceHolder from '@/assets/images/placeholders/place-holder-image.jpeg';
 
 const ProjectDetailCard = () => {
   const { darkMode } = useThemeContext();
@@ -10,6 +12,55 @@ const ProjectDetailCard = () => {
   const projectId: string | undefined = (id ? parseInt(id, 10) : undefined) + "";
   const project = projects.find((proj) => proj.id.toString() === projectId);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [lastDirection, setLastDirection] = useState(1);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [zoom, setZoom] = useState(1);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const openFullscreen = () => {
+    setIsFullscreen(true);
+  };
+
+  const closeFullscreen = useCallback(() => {
+    setIsFullscreen(false);
+    setZoom(1);
+  }, []);
+
+  const handlePrevImage = () => {
+    setLastDirection(-1);
+    setSelectedImage(selectedImage - 1);
+  };
+
+  const handleNextImage = () => {
+    setLastDirection(1);
+    setSelectedImage(selectedImage + 1);
+  };
+
+  const handleZoomIn = () => {
+    setZoom((z) => Math.min(z + 0.5, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoom((z) => Math.max(z - 0.5, 1));
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        closeFullscreen();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen, closeFullscreen]);
+
+  useEffect(() => {
+    thumbnailRefs.current[selectedImage]?.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest'
+    });
+  }, [selectedImage]);
 
   if (!project) {
     return (
@@ -34,49 +85,89 @@ const ProjectDetailCard = () => {
           <div className="lg:col-span-3 space-y-4">
             <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg duration-300 ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
               <div className="relative aspect-video">
-                <img draggable={false} loading='lazy' src={project.images.length>0 ?project.images[selectedImage]: imagePlaceHolder} alt={`${project.name} - Image ${selectedImage + 1}`} className="w-full h-full object-contain" />
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={selectedImage}
+                    draggable={false}
+                    loading='lazy'
+                    src={project.images.length > 0 ? project.images[selectedImage] : imagePlaceHolder}
+                    alt={`${project.name} - Image ${selectedImage + 1}`}
+                    className="w-full h-full object-contain absolute inset-0"
+                    onDoubleClick={openFullscreen}
+                    initial={{ x: lastDirection > 0 ? 60 : -60, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: lastDirection > 0 ? -60 : 60, opacity: 0 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                  />
+                </AnimatePresence>
                 {project.images.length > 1 && (
-                  <div className="absolute top-3 right-3 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
-                    {selectedImage + 1} / {project.images.length}
+                  <div className="absolute top-3 right-3 flex items-center gap-2">
+                    <span className="bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
+                      {selectedImage + 1} / {project.images.length}
+                    </span>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); openFullscreen(); }}
+                      className="bg-black/70 hover:bg-black/80 text-white p-1.5 rounded-full transition-all backdrop-blur-sm cursor-pointer"
+                      title="Fullscreen"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                      </svg>
+                    </button>
                   </div>
                 )}
-                {project.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={() => setSelectedImage(selectedImage === 0 ? project.images.length - 1 : selectedImage - 1)}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all backdrop-blur-sm"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => setSelectedImage(selectedImage === project.images.length - 1 ? 0 : selectedImage + 1)}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all backdrop-blur-sm"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </>
+                {!project.images.length || project.images.length === 1 && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); openFullscreen(); }}
+                    className="absolute top-3 right-3 bg-black/70 hover:bg-black/80 text-white p-1.5 rounded-full transition-all backdrop-blur-sm cursor-pointer"
+                    title="Fullscreen"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                    </svg>
+                  </button>
+                )}
+                                {selectedImage > 0 && (
+                  <button
+                    onClick={() => handlePrevImage()}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all backdrop-blur-sm cursor-pointer"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                )}
+                {selectedImage < project.images.length - 1 && (
+                  <button
+                    onClick={() => handleNextImage()}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all backdrop-blur-sm cursor-pointer"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 )}
               </div>
 
               {project.images.length > 1 && (
                 <div className={'p-3'}>
-                  <div className="flex gap-2 overflow-x-auto">
+                  <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
                     {project.images.map((image, index) => (
-                      <button
+                      <motion.button
                         key={index}
+                        ref={(el) => { thumbnailRefs.current[index] = el; }}
                         onClick={() => setSelectedImage(index)}
-                        className={`relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${selectedImage === index
-                          ? darkMode ? 'border-blue-500 shadow-md' : 'border-blue-600 shadow-md'
-                          : darkMode ? 'border-gray-600 opacity-50 hover:opacity-100' : 'border-gray-300 opacity-50 hover:opacity-100'
+                        className={`relative flex-shrink-0 rounded-lg overflow-hidden border-2 snap-start ${selectedImage === index
+                          ? darkMode ? 'border-blue-500' : 'border-blue-600'
+                          : darkMode ? 'border-gray-600 opacity-60 hover:opacity-100' : 'border-gray-300 opacity-60 hover:opacity-100'
                           }`}
-                        style={{ width: '90px', height: '60px' }}
+                        style={{ width: '80px', height: '54px' }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <img draggable={false} loading='lazy' src={image} alt={`Thumbnail ${index + 1}`} className="${darkMode ? 'bg-gray-700' : 'bg-white'}`w-full h-full object-cover" />
-                      </button>
+                        <img draggable={false} loading='lazy' src={image} alt={`Thumbnail ${index + 1}`} className={`w-full h-full object-cover ${darkMode ? 'bg-gray-700' : 'bg-white'}`} />
+                      </motion.button>
                     ))}
                   </div>
                 </div>
@@ -190,6 +281,121 @@ const ProjectDetailCard = () => {
           </div>
         </div>
       </div>
+
+      {/* Fullscreen Modal */}
+      <AnimatePresence>
+        {isFullscreen && (
+          <motion.div
+            className="fixed inset-0 z-[80] bg-black/95 flex items-center justify-center"
+            onClick={closeFullscreen}
+          >
+            {/* Close button */}
+            <button
+              onClick={(e) => { e.stopPropagation(); closeFullscreen(); }}
+              className="absolute top-4 right-4 z-[60] bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all cursor-pointer"
+              title="Close fullscreen (ESC)"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Image counter */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-1 rounded-full text-sm font-medium z-[60]">
+              {selectedImage + 1} / {project.images.length}
+            </div>
+
+            {/* Main image */}
+            <div className="relative w-full h-full flex items-center justify-center p-16" onClick={(e) => e.stopPropagation()}>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={selectedImage}
+                  draggable={false}
+                  src={project.images[selectedImage]}
+                  alt={`${project.name} - Fullscreen ${selectedImage + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                  style={{ transform: `scale(${zoom})` }}
+                  onClick={(e) => e.stopPropagation()}
+                  initial={{ x: lastDirection > 0 ? 80 : -80, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: lastDirection > 0 ? -80 : 80, opacity: 0 }}
+                  transition={{ duration: 0.45, ease: "easeInOut" }}
+                />
+              </AnimatePresence>
+
+              {/* Previous button */}
+              {selectedImage > 0 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); handlePrevImage(); }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-[60] cursor-pointer"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+              )}
+
+              {/* Next button */}
+              {selectedImage < project.images.length - 1 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); handleNextImage(); }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-[60] cursor-pointer"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              )}
+            </div>
+
+            {/* Zoom controls */}
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/60 rounded-full p-1 z-[70]">
+              <button
+                onClick={(e) => { e.stopPropagation(); handleZoomOut(); }}
+                disabled={zoom <= 1}
+                className="bg-black/40 hover:bg-black/70 text-white p-2 rounded-full transition-all disabled:opacity-30"
+                title="Zoom out"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35M8 11h6" />
+                </svg>
+              </button>
+              <span className="text-white text-xs px-2 min-w-[40px] text-center">{Math.round(zoom * 100)}%</span>
+              <button
+                onClick={(e) => { e.stopPropagation(); handleZoomIn(); }}
+                disabled={zoom >= 3}
+                className="bg-black/40 hover:bg-black/70 text-white p-2 rounded-full transition-all disabled:opacity-30"
+                title="Zoom in"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Thumbnail strip */}
+            {project.images.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 p-2 bg-black/50 rounded-xl overflow-x-auto max-w-[90vw] z-[60]">
+                {project.images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${
+                      selectedImage === index
+                        ? 'border-blue-500 opacity-100'
+                        : 'border-transparent opacity-50 hover:opacity-100'
+                    }`}
+                    style={{ width: '60px', height: '40px' }}
+                  >
+                    <img
+                      draggable={false}
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Commands = () => {
                     <button
                         key={stack}
                         onClick={() => setActiveSection(stack)}
-                        className={`capitalize text-base md:text-lg whitespace-nowrap px-4 md:px-2 ${darkMode ? "text-white" : "text-blue-600"} font-bold hover:scale-105 md:hover:scale-110 ease-in-out duration-300 border-b-2 border-r-2 rounded-md py-1`}
+                        className={`capitalize cursor-pointer text-base md:text-lg whitespace-nowrap px-4 md:px-2 ${darkMode ? "text-white" : "text-blue-600"} font-bold hover:scale-105 md:hover:scale-105 ease-in-out duration-300 border-b-2 border-r-2 rounded-md py-1`}
                     >
                         {stack}
                     </button>

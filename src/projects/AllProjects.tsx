@@ -14,7 +14,7 @@ const AllProjects = () => {
         All Projects
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ animation: "fadeInDown 0.6s ease-out" }}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {projects.map((project) => (
           <ProjectCard key={project.id} darkMode={darkMode} project={project} />

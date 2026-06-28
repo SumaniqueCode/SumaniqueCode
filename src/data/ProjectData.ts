@@ -1,25 +1,92 @@
+import { goretoxLogo } from "@/assets/images/companies";
+import {
+  goretoxLanding, goretoxMentors, goretoxExplore, goretoxContact, goretoxAbout, goretoxWhyGoretox,
+  goretoxMentorsOverview, goretoxWhy, goretoxLandingOverview, goretoxBlogs,
+  shareinsightnepalLanding, shareinsightnepalRegister, shareinsightnepalLogin, shareinsightnepalProfile,
+  shareinsightnepalUserHomePage, shareinsightnepalUserServices, shareinsightnepalUserPortfolio,
+  shareinsightnepalUserLiveMarket, shareinsightnepalUserWatchlist, shareinsightnepalBrokers,
+  shareinsightnepalAdmins, shareinsightnepalUsers, shareinsightnepalAdminDashboard,
+  dailyrepoDashboard, dailyrepoWorkspaces, dailyrepoModules, dailyrepoReports, dailyrepoTeams,
+  skillkarmaLandingPage, skillkarmaSignup, skillkarmaLogin, skillkarmaProfile, skillkarmaAppList,
+  skillkarmaDNDskills, skillkarmaEditProfile, skillkarmaSkillCards, skillkarmaSkillDetails,
+  skillkarmaSkillMap, skillkarmaAddSkill, skillkarmaPageNotFound,
+  saanokaamMainUI1, saanokaamMainUI, saanokaamMainUI2, saanokaamMainUI3, saanokaamLogin,
+  saanokaamRegister, saanokaamEmployerDashboard, saanokaamFreelancerDashboard,
+  saanokaamAddTask, saanokaamTasklist, saanokaamTaskDetails, saanokaamTaskDetailUser,
+  cchubLanding, cchubLogin, cchubRegister, cchubProducts, cchubAddProduct, cchubCart,
+  cchubOrders, cchubOrderList, cchubOrderStatus, cchubOrderCheckout, cchubProductDetails,
+  cchubProductDesc, cchubSellerDashboard, cchubProfile,
+  pathshalaTmsLanding, pathshalaTmsDashboard, pathshalaTmsProjectList, pathshalaTmsProjectDetails,
+  pathshalaTmsTaskDetails, pathshalaTmsEditTask, pathshalaTmsProfile, pathshalaTmsLogin, pathshalaTmsAbout,
+  pathshalaTmsContact, pathshalaTmsServices, pathshalaTmsFooter,
+  pathshalaBmsLanding, pathshalaBmsAdminDashboard, pathshalaBmsWriterDashboard, pathshalaBmsBlogList,
+  pathshalaBmsBlogDetail, pathshalaBmsBlogs, pathshalaBmsProfile, pathshalaBmsLogin, pathshalaBmsAbout,
+  pathshalaBmsFooter,
+  workhubLanding, workhubLogin, workhubJoblist, workhubApplyForJob, workhubCompanyPage,
+  workhubProfile1, workhubProfile2, workhubResume, workhubOtpVerification,
+  workhubAdminPanel, workhubFooter
+} from "@/assets/images/projects";
+
 export const projects = [
   {
     id: 1,
+    name: "GoretoX",
+    description:
+      "GoretoX is a microservice-based web application developed for an EdTech company, featuring a modern, responsive design with focus on performance and SEO optimization. The platform provides a seamless user experience with intuitive navigation, real-time data updates, and secure payment integrations. Built with a focus on scalability, it uses a modular architecture that allows for easy expansion and maintenance.",
+    images: [
+      goretoxLanding, goretoxMentors, goretoxExplore, goretoxContact, goretoxAbout, goretoxWhyGoretox,
+      goretoxMentorsOverview, goretoxWhy, goretoxLandingOverview, goretoxBlogs
+    ],
+    features: [
+      "Microservice Architecture",
+      "Responsive Design",
+      "SEO Optimization",
+      "Secure Payments",
+      "Real-time Updates",
+    ],
+    challenges:
+      "Designing and implementing a scalable microservice architecture while ensuring smooth integration between services was a major challenge. Implementing secure payment processing with Stripe and optimizing for performance required careful planning and execution.",
+    outcome:
+      "The platform successfully provided a performant and scalable solution that improved user engagement and streamlined business operations.",
+    techs: ["React", "Django", "Tailwind CSS", "PostgreSQL", "Redis", "Stripe"],
+    codelink: "#",
+    livelink: "https://goretox.com/",
+  },
+  {
+    id: 2,
+    name: "Workhub",
+    description:
+      "Workhub is a comprehensive job portal platform developed for Nepal, connecting job seekers with employers through an intelligent matching system. The platform features AI-driven job recommendations that analyze user profiles and preferences to suggest relevant opportunities. Job seekers can generate professional CVs automatically, while companies can manage job postings and applications with ease. The system implements modern role-based access control to ensure proper management for different user types.",
+    images: [
+      workhubLanding, workhubLogin, workhubJoblist, workhubApplyForJob, workhubCompanyPage,
+      workhubProfile1, workhubProfile2, workhubResume, workhubOtpVerification,
+      workhubAdminPanel, workhubFooter
+    ],
+    features: [
+      "AI Job Recommendations",
+      "Auto CV Generation",
+      "Role-based Access Control",
+      "Company Dashboard",
+      "Application Tracking",
+    ],
+    challenges:
+      "Building an effective AI recommendation system that accurately matches job seekers with suitable positions required extensive algorithm development. Implementing a user-friendly CV generation system that produces professional resumes was another key challenge.",
+    outcome:
+      "Workhub has successfully connected numerous job seekers with relevant opportunities, streamlining the recruitment process in Nepal.",
+    techs: ["Django", "React", "PostgreSQL", "AI/ML"],
+    codelink: "https://github.com/SumaniqueCode/WorkHub",
+    livelink: "#",
+  },
+  {
+    id: 3,
     name: "Share Insight Nepal",
     description:
       "Share Insight Nepal is a full-featured stock market management web application built specifically for Nepalese investors. The platform allows users to track their shareholdings in detail, monitor real-time profit and loss, and analyze overall portfolio performance with clarity. It integrates real-time market data to keep investors updated on price movements and market trends. In addition, the system provides risk assessment tools that help users understand exposure and make strategic investment decisions. By combining data accuracy, analytical insights, and a user-friendly interface, Share Insight Nepal aims to simplify stock portfolio management and empower investors to make confident, well-informed financial decisions in the Nepalese stock market.",
     images: [
-      "/images/projects/shareinsightnepal/landingpage.jpg",
-      "/images/projects/shareinsightnepal/Register.jpg",
-      "/images/projects/shareinsightnepal/Login.jpg",
-      "/images/projects/shareinsightnepal/profile.jpg",
-      "/images/projects/shareinsightnepal/userHomePage.jpg",
-      "/images/projects/shareinsightnepal/userServices.jpg",
-      "/images/projects/shareinsightnepal/userPortfolio.jpg",
-      "/images/projects/shareinsightnepal/userLiveMarket.jpg",
-      "/images/projects/shareinsightnepal/userWatchlist.jpg",
-      "/images/projects/shareinsightnepal/brokers.jpg",
-      "/images/projects/shareinsightnepal/admins.PNG",
-      "/images/projects/shareinsightnepal/users.jpg",
-      "/images/projects/shareinsightnepal/adminDashboard.PNG",
-
-
+      shareinsightnepalLanding, shareinsightnepalRegister, shareinsightnepalLogin, shareinsightnepalProfile,
+      shareinsightnepalUserHomePage, shareinsightnepalUserServices, shareinsightnepalUserPortfolio,
+      shareinsightnepalUserLiveMarket, shareinsightnepalUserWatchlist, shareinsightnepalBrokers,
+      shareinsightnepalAdmins, shareinsightnepalUsers, shareinsightnepalAdminDashboard
     ],
     features: [
       "Portfolio Management: Track your shareholdings and monitor performance over time.",
@@ -37,17 +104,12 @@ export const projects = [
     livelink: "https://shareinsightnepal.up.railway.app",
   },
   {
-    id: 2,
+    id: 4,
     name: "Daily Repo",
     description:
       "Daily Repo is a collaborative daily task and reporting system designed to improve transparency, accountability, and productivity within teams. The platform enables team members to log their daily tasks, share progress updates in real time, and generate structured reports effortlessly. Its clean and intuitive user interface ensures that users can focus on their work rather than managing complex tools. By centralizing daily reporting and progress tracking, Daily Repo helps teams stay aligned on goals, identify bottlenecks early, and maintain consistent communication across projects.",
     images: [
-      "/images/projects/dailyrepo/dashboard.jpg",
-      "/images/projects/dailyrepo/workspaces.jpg",
-      "/images/projects/dailyrepo/modules.jpg",
-      "/images/projects/dailyrepo/reports.jpg",
-      "/images/projects/dailyrepo/teams.jpg",
-      "/images/projects/dailyrepo/workspaces.jpg",
+      dailyrepoDashboard, dailyrepoWorkspaces, dailyrepoModules, dailyrepoReports, dailyrepoTeams, dailyrepoWorkspaces
     ],
     features: [
       "Daily Task Logging",
@@ -65,23 +127,14 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: 3,
+    id: 6,
     name: "Skill Karma",
     description:
       "Skill Karma is an innovative time-based skill exchange platform that connects individuals who want to offer, exchange, or monetize their skills. Users can create detailed profiles, showcase their expertise, and discover skill providers nearby through an interactive map-based discovery system. The platform also includes a Kanban-style task tracking board that helps users manage ongoing exchanges, collaborations, and commitments visually. By promoting skill sharing and community collaboration, Skill Karma creates opportunities for learning, networking, and mutual growth.",
     images: [
-      "/images/projects/skillkarma/LandingPage.jpg",
-      "/images/projects/skillkarma/signup.jpg",
-      "/images/projects/skillkarma/login.jpg",
-      "/images/projects/skillkarma/profile.jpg",
-      "/images/projects/skillkarma/AppList.jpg",
-      "/images/projects/skillkarma/DNDskills.jpg",
-      "/images/projects/skillkarma/EditProfile.jpg",
-      "/images/projects/skillkarma/SkillCards.jpg",
-      "/images/projects/skillkarma/SkillDetails.jpg",
-      "/images/projects/skillkarma/SkillMap.jpg",
-      "/images/projects/skillkarma/AddSkill.jpg",
-      "/images/projects/skillkarma/PageNotFound.jpg",
+      skillkarmaLandingPage, skillkarmaSignup, skillkarmaLogin, skillkarmaProfile, skillkarmaAppList,
+      skillkarmaDNDskills, skillkarmaEditProfile, skillkarmaSkillCards, skillkarmaSkillDetails,
+      skillkarmaSkillMap, skillkarmaAddSkill, skillkarmaPageNotFound
     ],
     features: [
       "Skill Exchange",
@@ -99,23 +152,14 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: 4,
+    id: 7,
     name: "Sanno Kaam",
     description:
-      "Sanno Kaam is a Nepal-focused micro job platform designed to connect freelancers with clients looking to outsource small tasks and short-term gigs. Freelancers can create profiles, showcase their skills, and apply for jobs, while clients can post tasks, review applicants, and securely process payments. The platform also features a review and rating system that helps build trust within the community. By addressing local market needs and payment challenges, Sanno Kaam supports the growth of Nepal’s gig economy.",
+      "Sanno Kaam is a Nepal-focused micro job platform designed to connect freelancers with clients looking to outsource small tasks and short-term gigs. Freelancers can create profiles, showcase their skills, and apply for jobs, while clients can post tasks, review applicants, and securely process payments. The platform also features a review and rating system that helps build trust within the community. By addressing local market needs and payment challenges, Sanno Kaam supports the growth of Nepal's gig economy.",
     images: [
-      "/images/projects/saanokaam/mainUI1.jpg",
-      "/images/projects/saanokaam/MainUI.jpg",
-      "/images/projects/saanokaam/mainUI2.jpg",
-      "/images/projects/saanokaam/mainUI3.jpg",
-      "/images/projects/saanokaam/Login.jpg",
-      "/images/projects/saanokaam/Register.jpg",
-      "/images/projects/saanokaam/EmployerDashboard.jpg",
-      "/images/projects/saanokaam/FreelancerDashboard.jpg",
-      "/images/projects/saanokaam/AddTask.jpg",
-      "/images/projects/saanokaam/Tasklist.jpg",
-      "/images/projects/saanokaam/TaskDetails.jpg",
-      "/images/projects/saanokaam/TaskDetailUser.jpg",
+      saanokaamMainUI1, saanokaamMainUI, saanokaamMainUI2, saanokaamMainUI3, saanokaamLogin,
+      saanokaamRegister, saanokaamEmployerDashboard, saanokaamFreelancerDashboard, saanokaamAddTask,
+      saanokaamTasklist, saanokaamTaskDetails, saanokaamTaskDetailUser
     ],
     features: [
       "Freelancer Profiles",
@@ -133,48 +177,39 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: 5,
-    name: "CC Hub",
+    id: 8,
+    name: "Pathshala BMS",
     description:
-      "CC Hub is a multivendor e-commerce platform built for selling computer components and accessories online. The system allows multiple vendors to manage their own storefronts, list products, and handle orders independently. Customers benefit from a smooth shopping experience with integrated payment gateways, order tracking, and product reviews. CC Hub bridges the gap between vendors and customers by providing a scalable, secure, and user-friendly online marketplace.",
+      "Pathshala BMS is a blog management system that simplifies the process of creating, editing, and publishing blog content. It includes role-based access control for collaborative writing, built-in SEO optimization tools to improve search visibility, post scheduling for content planning, and analytics for tracking performance. The system is designed to help bloggers and teams maintain a consistent and professional online presence.",
     images: [
-      "/images/projects/cchub/Landing.jpg",
-      "/images/projects/cchub/login.jpg",
-      "/images/projects/cchub/register.jpg",
-      "/images/projects/cchub/products.png",
-      "/images/projects/cchub/add_product.png",
-      "/images/projects/cchub/cart.png",
-      "/images/projects/cchub/orders.png",
-      "/images/projects/cchub/order_list.png",
-      "/images/projects/cchub/order_status.png",
-      "/images/projects/cchub/order_checkout.png",
-      "/images/projects/cchub/product_details.png",
-      "/images/projects/cchub/product_desc.png",
-      "/images/projects/cchub/seller_dashboard.png",
-      "/images/projects/cchub/profile.png",
+      pathshalaBmsLanding, pathshalaBmsAdminDashboard, pathshalaBmsWriterDashboard, pathshalaBmsBlogList,
+      pathshalaBmsBlogDetail, pathshalaBmsBlogs, pathshalaBmsProfile, pathshalaBmsLogin, pathshalaBmsAbout,
+      pathshalaBmsFooter
     ],
     features: [
-      "Multivendor Storefronts",
-      "Product Management",
-      "Integrated Payments",
-      "Delivery Tracking",
-      "Customer Reviews",
+      "Content Editor",
+      "User Roles",
+      "SEO Optimization",
+      "Scheduling",
+      "Analytics",
     ],
     challenges:
-      "Designing a scalable multivendor architecture with proper data isolation and secure transactions required careful planning.",
+      "Creating a powerful yet user-friendly editor and keeping SEO features aligned with best practices required continuous refinement.",
     outcome:
-      "The platform helped vendors expand their reach and improve sales while offering customers a reliable shopping experience.",
-    techs: ["Laravel", "PHP", "Tailwind", "MySQL", "JavaScript"],
-    codelink: "https://github.com/SumaniqueCode/skill-karma",
+      "The platform enabled bloggers to manage content more efficiently and grow audience engagement.",
+    techs: ["Django", "HTML", "Tailwind", "JavaScript", "PostgreSQL"],
+    codelink: "https://github.com/SumaniqueCode/pathshalaTMS",
     livelink: "#",
   },
   {
-    id: 6,
+    id: 9,
     name: "Pathshala TMS",
     description:
       "Pathshala TMS is a task management system designed to help organizations streamline project tracking, improve team collaboration, and manage deadlines effectively. Users can create tasks, assign responsibilities, set priorities, and track progress in real time. With a focus on simplicity and productivity, the platform ensures teams stay organized and projects move forward efficiently.",
     images: [
-      // "/images/projects/pathshalaTMS/dashboard.jpg",
+      pathshalaTmsLanding, pathshalaTmsDashboard, pathshalaTmsProjectList, pathshalaTmsProjectDetails,
+      pathshalaTmsTaskDetails, pathshalaTmsEditTask, pathshalaTmsProfile, pathshalaTmsLogin, pathshalaTmsAbout,
+      pathshalaTmsContact, pathshalaTmsServices, pathshalaTmsFooter
     ],
     features: [
       "Task Assignment",
@@ -192,26 +227,28 @@ export const projects = [
     livelink: "#",
   },
   {
-    id: 7,
-    name: "Pathshala BMS",
+    id: 10,
+    name: "CC Hub",
     description:
-      "Pathshala BMS is a blog management system that simplifies the process of creating, editing, and publishing blog content. It includes role-based access control for collaborative writing, built-in SEO optimization tools to improve search visibility, post scheduling for content planning, and analytics for tracking performance. The system is designed to help bloggers and teams maintain a consistent and professional online presence.",
+      "CC Hub is a multivendor e-commerce platform built for selling computer components and accessories online. The system allows multiple vendors to manage their own storefronts, list products, and handle orders independently. Customers benefit from a smooth shopping experience with integrated payment gateways, order tracking, and product reviews. CC Hub bridges the gap between vendors and customers by providing a scalable, secure, and user-friendly online marketplace.",
     images: [
-      // "/images/projects/pathshalaBMS/dashboard.jpg",
+      cchubLanding, cchubLogin, cchubRegister, cchubProducts, cchubAddProduct, cchubCart,
+      cchubOrders, cchubOrderList, cchubOrderStatus, cchubOrderCheckout, cchubProductDetails,
+      cchubProductDesc, cchubSellerDashboard, cchubProfile
     ],
     features: [
-      "Content Editor",
-      "User Roles",
-      "SEO Optimization",
-      "Scheduling",
-      "Analytics",
+      "Multivendor Storefronts",
+      "Product Management",
+      "Integrated Payments",
+      "Delivery Tracking",
+      "Customer Reviews",
     ],
     challenges:
-      "Creating a powerful yet user-friendly editor and keeping SEO features aligned with best practices required continuous refinement.",
+      "Designing a scalable multivendor architecture with proper data isolation and secure transactions required careful planning.",
     outcome:
-      "The platform enabled bloggers to manage content more efficiently and grow audience engagement.",
-    techs: ["Django", "HTML", "Tailwind", "JavaScript", "PostgreSQL"],
-    codelink: "https://github.com/SumaniqueCode/pathshalaTMS",
+      "The platform helped vendors expand their reach and improve sales while offering customers a reliable shopping experience.",
+    techs: ["Laravel", "PHP", "Tailwind", "MySQL", "JavaScript"],
+    codelink: "https://github.com/SumaniqueCode/skill-karma",
     livelink: "#",
   },
 ];

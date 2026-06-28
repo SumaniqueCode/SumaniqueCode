@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Github, ExternalLink, ArrowRight, Code2 } from "lucide-react";
 import { useState } from "react";
-import LazySection from "../../global/LazySection";
+import LazySection from "../../components/LazySection";
 
 interface ProjectCardProps {
   darkMode: boolean;
@@ -35,7 +35,7 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
         {/* Animated Border Effect */}
         <div className="absolute inset-0 rounded-2xl overflow-hidden">
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-0"
             style={{
               background:
                 "linear-gradient(45deg, transparent 30%, #3B82F620 50%, transparent 70%)",
@@ -93,7 +93,7 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
         </div>
 
         {/* Content */}
-        <div className="relative p-6">
+        <div className="relative p-4">
           {/* Project Title */}
           <h3 className={`text-xl font-bold mb-3 line-clamp-1 ${darkMode ? "text-white" : "text-gray-900"}`} >
             {project.name}
