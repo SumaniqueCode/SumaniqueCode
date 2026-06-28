@@ -84,7 +84,7 @@ const ProjectDetailCard = () => {
         <div className="grid lg:grid-cols-5 gap-6">
           <div className="lg:col-span-3 space-y-4">
             <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg duration-300 ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-              <div className="relative aspect-video">
+              <div className="relative aspect-video overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={selectedImage}
