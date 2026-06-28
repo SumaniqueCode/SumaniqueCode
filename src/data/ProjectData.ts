@@ -1,4 +1,3 @@
-import { goretoxLogo } from "@/assets/images/companies";
 import {
   goretoxLanding, goretoxMentors, goretoxExplore, goretoxContact, goretoxAbout, goretoxWhyGoretox,
   goretoxMentorsOverview, goretoxWhy, goretoxLandingOverview, goretoxBlogs,
