@@ -1,4 +1,4 @@
-import LazySection from "../../../../global/LazySection";
+import LazySection from "../../../../components/LazySection";
 
 interface SkillCardProps {
   darkMode: boolean;
@@ -23,7 +23,7 @@ const SkillCard = ({ darkMode, skill, index }: SkillCardProps) => {
         className={`h-full group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105 ${darkMode ? 'bg-gray-800/50' : 'bg-white'
           } backdrop-blur-sm border ${darkMode ? 'border-gray-700' : 'border-gray-200'
           } shadow-xl hover:shadow-2xl`}
-        style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`, }}
+        style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
       >
         {/* Gradient Background on Hover */}
         <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 ${skill.gradient}`} />
@@ -31,7 +31,7 @@ const SkillCard = ({ darkMode, skill, index }: SkillCardProps) => {
         {/* Animated Border */}
         <div className="absolute inset-0 rounded-2xl overflow-hidden">
           <div
-            className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+            className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-0`}
             style={{
               background: `linear-gradient(45deg, transparent 30%, ${skill.color}20 50%, transparent 70%)`,
               animation: 'shimmer 3s infinite',
@@ -68,15 +68,14 @@ const SkillCard = ({ darkMode, skill, index }: SkillCardProps) => {
           <LazySection>
             {/* Tech Stack with Images */}
             <div className="md:space-y-1">
-              {skill.techs.map((tech, techIndex) => (
+              {skill.techs.map((tech, _techIndex) => (
                 <div
                   key={tech.name}
                   className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-300 ${darkMode
                     ? 'hover:bg-gray-700/50'
                     : 'hover:bg-gray-50'
                     } group/tech cursor-pointer`}
-                  style={{ animation: `slideInLeft 0.5s ease-out ${index * 0.1 + techIndex * 0.05}s both` }}
-                >
+                                  >
                   {/* Tech Logo Image */}
                   <div className="relative w-8 h-8 flex-shrink-0 transform group-hover/tech:scale-110 transition-transform duration-300">
                     <img

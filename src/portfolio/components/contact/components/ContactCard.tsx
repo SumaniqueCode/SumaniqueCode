@@ -47,7 +47,7 @@ const ContactCard = ({ darkMode, info, index }: ContactProps) => {
       {/* Animated Border Effect */}
       <div className="absolute inset-0 rounded-2xl overflow-hidden">
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-0"
           style={{
             background: `linear-gradient(45deg, transparent 30%, ${info.color}20 50%, transparent 70%)`,
             animation: 'shimmer 3s infinite',

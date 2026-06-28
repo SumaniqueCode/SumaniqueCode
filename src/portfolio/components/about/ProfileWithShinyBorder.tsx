@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import SlideInLeft from '@/components/FramerAnimation';
 
 interface OptimizedImage {
   avif?: string;
@@ -245,7 +246,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center" style={{ animation: ' slideInLeft 0.6s ease-out' }}>
+    <SlideInLeft>
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
         <canvas ref={canvasRef} width={320} height={320} className="inset-0 z-4 mt-7" />
         <div className={`absolute w-[328px] h-[328px] rounded-full z-0 transition-opacity duration-500 ${bothLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -271,7 +272,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
           )}
         </div>
       </div>
-    </div>
+    </SlideInLeft>
   );
 };
 

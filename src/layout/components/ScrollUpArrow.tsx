@@ -42,16 +42,16 @@ const ScrollUpArrow = ({ darkMode, scrollToSection }: ArrowProps) => {
       <style>{`
         .progress-ring {
           transform: rotate(270deg);
-          mask: radial-gradient(transparent 25px, #000 26px);
-          -webkit-mask: radial-gradient(transparent 25px, #000 26px);
+          mask: radial-gradient(transparent 22px, #000 23px);
+          -webkit-mask: radial-gradient(transparent 22px, #000 23px);
           transition: filter 0.3s ease;
         }
       `}</style>
 
-      <div className={`relative w-16 h-16 rounded-full flex items-center justify-center shadow-lg ${darkMode ? "bg-gray-800" : "bg-white"}`} >
+      <div className={`relative w-14 h-14 rounded-full flex items-center justify-center shadow-lg ${darkMode ? "bg-gray-800" : "bg-white"}`} >
         <div ref={progressRingRef} className="progress-ring absolute inset-0 rounded-full" />
-        <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 ${darkMode ? "bg-gray-800" : "bg-white"}`} >
-          <ArrowUp size={28} className={darkMode ? "text-white" : "text-gray-900"} />
+        <div className={`relative z-10 w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 ${darkMode ? "bg-gray-800" : "bg-white"}`} >
+          <ArrowUp strokeWidth={2.5} size={25} className={darkMode ? "text-white" : "text-blue-600"} />
         </div>
       </div>
     </div>

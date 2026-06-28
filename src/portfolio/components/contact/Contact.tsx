@@ -1,5 +1,5 @@
 import ContactCard from './components/ContactCard';
-import LazySection from '../../../global/LazySection';
+import LazySection from '../../../components/LazySection';
 import { contacts } from '../../../data/ContactData';
 
 interface ContactProps {
@@ -18,7 +18,7 @@ const Contact = ({ darkMode }: ContactProps) => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-4 md:mb-8">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? "text-white" : "text-gray-900" }`} style={{ animation: "fadeInDown 0.6s ease-out" }}
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? "text-white" : "text-gray-900" }`}
             >
               Get In{" "}
               <span
@@ -30,7 +30,7 @@ const Contact = ({ darkMode }: ContactProps) => {
                 Touch
               </span>
             </h2>
-            <p className={`text-base max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-gray-600" }`} style={{ animation: "fadeInUp 0.6s ease-out 0.2s both" }} >
+            <p className={`text-base max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-gray-600" }`} >
               Let's connect! Feel free to reach out through any of these channels
             </p>
           </div>
@@ -41,7 +41,7 @@ const Contact = ({ darkMode }: ContactProps) => {
             ))}
           </div>
 
-          <div className="mt-8 text-center" style={{ animation: "fadeInUp 0.6s ease-out 0.4s both" }} >
+          <div className="mt-8 text-center" >
             <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
               Available for freelance opportunities and collaborations
             </p>

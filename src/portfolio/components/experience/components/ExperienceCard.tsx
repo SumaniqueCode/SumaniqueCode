@@ -1,5 +1,5 @@
 import { Briefcase, Calendar, MapPin, ChevronRight } from "lucide-react";
-import LazySection from "../../../../global/LazySection";
+import LazySection from "../../../../components/LazySection";
 
 interface ExperienceProps {
   darkMode: boolean;
@@ -26,7 +26,7 @@ interface ExperienceProps {
 const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
   return (
     <LazySection>
-      <div className="w-full" style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both`, }}>
+      <div className="w-full" style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both` }}>
         {/* Card */}
         <div
           className={`group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:scale-[1.02] ${darkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white border-gray-200'
@@ -40,7 +40,7 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
           {/* Animated Border Effect */}
           <div className="absolute inset-0 rounded-2xl overflow-hidden">
             <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-0"
               style={{
                 background: `linear-gradient(45deg, transparent 30%, ${exp.color}20 50%, transparent 70%)`,
                 animation: 'shimmer 3s infinite',

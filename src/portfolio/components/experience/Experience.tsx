@@ -1,5 +1,5 @@
-import { experiences } from '../../../data/ExperienceData';
-import LazySection from '../../../global/LazySection';
+import { experiences } from '@/data/ExperienceData';
+import LazySection from '@/components/LazySection';
 import ExperienceCard from './components/ExperienceCard';
 
 interface ExperienceProps {
@@ -22,8 +22,7 @@ const Experience = ({ darkMode }: ExperienceProps) => {
             <h2
               className={`text-3xl md:text-4xl font-bold mb-3 ${darkMode ? "text-white" : "text-gray-900"
                 }`}
-              style={{ animation: "fadeInDown 0.6s ease-out" }}
-            >
+                          >
               Professional{" "}
               <span
                 className={`bg-gradient-to-r ${darkMode
@@ -37,8 +36,7 @@ const Experience = ({ darkMode }: ExperienceProps) => {
             <p
               className={`text-base ${darkMode ? "text-gray-400" : "text-gray-600"
                 } max-w-2xl mx-auto`}
-              style={{ animation: "fadeInUp 0.6s ease-out 0.2s both" }}
-            >
+                          >
               My journey building innovative web solutions across different roles and companies
             </p>
           </div>

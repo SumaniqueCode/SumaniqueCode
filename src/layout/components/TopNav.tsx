@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import DarkToggler from "./DarkToggler";
 import { useEffect, useState } from "react";
-import { optimizedAdminBw } from "../../assets/images/logos";
+import { optimizedAdminBw } from "@/assets/images/logos";
 
 interface navProps {
   darkMode: boolean;
@@ -21,7 +21,7 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
   return (
     <header className="w-full z-20 border-b-6 rounded-b-2xl shadow-md overflow-hidden">
       {/* Content container */}
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link to='home' className="flex items-center space-x-2">
           <picture>
             <source srcSet={optimizedAdminBw.avif} type="image/avif" />
@@ -41,7 +41,7 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
               className={`capitalize ${activeNav === section
                 ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
                 : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
-                } hover:scale-115 ease-in-out duration-400 cursor-pointer`}
+                } hover:scale-110 ease-in-out transition-all duration-400 cursor-pointer`}
             >
               {section}
             </Link>

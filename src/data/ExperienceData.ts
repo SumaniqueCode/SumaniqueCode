@@ -1,3 +1,5 @@
+import { goretoxLogo, digitalPathshalaLogo, hunchhaDigitalLogo } from "@/assets/images/companies";
+
 export const experiences = [
     {
         id: 1,
@@ -9,7 +11,7 @@ export const experiences = [
         description: "Developing microservice-based web applications using React and Django, focusing on responsive design, performance, and SEO optimization.",
         gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
         color: "#4169e1",
-        companyLogo: "/images/companies/goretox/logos/logo.png",
+        companyLogo: goretoxLogo,
         achievements: [
             "Developed React components using shadcn/ui and handled time-zone based logic.",
             "Built RESTful APIs with Django Rest Framework and integrated PostgreSQL for storage.",
@@ -49,7 +51,7 @@ export const experiences = [
         description: "Mentored junior developers and interns on Django REST Framework, building RESTful APIs with JWT authentication. Led development of Task Management and Blog Management systems using Django MVT architecture.",
         gradient: "bg-gradient-to-br from-green-500 to-emerald-600",
         color: "#10B981",
-        companyLogo: "/images/companies/digital_pathshala.png",
+        companyLogo: digitalPathshalaLogo,
         achievements: [
             "Mentored junior developers on Django REST Framework best practices",
             "Created RESTful APIs with JWT-based authentication",
@@ -89,7 +91,7 @@ export const experiences = [
         description: "Developed responsive web applications using Laravel and React.js. Implemented Leaflet map integration for geospatial data visualization and collaborated with designers to bring Figma designs to life.",
         gradient: "bg-gradient-to-br from-yellow-500 to-amber-600",
         color: "#faa21b",
-        companyLogo: "/images/companies/hunchha_digital.png",
+        companyLogo: hunchhaDigitalLogo,
         achievements: [
             "Built Daily Report web application with React.js and Laravel",
             "Integrated Leaflet maps for geospatial data visualization",

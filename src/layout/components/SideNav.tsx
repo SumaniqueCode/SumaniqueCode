@@ -24,7 +24,7 @@ const SideNav = ({ darkMode, sideNavs, activeSection, scrollToSection }: navProp
                     <button
                         key={section}
                         onClick={() => scrollToSection(section)}
-                        className={`capitalize text-lg ${activeSection === section
+                        className={`capitalize text-lg cursor-pointer ${activeSection === section
                             ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-bold`
                             : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
                             } hover:scale-110 ease-in-out duration-400 font-semibold`}
