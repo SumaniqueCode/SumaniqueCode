@@ -65,7 +65,7 @@ const ProjectDetailCard = () => {
   if (!project) {
     return (
       <div className={`min-h-screen ${darkMode ? ' text-white' : ' text-gray-900'}`}>
-        <div className="max-w-7xl mx-auto p-6">
+        <div className="w-full mx-auto px-3 sm:px-4 md:px-6 py-4 md:py-6">
           <Link to="/projects" className={`inline-flex items-center gap-2 mb-6 ${darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -80,8 +80,8 @@ const ProjectDetailCard = () => {
 
   return (
     <div className={`min-h-screen`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
-        <div className="grid lg:grid-cols-5 gap-6">
+      <div className="w-full mx-auto px-3 sm:px-4 md:px-6 py-4 md:py-6 space-y-4 md:space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
           <div className="lg:col-span-3 space-y-4">
             <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg duration-300 ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
               <div className="relative aspect-video overflow-hidden">
@@ -161,7 +161,7 @@ const ProjectDetailCard = () => {
                           ? darkMode ? 'border-blue-500' : 'border-blue-600'
                           : darkMode ? 'border-gray-600 opacity-60 hover:opacity-100' : 'border-gray-300 opacity-60 hover:opacity-100'
                           }`}
-                        style={{ width: '80px', height: '54px' }}
+                        style={{ width: '70px', height: '47px' }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
@@ -174,8 +174,8 @@ const ProjectDetailCard = () => {
               )}
             </div>
             {project.features && project.features.length > 0 && (
-              <div className={`rounded-2xl p-6 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
-                <h2 className={`text-xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <div className={`rounded-2xl p-4 md:p-6 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
+                <h2 className={`text-lg md:text-xl font-bold mb-3 md:mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Key Features
                 </h2>
                 <ul className={`${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
@@ -191,9 +191,9 @@ const ProjectDetailCard = () => {
               </div>
             )}
             {project.challenges && (
-              <div className={`rounded-2xl p-5 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
-                <h2 className={`text-lg font-bold mb-2 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                  <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <div className={`rounded-2xl p-4 md:p-5 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
+                <h2 className={`text-base md:text-lg font-bold mb-2 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <svg className="w-4 md:w-5 h-4 md:h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
                   Challenges
@@ -204,9 +204,9 @@ const ProjectDetailCard = () => {
               </div>
             )}
             {project.outcome && (
-              <div className={`rounded-2xl p-5 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
-                <h2 className={`text-lg font-bold mb-2 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <div className={`rounded-2xl p-4 md:p-5 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
+                <h2 className={`text-base md:text-lg font-bold mb-2 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <svg className="w-4 md:w-5 h-4 md:h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   Outcome
@@ -219,7 +219,7 @@ const ProjectDetailCard = () => {
           </div>
           <div className="lg:col-span-2 space-y-4 lg:sticky lg:top-6 lg:self-start">
             <div className={`rounded-2xl p-6 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
-              <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h1 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 {project.name}
               </h1>
               <div>
@@ -228,8 +228,8 @@ const ProjectDetailCard = () => {
                 </p>
               </div>
             </div>
-            <div className={`rounded-2xl p-6 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
-              <h3 className={`text-lg font-bold mb-3 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <div className={`rounded-2xl p-4 md:p-6 border-2 shadow-xl ${darkMode ? ' border-gray-700' : ' border-gray-200'}`}>
+              <h3 className={`text-base md:text-lg font-bold mb-3 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -251,7 +251,7 @@ const ProjectDetailCard = () => {
               <h3 className={`text-lg font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Project Links
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 <a
                   href={project.codelink}
                   target="_blank"
