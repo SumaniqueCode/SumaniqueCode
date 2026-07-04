@@ -1,5 +1,5 @@
 // ─── Goretox ───
-export { default as goretoxLogo } from "./goretox/logos/goretox.jpg";
+
 import goretoxLogoAvif200 from "./goretox/logos/goretox-200.avif";
 import goretoxLogoAvif400 from "./goretox/logos/goretox-400.avif";
 import goretoxLogoWebp200 from "./goretox/logos/goretox-200.webp";
@@ -13,7 +13,7 @@ export const optimizedGoretoxLogo = {
 };
 
 // ─── Digital Pathshala ───
-export { default as digitalPathshalaLogo } from "./digital_pathshala.png";
+
 import digitalPathshalaAvif200 from "./optimized/digital_pathshala-200.avif";
 import digitalPathshalaAvif400 from "./optimized/digital_pathshala-400.avif";
 import digitalPathshalaWebp200 from "./optimized/digital_pathshala-200.webp";
@@ -27,7 +27,7 @@ export const optimizedDigitalPathshalaLogo = {
 };
 
 // ─── Hunchha Digital ───
-export { default as hunchhaDigitalLogo } from "./hunchha_digital.png";
+
 import hunchhaDigitalAvif200 from "./optimized/hunchha_digital-200.avif";
 import hunchhaDigitalWebp200 from "./optimized/hunchha_digital-200.webp";
 import hunchhaDigitalFallback from "./optimized/hunchha_digital-200.jpg";

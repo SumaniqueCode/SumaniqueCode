@@ -98,19 +98,19 @@ const ProjectDetailCard = () => {
         title={`${project.name} | Suman Regmi Projects`}
         description={project.description.length > 160 ? `${project.description.slice(0, 157)}...` : project.description}
         path={`/project/${project.id}`}
-        image={`https://sumanr.com.np${project.thumbnail.fallback}`}
+        image={`https://www.sumanr.com.np${project.thumbnail.fallback}`}
         type="article"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "CreativeWork",
           name: project.name,
           description: project.description,
-          url: `https://sumanr.com.np/project/${project.id}`,
-          image: `https://sumanr.com.np${project.thumbnail.fallback}`,
+          url: `https://www.sumanr.com.np/project/${project.id}`,
+          image: `https://www.sumanr.com.np${project.thumbnail.fallback}`,
           creator: {
             "@type": "Person",
             name: "Suman Regmi",
-            url: "https://sumanr.com.np",
+            url: "https://www.sumanr.com.np",
           },
           keywords: project.techs.join(", "),
         }}

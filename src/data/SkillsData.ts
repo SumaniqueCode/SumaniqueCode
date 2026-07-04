@@ -1,3 +1,6 @@
+import { bootstrapIcon, djangoIcon, figmaIcon, firebaseIcon, gitIcon, githubactionsIcon, javaIcon, laravelIcon, materialuiIcon, mysqlIcon, nextjsIcon, photoshopIcon, postgresqlIcon, postmanIcon, pythonIcon, reactIcon, reduxIcon, sketchIcon, tailwindcssIcon, typescriptIcon } from "@/assets/icons/devicons";
+import { Monitor, Database, Wrench } from "lucide-react";
+
 export const skills = [
     {
         id: 1,
@@ -5,34 +8,34 @@ export const skills = [
         techs: [
             {
                 name: "React JS",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                logo: reactIcon,
             },
             {
                 name: "Redux",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+                logo: reduxIcon,
             },
             {
                 name: "TypeScript",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+                logo: typescriptIcon,
             },
             {
                 name: "MUI",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg",
+                logo: materialuiIcon,
             },
             {
                 name: "Next.js",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+                logo: nextjsIcon,
             },
             {
                 name: "Tailwind",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+                logo: tailwindcssIcon,
             },
             {
                 name: "Bootstrap",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+                logo: bootstrapIcon,
             },
         ],
-        iconClass: "fa fa-desktop",
+        icon: Monitor,
         color: "#3B82F6",
         gradient: "bg-gradient-to-br from-blue-500 to-cyan-500",
     },
@@ -42,30 +45,30 @@ export const skills = [
         techs: [
             {
                 name: "Laravel",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+                logo: laravelIcon,
             },
             {
                 name: "Django",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
+                logo: djangoIcon,
             },
             {
                 name: "RESTful APIs",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+                logo: postmanIcon,
             },
             {
                 name: "PostgreSQL",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+                logo: postgresqlIcon,
             },
             {
                 name: "MySQL",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                logo: mysqlIcon
             },
             {
                 name: "Firebase",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+                logo: firebaseIcon,
             },
         ],
-        iconClass: "fa-solid fa-database",
+        icon: Database,
         color: "#8B5CF6",
         gradient: "bg-gradient-to-br from-purple-500 to-pink-500",
     },
@@ -75,34 +78,34 @@ export const skills = [
         techs: [
             {
                 name: "Git & GitHub",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+                logo: gitIcon,
             },
             {
                 name: "Python",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+                logo: pythonIcon,
             },
             {
                 name: "Java",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+                logo: javaIcon,
             },
             {
                 name: "CI/CD",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg",
+                logo: githubactionsIcon,
             },
             {
                 name: "UI/UX",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sketch/sketch-original.svg",
+                logo: sketchIcon,
             },
             {
                 name: "Figma",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+                logo: figmaIcon,
             },
             {
                 name: "Adobe Softwares",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg",
+                logo: photoshopIcon,
             },
         ],
-        iconClass: "fa fa-cog",
+        icon: Wrench,
         color: "#10B981",
         gradient: "bg-gradient-to-br from-emerald-500 to-teal-500",
     },

@@ -254,10 +254,10 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
             <picture>
               <source srcSet={background.avif} type="image/avif" />
               <source srcSet={background.webp} type="image/webp" />
-              <img draggable={false} loading={'lazy'} src={background.fallback} alt="Profile Background" className="w-full h-full object-cover" onLoad={() => setBgLoaded(true)} />
+              <img draggable={false} loading="eager" fetchPriority="high" src={background.fallback} alt="Profile Background" className="w-full h-full object-cover" onLoad={() => setBgLoaded(true)} />
             </picture>
           ) : (
-            <img draggable={false} loading={'lazy'} src={background} alt="Profile Background" className="w-full h-full object-cover" onLoad={() => setBgLoaded(true)} />
+            <img draggable={false} loading="eager" fetchPriority="high" src={background} alt="Profile Background" className="w-full h-full object-cover" onLoad={() => setBgLoaded(true)} />
           )}
         </div>
         <div className={`absolute w-[328px] h-[328px] rounded-full z-6 transition-opacity duration-500 ${bothLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -265,10 +265,10 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
             <picture>
               <source srcSet={profile.avif} type="image/avif" />
               <source srcSet={profile.webp} type="image/webp" />
-              <img draggable={false} loading={'lazy'} src={profile.fallback} alt="Profile" className="w-full h-full object-cover" onLoad={() => setProfileLoaded(true)} />
+              <img draggable={false} loading="eager" fetchPriority="high" src={profile.fallback} alt="Profile" className="w-full h-full object-cover" onLoad={() => setProfileLoaded(true)} />
             </picture>
           ) : (
-            <img draggable={false} loading={'lazy'} src={profile} alt="Profile" className="w-full h-full object-cover" onLoad={() => setProfileLoaded(true)} />
+            <img draggable={false} loading="eager" fetchPriority="high" src={profile} alt="Profile" className="w-full h-full object-cover" onLoad={() => setProfileLoaded(true)} />
           )}
         </div>
       </div>

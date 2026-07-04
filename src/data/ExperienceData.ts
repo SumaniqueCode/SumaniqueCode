@@ -1,3 +1,4 @@
+import { canvaIcon, css3Icon, djangoIcon, figmaIcon, gitIcon, html5Icon, htmxIcon, illustratorIcon, javascriptIcon, laravelIcon, materialuiIcon, mysqlIcon, photoshopIcon, postgresqlIcon, postmanIcon, pythonIcon, reactIcon, redisIcon, reduxIcon, tailwindcssIcon, typescriptIcon } from "@/assets/icons/devicons";
 import { optimizedGoretoxLogo, optimizedDigitalPathshalaLogo, optimizedHunchhaDigitalLogo } from "@/assets/images/companies";
 
 export const experiences = [
@@ -21,23 +22,23 @@ export const experiences = [
         skills: [
             {
                 name: "React",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                logo: reactIcon
             },
             {
                 name: "Django",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
+                logo: djangoIcon
             },
             {
                 name: "Tailwind CSS",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                logo: tailwindcssIcon
             },
             {
                 name: "PostgreSQL",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                logo: postgresqlIcon
             },
             {
                 name: "Redis",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                logo: redisIcon
             }
         ]
     },
@@ -61,23 +62,23 @@ export const experiences = [
         skills: [
             {
                 name: "Django",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                logo: djangoIcon
             },
             {
                 name: "Python",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                logo: pythonIcon
             },
             {
                 name: "React.js",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                logo: reactIcon
             },
             {
                 name: "MySQL",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                logo: mysqlIcon
             },
             {
                 name: "REST API",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                logo: postmanIcon
             }
         ]
     },
@@ -101,27 +102,27 @@ export const experiences = [
         skills: [
             {
                 name: "Laravel",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+                logo: laravelIcon
             },
             {
                 name: "React",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                logo: reactIcon
             },
             {
                 name: "TypeScript",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                logo: typescriptIcon
             },
             {
                 name: "Redux",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+                logo: reduxIcon
             },
             {
                 name: "MUI",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg"
+                logo: materialuiIcon
             },
             {
                 name: "Git",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                logo: gitIcon
             }
         ]
     },
@@ -135,7 +136,7 @@ export const experiences = [
         description: "Delivered custom web applications using Python/Django and modern JavaScript frameworks. Created responsive and accessible user interfaces with focus on client requirements and user experience.",
         gradient: "bg-gradient-to-br from-purple-500 to-violet-600",
         color: "#7F00FF",
-        companyLogo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/htmx/htmx-original.svg",
+        companyLogo: htmxIcon,
         achievements: [
             "Delivered web applications based on client requirements",
             "Built responsive and accessible user interfaces",
@@ -145,23 +146,23 @@ export const experiences = [
         skills: [
             {
                 name: "Python",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                logo: pythonIcon
             },
             {
                 name: "Django",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                logo: djangoIcon
             },
             {
                 name: "JavaScript",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                logo: javascriptIcon
             },
             {
                 name: "HTML5",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                logo: html5Icon
             },
             {
                 name: "CSS3",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                logo: css3Icon
             }
         ]
     },
@@ -175,7 +176,7 @@ export const experiences = [
         gradient: "bg-gradient-to-br from-blue-500 to-cyan-600",
         color: "#3B82F6",
         description: "I worked as a graphics designer and instructed the workers on technical problems in Prime Cyber Cafe, Kathmandu. While working at there, I also learned the efficient way to interact with customers and the value of time.",
-        companyLogo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg',
+        companyLogo: photoshopIcon,
         achievements: [
             "Use of Graphics Designing tools.",
             "Communication and resource management.",
@@ -183,10 +184,10 @@ export const experiences = [
             "Time management."
         ],
         skills: [
-            { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-            { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" },
-            { name: "Illustrator", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg" },
-            { name: "Canva", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" }
+            { name: "Figma", logo: figmaIcon },
+            { name: "Photoshop", logo: photoshopIcon },
+            { name: "Illustrator", logo: illustratorIcon },
+            { name: "Canva", logo: canvaIcon }
         ]
     },
 ];

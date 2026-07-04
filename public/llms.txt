@@ -2,28 +2,28 @@
 
 > Full Stack Web Developer specializing in React, Django, and Laravel. This site is a personal portfolio: professional experience, project case studies, technical skills, and reference command sheets for common dev stacks.
 
-Live site: https://sumanr.com.np
+Live site: https://www.sumanr.com.np
 Contact: helpmeforhelp@gmail.com
 GitHub: https://github.com/SumaniqueCode
 LinkedIn: https://www.linkedin.com/in/suman-regmi-0b2440244/
 
 ## Pages
 
-- [Home](https://sumanr.com.np/home): Landing page — hero introduction, About Me, Technical Skills, Featured Projects, Professional Experience, and Contact sections.
-- [Projects](https://sumanr.com.np/projects): Full list of all portfolio projects with descriptions, tech stacks, and links.
-- [Commands](https://sumanr.com.np/commands): Quick-reference command sheets for Git/GitHub, Laravel, Django, and React.js.
+- [Home](https://www.sumanr.com.np/home): Landing page — hero introduction, About Me, Technical Skills, Featured Projects, Professional Experience, and Contact sections.
+- [Projects](https://www.sumanr.com.np/projects): Full list of all portfolio projects with descriptions, tech stacks, and links.
+- [Commands](https://www.sumanr.com.np/commands): Quick-reference command sheets for Git/GitHub, Laravel, Django, and React.js.
 
 ## Projects
 
-- [GoretoX](https://sumanr.com.np/project/1) — https://goretox.com/ — Microservice-based EdTech platform built with React, Django, Tailwind CSS, PostgreSQL, Redis, and Stripe.
-- [Workhub](https://sumanr.com.np/project/2) — https://github.com/SumaniqueCode/WorkHub — Nepal-focused job portal with AI-driven job recommendations, built with Django, React, PostgreSQL.
-- [Share Insight Nepal](https://sumanr.com.np/project/3) — https://shareinsightnepal.up.railway.app — Stock market portfolio management app built with Laravel, PHP, Tailwind, MySQL.
-- [Daily Repo](https://sumanr.com.np/project/4) — https://github.com/SumaniqueCode/Daily-report-react-laravel — Team daily task/reporting system built with React, TypeScript, Redux, Laravel.
-- [Skill Karma](https://sumanr.com.np/project/6) — https://github.com/SumaniqueCode/skill-karma — Time-based skill exchange platform built with MongoDB, Express, React, Node.
-- [Sanno Kaam](https://sumanr.com.np/project/7) — https://github.com/SumaniqueCode/saanokaam — Nepal-focused micro job/freelance platform built with Django, React.
-- [Pathshala BMS](https://sumanr.com.np/project/8) — https://github.com/SumaniqueCode/pathshalaTMS — Blog management system built with Django, Tailwind, PostgreSQL.
-- [Pathshala TMS](https://sumanr.com.np/project/9) — https://github.com/SumaniqueCode/pathshalaTMS — Task management system built with Django, Tailwind.
-- [CC Hub](https://sumanr.com.np/project/10) — https://github.com/SumaniqueCode/skill-karma — Multivendor e-commerce platform for computer components, built with Laravel, PHP, MySQL.
+- [GoretoX](https://www.sumanr.com.np/project/1) — https://goretox.com/ — Microservice-based EdTech platform built with React, Django, Tailwind CSS, PostgreSQL, Redis, and Stripe.
+- [Workhub](https://www.sumanr.com.np/project/2) — https://github.com/SumaniqueCode/WorkHub — Nepal-focused job portal with AI-driven job recommendations, built with Django, React, PostgreSQL.
+- [Share Insight Nepal](https://www.sumanr.com.np/project/3) — https://shareinsightnepal.up.railway.app — Stock market portfolio management app built with Laravel, PHP, Tailwind, MySQL.
+- [Daily Repo](https://www.sumanr.com.np/project/4) — https://github.com/SumaniqueCode/Daily-report-react-laravel — Team daily task/reporting system built with React, TypeScript, Redux, Laravel.
+- [Skill Karma](https://www.sumanr.com.np/project/6) — https://github.com/SumaniqueCode/skill-karma — Time-based skill exchange platform built with MongoDB, Express, React, Node.
+- [Sanno Kaam](https://www.sumanr.com.np/project/7) — https://github.com/SumaniqueCode/saanokaam — Nepal-focused micro job/freelance platform built with Django, React.
+- [Pathshala BMS](https://www.sumanr.com.np/project/8) — https://github.com/SumaniqueCode/pathshalaTMS — Blog management system built with Django, Tailwind, PostgreSQL.
+- [Pathshala TMS](https://www.sumanr.com.np/project/9) — https://github.com/SumaniqueCode/pathshalaTMS — Task management system built with Django, Tailwind.
+- [CC Hub](https://www.sumanr.com.np/project/10) — https://github.com/SumaniqueCode/skill-karma — Multivendor e-commerce platform for computer components, built with Laravel, PHP, MySQL.
 
 ## Skills
 

@@ -1,3 +1,4 @@
+import { LucideIcon } from "lucide-react";
 import LazySection from "../../../../components/LazySection";
 
 interface SkillCardProps {
@@ -9,7 +10,7 @@ interface SkillCardProps {
       name: string;
       logo: string;
     }>;
-    iconClass: string;
+    icon: LucideIcon;
     color: string;
     gradient: string;
   };
@@ -17,6 +18,7 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ darkMode, skill, index }: SkillCardProps) => {
+  const Icon = skill.icon;
   return (
     <LazySection>
       <div
@@ -43,7 +45,7 @@ const SkillCard = ({ darkMode, skill, index }: SkillCardProps) => {
           {/* Icon with Animation */}
           <div className="mb-1 md:mb-3 flex items-center justify-between">
             <div className={`w-10 h-10 rounded-xl ${skill.gradient} flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg`} >
-              <i className={`${skill.iconClass} text-white text-xl`} aria-hidden="true" />
+              <Icon className="text-white w-5 h-5" aria-hidden="true" />
             </div>
 
             {/* Title */}

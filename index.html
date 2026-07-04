@@ -17,7 +17,7 @@
   <meta name="keywords" content="Suman Regmi, Full Stack Developer, React Developer, Django Developer, Laravel Developer, Web Developer Nepal, Portfolio" />
   <meta name="author" content="Suman Regmi" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://sumanr.com.np/home" />
+  <link rel="canonical" href="https://www.sumanr.com.np/home" />
   <title>Suman Regmi | Full Stack Developer</title>
 
   <!-- Open Graph -->
@@ -25,8 +25,8 @@
   <meta property="og:site_name" content="Suman Regmi | Full Stack Developer" />
   <meta property="og:title" content="Suman Regmi | Full Stack Developer" />
   <meta property="og:description" content="Full Stack Web Developer specializing in React, Django, and Laravel. Explore professional experience, projects, and web development command references." />
-  <meta property="og:url" content="https://sumanr.com.np/home" />
-  <meta property="og:image" content="https://sumanr.com.np/og-image.png" />
+  <meta property="og:url" content="https://www.sumanr.com.np/home" />
+  <meta property="og:image" content="https://www.sumanr.com.np/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
@@ -35,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Suman Regmi | Full Stack Developer" />
   <meta name="twitter:description" content="Full Stack Web Developer specializing in React, Django, and Laravel. Explore professional experience, projects, and web development command references." />
-  <meta name="twitter:image" content="https://sumanr.com.np/og-image.png" />
+  <meta name="twitter:image" content="https://www.sumanr.com.np/og-image.png" />
 
   <!-- Structured data: Person -->
   <script type="application/ld+json">
@@ -43,10 +43,10 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Suman Regmi",
-    "url": "https://sumanr.com.np",
+    "url": "https://www.sumanr.com.np",
     "jobTitle": "Full Stack Web Developer",
     "description": "Full Stack Web Developer specializing in React, Django, and Laravel.",
-    "image": "https://sumanr.com.np/og-image.png",
+    "image": "https://www.sumanr.com.np/og-image.png",
     "sameAs": [
       "https://github.com/SumaniqueCode",
       "https://www.linkedin.com/in/suman-regmi-0b2440244/"
@@ -54,26 +54,37 @@
     "knowsAbout": ["React", "Django", "Laravel", "TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "MySQL"]
   }
   </script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/69b3beca2876301c364b22f3/1jjj22i3f';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
-<!--End of Tawk.to Script-->
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
+  <!--Start of Tawk.to Script (deferred until first user interaction, to keep it off the critical load path)-->
+  <script type="text/javascript">
+    (function () {
+      var loaded = false;
+      function loadTawk() {
+        if (loaded) return;
+        loaded = true;
+        window.Tawk_API = window.Tawk_API || {};
+        window.Tawk_LoadStart = new Date();
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/69b3beca2876301c364b22f3/1jjj22i3f';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', 'anonymous');
+        s0.parentNode.insertBefore(s1, s0);
+        ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (evt) {
+          window.removeEventListener(evt, loadTawk);
+        });
+      }
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (evt) {
+        window.addEventListener(evt, loadTawk, { once: true, passive: true });
+      });
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 
 </html>

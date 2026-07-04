@@ -1,5 +1,4 @@
 // ─── admin_bw ───
-export { default as adminBwOriginal } from "./admin_bw.jpg";
 import adminBwAvif480 from "./optimized/admin_bw-480.avif";
 import adminBwAvif768 from "./optimized/admin_bw-768.avif";
 import adminBwAvif1200 from "./optimized/admin_bw-1200.avif";
@@ -17,7 +16,6 @@ export const optimizedAdminBw = {
 };
 
 // ─── admin_circular ───
-export { default as adminCircularOriginal } from "./admin_circular.png";
 import adminCircularAvif480 from "./optimized/admin_circular-480.avif";
 import adminCircularAvif768 from "./optimized/admin_circular-768.avif";
 import adminCircularAvif1200 from "./optimized/admin_circular-1200.avif";
@@ -35,7 +33,6 @@ export const optimizedAdminCircular = {
 };
 
 // ─── admin_edited ───
-export { default as adminEditedOriginal } from "./admin_edited.jpg";
 import adminEditedAvif480 from "./optimized/admin_edited-480.avif";
 import adminEditedAvif768 from "./optimized/admin_edited-768.avif";
 import adminEditedAvif1200 from "./optimized/admin_edited-1200.avif";
@@ -53,7 +50,6 @@ export const optimizedAdminEdited = {
 };
 
 // ─── pp ───
-export { default as ppOriginal } from "./pp.png";
 import ppAvif480 from "./optimized/pp-480.avif";
 import ppAvif768 from "./optimized/pp-768.avif";
 import ppAvif1200 from "./optimized/pp-1200.avif";
@@ -71,7 +67,6 @@ export const optimizedPp = {
 };
 
 // ─── pp1 ───
-export { default as pp1Original } from "./pp1.png";
 import pp1Avif480 from "./optimized/pp1-480.avif";
 import pp1Avif768 from "./optimized/pp1-768.avif";
 import pp1Avif1200 from "./optimized/pp1-1200.avif";
@@ -89,7 +84,6 @@ export const optimizedPp1 = {
 };
 
 // ─── ppbg ───
-export { default as ppbgOriginal } from "./ppbg.png";
 import ppbgAvif480 from "./optimized/ppbg-480.avif";
 import ppbgAvif768 from "./optimized/ppbg-768.avif";
 import ppbgAvif1200 from "./optimized/ppbg-1200.avif";
@@ -107,7 +101,6 @@ export const optimizedPpbg = {
 };
 
 // ─── ppbg1 ───
-export { default as ppbg1Original } from "./ppbg1.png";
 import ppbg1Avif480 from "./optimized/ppbg1-480.avif";
 import ppbg1Avif768 from "./optimized/ppbg1-768.avif";
 import ppbg1Avif1200 from "./optimized/ppbg1-1200.avif";
@@ -125,7 +118,6 @@ export const optimizedPpbg1 = {
 };
 
 // ─── profile ───
-export { default as profileOriginal } from "./profile.jpg";
 import profileAvif480 from "./optimized/profile-480.avif";
 import profileAvif768 from "./optimized/profile-768.avif";
 import profileAvif1200 from "./optimized/profile-1200.avif";
