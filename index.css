@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+:root {
+    /* Brand colors, matching Button.tsx variants and shimmer/hover-gradient accents */
+    --color-primary: #2563eb;        /* blue-600, primary button (light) */
+    --color-primary-dark: #1e40af;   /* blue-800, primary button (dark) */
+    --color-secondary: #e5e7eb;      /* gray-200, secondary button (light) */
+    --color-secondary-dark: #374151; /* gray-700, secondary button (dark) */
+    --color-tertiary: #9333ea;       /* purple-600, card hover-gradient/shimmer accent (light) */
+    --color-tertiary-dark: #c084fc;  /* purple-400, card hover-gradient/shimmer accent (dark) */
+    --color-danger: #dc2626;         /* red-600, danger button (light) */
+    --color-danger-dark: #7f1d1d;    /* red-900, danger button (dark) */
+
+    --toastify-color-info: var(--color-primary);
+    --toastify-color-error: var(--color-danger);
+}
+
 /* Shimmer animation keyframes */
 @keyframes shimmer-slide {
     0% {

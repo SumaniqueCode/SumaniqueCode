@@ -25,10 +25,7 @@ const Experience = ({ darkMode }: ExperienceProps) => {
                           >
               Professional{" "}
               <span
-                className={`bg-gradient-to-r ${darkMode
-                  ? "from-blue-400 to-purple-400"
-                  : "from-blue-600 to-purple-600"
-                  } bg-clip-text text-transparent`}
+                className={darkMode ? "text-blue-400" : "text-blue-600"}
               >
                 Experience
               </span>

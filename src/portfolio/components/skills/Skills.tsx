@@ -20,10 +20,7 @@ const Skills = ({ darkMode }: SkillsProps) => {
                         >
                             Technical{" "}
                             <span
-                                className={`bg-gradient-to-r ${darkMode
-                                    ? "from-blue-400 to-purple-400"
-                                    : "from-blue-600 to-purple-600"
-                                    } bg-clip-text text-transparent`}
+                                className={darkMode ? "text-blue-400" : "text-blue-600"}
                             >
                                 Skills
                             </span>
@@ -39,7 +36,7 @@ const Skills = ({ darkMode }: SkillsProps) => {
                     </div>
 
                     {/* Skills Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mx-auto">
                         {skills.map((skill, index) => (
                             <SkillCard
                                 key={skill.id}

@@ -25,6 +25,7 @@ const Button = ({
     href,
     target,
     rel,
+    onClick,
     ...props
 }: ButtonProps) => {
     const { darkMode } = useThemeContext();
@@ -35,24 +36,24 @@ const Button = ({
         switch (variant) {
             case "primary":
                 return darkMode
-                    ? "bg-blue-800 hover:bg-blue-900 text-white"
-                    : "bg-blue-600 hover:bg-blue-700 text-white";
+                    ? "bg-[var(--color-primary-dark)] hover:bg-blue-900 text-white"
+                    : "bg-[var(--color-primary)] hover:bg-blue-700 text-white";
             case "secondary":
                 return darkMode
-                    ? "bg-gray-700 hover:bg-gray-800 text-white"
-                    : "bg-gray-200 hover:bg-gray-300 text-gray-800";
+                    ? "bg-[var(--color-secondary-dark)] hover:bg-gray-800 text-white"
+                    : "bg-[var(--color-secondary)] hover:bg-gray-300 text-gray-800";
             case "outlined":
                 return darkMode
-                    ? "bg-transparent hover:bg-gray-800 text-white border border-blue-600 hover:border-blue-500"
-                    : "bg-transparent hover:bg-gray-100 text-gray-800 border border-blue-600 hover:border-blue-700";
+                    ? "bg-transparent hover:bg-gray-800 text-white border border-[var(--color-primary)] hover:border-blue-500"
+                    : "bg-transparent hover:bg-gray-100 text-gray-800 border border-[var(--color-primary)] hover:border-blue-700";
             case "danger":
                 return darkMode
-                    ? "bg-red-900/80 hover:bg-red-900 text-red-200"
-                    : "bg-red-600 hover:bg-red-700 text-white";
+                    ? "bg-[var(--color-danger-dark)]/80 hover:bg-red-900 text-red-200"
+                    : "bg-[var(--color-danger)] hover:bg-red-700 text-white";
             default:
                 return darkMode
-                    ? "bg-blue-800 hover:bg-blue-900 text-white"
-                    : "bg-blue-600 hover:bg-blue-700 text-white";
+                    ? "bg-[var(--color-primary-dark)] hover:bg-blue-900 text-white"
+                    : "bg-[var(--color-primary)] hover:bg-blue-700 text-white";
         }
     };
 
@@ -78,6 +79,7 @@ const Button = ({
                 to={href}
                 target={target}
                 rel={rel}
+                onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
                 className={`${baseStyles} ${getVariantClass()} ${className}`}
             >
                 {content}
@@ -88,6 +90,7 @@ const Button = ({
     return (
         <button
             className={`${baseStyles} ${getVariantClass()} ${className}`}
+            onClick={onClick}
             {...props}
         >
             {content}

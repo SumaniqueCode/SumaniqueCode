@@ -12,7 +12,9 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() =>
+    typeof window !== "undefined" ? window.matchMedia("(prefers-color-scheme: dark)").matches : false
+  );
   const [activeSection, setActiveSection] = useState<string>("top");
   const [sideNavs, setSideNavs] = useState<string[]>([]);
   const scroller = (sectionId: string) => {

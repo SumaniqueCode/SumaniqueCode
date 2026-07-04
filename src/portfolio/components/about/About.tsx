@@ -14,10 +14,7 @@ const About = ({ darkMode }: aboutProps) => {
                 >
                     About{" "}
                     <span
-                        className={`bg-gradient-to-r ${darkMode
-                            ? "from-blue-400 to-purple-400"
-                            : "from-blue-600 to-purple-600"
-                            } bg-clip-text text-transparent`}
+                        className={darkMode ? "text-blue-400" : "text-blue-600"}
                     >
                         Me
                     </span>
@@ -44,7 +41,7 @@ const About = ({ darkMode }: aboutProps) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Github className="w-4 h-4 text-purple-500" />
+                            <Github className="w-4 h-4 text-purple-500" aria-hidden="true" />
                             GitHub
                         </Button>
                         <Button
@@ -53,14 +50,14 @@ const About = ({ darkMode }: aboutProps) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Linkedin className="w-4 h-4 text-blue-500" />
+                            <Linkedin className="w-4 h-4 text-blue-500" aria-hidden="true" />
                             LinkedIn
                         </Button>
                         <Button
                             variant="outlined"
                             href="mailto:helpmeforhelp@gmail.com"
                         >
-                            <Mail className="w-4 h-4 text-blue-600" />
+                            <Mail className="w-4 h-4 text-blue-600" aria-hidden="true" />
                             Email
                         </Button>
                     </div>

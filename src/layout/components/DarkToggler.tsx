@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useThemeContext } from "@/ThemeContext";
 
 const DarkToggler = () => {
@@ -6,10 +5,6 @@ const DarkToggler = () => {
     const toggleDarkMode = () => {
         setDarkMode(!darkMode)
     }
-    useEffect(() => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setDarkMode(prefersDark);
-    }, []);
     return (
         <button
             onClick={toggleDarkMode}

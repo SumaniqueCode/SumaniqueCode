@@ -38,7 +38,7 @@ const ScrollUpArrow = ({ darkMode, scrollToSection }: ArrowProps) => {
   }, [darkMode]);
 
   return (
-    <div onClick={() => scrollToSection("top")} className="cursor-pointer">
+    <button onClick={() => scrollToSection("top")} className="cursor-pointer" aria-label="Scroll to top">
       <style>{`
         .progress-ring {
           transform: rotate(270deg);
@@ -51,10 +51,10 @@ const ScrollUpArrow = ({ darkMode, scrollToSection }: ArrowProps) => {
       <div className={`relative w-14 h-14 rounded-full flex items-center justify-center shadow-lg ${darkMode ? "bg-gray-800" : "bg-white"}`} >
         <div ref={progressRingRef} className="progress-ring absolute inset-0 rounded-full" />
         <div className={`relative z-10 w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 ${darkMode ? "bg-gray-800" : "bg-white"}`} >
-          <ArrowUp strokeWidth={2.5} size={25} className={darkMode ? "text-white" : "text-blue-600"} />
+          <ArrowUp strokeWidth={2.5} size={25} className={darkMode ? "text-white" : "text-blue-600"} aria-hidden="true" />
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

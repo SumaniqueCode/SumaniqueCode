@@ -20,10 +20,7 @@ const Projects = ({ darkMode }: projectProps) => {
             >
               Featured{" "}
               <span
-                className={`bg-gradient-to-r ${darkMode
-                  ? "from-blue-400 to-purple-400"
-                  : "from-blue-600 to-purple-600"
-                  } bg-clip-text text-transparent`}
+                className={darkMode ? "text-blue-400" : "text-blue-600"}
               >
                 Projects
               </span>
@@ -39,9 +36,11 @@ const Projects = ({ darkMode }: projectProps) => {
           </FadeInDown>
         </div>
 
-        <div className="px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.slice(0, 3).map((project) => (
-            <ProjectCard key={project.id} darkMode={darkMode} project={project} />
+        <div className="px-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {projects.slice(0, 4).map((project, index) => (
+            <div key={project.id} className={`h-full${index === 3 ? " xl:hidden" : ""}`}>
+              <ProjectCard darkMode={darkMode} project={project} />
+            </div>
           ))}
         </div>
 

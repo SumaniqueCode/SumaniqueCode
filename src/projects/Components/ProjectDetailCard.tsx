@@ -5,13 +5,21 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projects } from '@/data/ProjectData';
 import { useThemeContext } from '@/ThemeContext';
 import imagePlaceHolder from '@/assets/images/placeholders/place-holder-image.jpeg';
+import Picture from '@/components/Picture';
+import Button from '@/components/Button';
+import SEO from '@/components/SEO';
+import { handleProjectLink } from '@/utils/projectLinks';
 
 const ProjectDetailCard = () => {
-  const { darkMode } = useThemeContext();
+  const { darkMode, setSideNavs } = useThemeContext();
   const { id } = useParams();
   const projectId: string | undefined = (id ? parseInt(id, 10) : undefined) + "";
   const project = projects.find((proj) => proj.id.toString() === projectId);
   const [selectedImage, setSelectedImage] = useState(0);
+
+  useEffect(() => {
+    setSideNavs([]);
+  }, []);
   const [lastDirection, setLastDirection] = useState(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [zoom, setZoom] = useState(1);
@@ -65,9 +73,15 @@ const ProjectDetailCard = () => {
   if (!project) {
     return (
       <div className={`min-h-screen ${darkMode ? ' text-white' : ' text-gray-900'}`}>
+        <SEO
+          title="Project Not Found | Suman Regmi"
+          description="The project you're looking for doesn't exist or may have been removed."
+          path={`/project/${id ?? ""}`}
+          noindex
+        />
         <div className="w-full mx-auto px-3 sm:px-4 md:px-6 py-4 md:py-6">
           <Link to="/projects" className={`inline-flex items-center gap-2 mb-6 ${darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Back to Projects
@@ -80,25 +94,50 @@ const ProjectDetailCard = () => {
 
   return (
     <div className={`min-h-screen`}>
+      <SEO
+        title={`${project.name} | Suman Regmi Projects`}
+        description={project.description.length > 160 ? `${project.description.slice(0, 157)}...` : project.description}
+        path={`/project/${project.id}`}
+        image={`https://sumanr.com.np${project.thumbnail.fallback}`}
+        type="article"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: project.name,
+          description: project.description,
+          url: `https://sumanr.com.np/project/${project.id}`,
+          image: `https://sumanr.com.np${project.thumbnail.fallback}`,
+          creator: {
+            "@type": "Person",
+            name: "Suman Regmi",
+            url: "https://sumanr.com.np",
+          },
+          keywords: project.techs.join(", "),
+        }}
+      />
       <div className="w-full mx-auto px-3 sm:px-4 md:px-6 py-4 md:py-6 space-y-4 md:space-y-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
           <div className="lg:col-span-3 space-y-4">
             <div className={`rounded-2xl overflow-hidden border-2 hover:shadow-blue-200 shadow-lg duration-300 ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
               <div className="relative aspect-video overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={selectedImage}
-                    draggable={false}
-                    loading='lazy'
-                    src={project.images.length > 0 ? project.images[selectedImage] : imagePlaceHolder}
-                    alt={`${project.name} - Image ${selectedImage + 1}`}
-                    className="w-full h-full object-contain absolute inset-0"
+                    className="w-full h-full absolute inset-0"
                     onDoubleClick={openFullscreen}
                     initial={{ x: lastDirection > 0 ? 60 : -60, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: lastDirection > 0 ? -60 : 60, opacity: 0 }}
                     transition={{ duration: 0.45, ease: "easeInOut" }}
-                  />
+                  >
+                    <Picture
+                      draggable={false}
+                      loading='lazy'
+                      src={project.images.length > 0 ? project.images[selectedImage] : imagePlaceHolder}
+                      alt={`${project.name} - Image ${selectedImage + 1}`}
+                      className="w-full h-full object-contain"
+                    />
+                  </motion.div>
                 </AnimatePresence>
                 {project.images.length > 1 && (
                   <div className="absolute top-3 right-3 flex items-center gap-2">
@@ -109,8 +148,9 @@ const ProjectDetailCard = () => {
                       onClick={(e) => { e.stopPropagation(); openFullscreen(); }}
                       className="bg-black/70 hover:bg-black/80 text-white p-1.5 rounded-full transition-all backdrop-blur-sm cursor-pointer"
                       title="Fullscreen"
+                      aria-label="View image in fullscreen"
                     >
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
                       </svg>
                     </button>
@@ -121,18 +161,20 @@ const ProjectDetailCard = () => {
                     onClick={(e) => { e.stopPropagation(); openFullscreen(); }}
                     className="absolute top-3 right-3 bg-black/70 hover:bg-black/80 text-white p-1.5 rounded-full transition-all backdrop-blur-sm cursor-pointer"
                     title="Fullscreen"
+                    aria-label="View image in fullscreen"
                   >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
                     </svg>
                   </button>
                 )}
-                                {selectedImage > 0 && (
+                {selectedImage > 0 && (
                   <button
                     onClick={() => handlePrevImage()}
                     className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all backdrop-blur-sm cursor-pointer"
+                    aria-label="Previous image"
                   >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
@@ -141,8 +183,9 @@ const ProjectDetailCard = () => {
                   <button
                     onClick={() => handleNextImage()}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all backdrop-blur-sm cursor-pointer"
+                    aria-label="Next image"
                   >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
@@ -157,6 +200,8 @@ const ProjectDetailCard = () => {
                         key={index}
                         ref={(el) => { thumbnailRefs.current[index] = el; }}
                         onClick={() => setSelectedImage(index)}
+                        aria-label={`View image ${index + 1} of ${project.images.length}`}
+                        aria-current={selectedImage === index}
                         className={`relative flex-shrink-0 rounded-lg overflow-hidden border-2 snap-start ${selectedImage === index
                           ? darkMode ? 'border-blue-500' : 'border-blue-600'
                           : darkMode ? 'border-gray-600 opacity-60 hover:opacity-100' : 'border-gray-300 opacity-60 hover:opacity-100'
@@ -166,7 +211,7 @@ const ProjectDetailCard = () => {
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <img draggable={false} loading='lazy' src={image} alt={`Thumbnail ${index + 1}`} className={`w-full h-full object-cover ${darkMode ? 'bg-gray-700' : 'bg-white'}`} />
+                        <Picture draggable={false} loading='lazy' src={image} alt={`Thumbnail ${index + 1}`} className={`w-full h-full object-cover ${darkMode ? 'bg-gray-700' : 'bg-white'}`} />
                       </motion.button>
                     ))}
                   </div>
@@ -252,30 +297,32 @@ const ProjectDetailCard = () => {
                 Project Links
               </h3>
               <div className="space-y-2 md:space-y-3">
-                <a
+                <Button
+                  variant="primary"
                   href={project.codelink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl font-medium transition-all ${darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-600 hover:bg-blue-700'
-                    } text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5`}
+                  className="w-full"
+                  onClick={(e) => handleProjectLink(e, project.codelink, "Source code")}
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                   </svg>
                   View Source Code
-                </a>
-                <a
+                </Button>
+                <Button
+                  variant="secondary"
                   href={project.livelink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl font-medium transition-all ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
-                    } shadow-lg hover:shadow-xl hover:-translate-y-0.5`}
+                  className="w-full"
+                  onClick={(e) => handleProjectLink(e, project.livelink, "Live demo")}
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                   View Live Demo
-                </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -286,6 +333,9 @@ const ProjectDetailCard = () => {
       <AnimatePresence>
         {isFullscreen && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${project.name} image viewer`}
             className="fixed inset-0 z-[80] bg-black/95 flex items-center justify-center"
             onClick={closeFullscreen}
           >
@@ -294,8 +344,9 @@ const ProjectDetailCard = () => {
               onClick={(e) => { e.stopPropagation(); closeFullscreen(); }}
               className="absolute top-4 right-4 z-[60] bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all cursor-pointer"
               title="Close fullscreen (ESC)"
+              aria-label="Close fullscreen viewer"
             >
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-hidden="true" />
             </button>
 
             {/* Image counter */}
@@ -306,19 +357,22 @@ const ProjectDetailCard = () => {
             {/* Main image */}
             <div className="relative w-full h-full flex items-center justify-center p-16" onClick={(e) => e.stopPropagation()}>
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={selectedImage}
-                  draggable={false}
-                  src={project.images[selectedImage]}
-                  alt={`${project.name} - Fullscreen ${selectedImage + 1}`}
-                  className="max-w-full max-h-full object-contain"
-                  style={{ transform: `scale(${zoom})` }}
+                  className="max-w-full max-h-full"
                   onClick={(e) => e.stopPropagation()}
-                  initial={{ x: lastDirection > 0 ? 80 : -80, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: lastDirection > 0 ? -80 : 80, opacity: 0 }}
+                  initial={{ x: lastDirection > 0 ? 80 : -80, opacity: 0, scale: zoom }}
+                  animate={{ x: 0, opacity: 1, scale: zoom }}
+                  exit={{ x: lastDirection > 0 ? -80 : 80, opacity: 0, scale: zoom }}
                   transition={{ duration: 0.45, ease: "easeInOut" }}
-                />
+                >
+                  <Picture
+                    draggable={false}
+                    src={project.images[selectedImage]}
+                    alt={`${project.name} - Fullscreen ${selectedImage + 1}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </motion.div>
               </AnimatePresence>
 
               {/* Previous button */}
@@ -326,8 +380,9 @@ const ProjectDetailCard = () => {
                 <button
                   onClick={(e) => { e.stopPropagation(); handlePrevImage(); }}
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-[60] cursor-pointer"
+                  aria-label="Previous image"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-6 h-6" aria-hidden="true" />
                 </button>
               )}
 
@@ -336,8 +391,9 @@ const ProjectDetailCard = () => {
                 <button
                   onClick={(e) => { e.stopPropagation(); handleNextImage(); }}
                   className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-[60] cursor-pointer"
+                  aria-label="Next image"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-6 h-6" aria-hidden="true" />
                 </button>
               )}
             </div>
@@ -349,20 +405,22 @@ const ProjectDetailCard = () => {
                 disabled={zoom <= 1}
                 className="bg-black/40 hover:bg-black/70 text-white p-2 rounded-full transition-all disabled:opacity-30"
                 title="Zoom out"
+                aria-label="Zoom out"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <circle cx="11" cy="11" r="8" />
                   <path d="M21 21l-4.35-4.35M8 11h6" />
                 </svg>
               </button>
-              <span className="text-white text-xs px-2 min-w-[40px] text-center">{Math.round(zoom * 100)}%</span>
+              <span className="text-white text-xs px-2 min-w-[40px] text-center" aria-live="polite">{Math.round(zoom * 100)}%</span>
               <button
                 onClick={(e) => { e.stopPropagation(); handleZoomIn(); }}
                 disabled={zoom >= 3}
                 className="bg-black/40 hover:bg-black/70 text-white p-2 rounded-full transition-all disabled:opacity-30"
                 title="Zoom in"
+                aria-label="Zoom in"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <circle cx="11" cy="11" r="8" />
                   <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
                 </svg>
@@ -375,15 +433,16 @@ const ProjectDetailCard = () => {
                 {project.images.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => setSelectedImage(index)}
-                    className={`relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImage === index
+                    onClick={(e) => { e.stopPropagation(); setSelectedImage(index); }}
+                    aria-label={`View image ${index + 1} of ${project.images.length}`}
+                    aria-current={selectedImage === index}
+                    className={`relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${selectedImage === index
                         ? 'border-blue-500 opacity-100'
                         : 'border-transparent opacity-50 hover:opacity-100'
-                    }`}
+                      }`}
                     style={{ width: '60px', height: '40px' }}
                   >
-                    <img
+                    <Picture
                       draggable={false}
                       src={image}
                       alt={`Thumbnail ${index + 1}`}

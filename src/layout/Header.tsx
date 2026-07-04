@@ -8,25 +8,28 @@ const Header = () => {
   const { darkMode, activeSection, setActiveSection, scroller, sideNavs } = useThemeContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
+  const hideSideNav = sideNavs.length === 0;
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = sideNavs.map((id) => document.getElementById(id));
-      let closestSection = "top";
-      let minDistance = Infinity;
+      if (sideNavs.length > 0) {
+        const sections = sideNavs.map((id) => document.getElementById(id));
+        let closestSection = "top";
+        let minDistance = Infinity;
 
-      sections.forEach((section) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const distance = Math.abs(rect.top);
+        sections.forEach((section) => {
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            const distance = Math.abs(rect.top);
 
-          if (distance < minDistance) {
-            minDistance = distance;
-            closestSection = section.id;
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestSection = section.id;
+            }
           }
-        }
-      });
-      setActiveSection(closestSection);
+        });
+        setActiveSection(closestSection);
+      }
       if (window.scrollY > window.innerHeight * 0.1) {
         setShowSideNav(true);
       } else {
@@ -36,7 +39,7 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [sideNavs]);
+  }, [sideNavs, setActiveSection]);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -47,18 +50,21 @@ const Header = () => {
 
   return (
     <>
-      <aside
-        className={`fixed left-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tr-2xl rounded-br-2xl border-4 shadow-lg px-1 py-4 
-        transition-transform duration-500 ease-in-out hidden md:block ${showSideNav ? "translate-x-0" : "-translate-x-full"} 
-        ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
-      >
-        <SideNav
-          darkMode={darkMode}
-          activeSection={activeSection}
-          scrollToSection={scrollToSection}
-          sideNavs={sideNavs}
-        />
-      </aside>
+      {!hideSideNav && (
+        <aside
+          aria-label="Section navigation"
+          className={`fixed left-0 top-1/2 transform -translate-y-1/2 z-50 rounded-tr-2xl rounded-br-2xl border-4 shadow-lg px-1 py-4
+          transition-transform duration-500 ease-in-out hidden md:block ${showSideNav ? "translate-x-0" : "-translate-x-full"}
+          ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-900 border-gray-300"}`}
+        >
+          <SideNav
+            darkMode={darkMode}
+            activeSection={activeSection}
+            scrollToSection={scrollToSection}
+            sideNavs={sideNavs}
+          />
+        </aside>
+      )}
 
       <TopNav
         mobileMenuOpen={mobileMenuOpen}

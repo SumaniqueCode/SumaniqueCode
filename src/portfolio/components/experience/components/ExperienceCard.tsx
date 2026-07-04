@@ -1,5 +1,6 @@
 import { Briefcase, Calendar, MapPin, ChevronRight } from "lucide-react";
 import LazySection from "../../../../components/LazySection";
+import Picture, { PictureSource } from "../../../../components/Picture";
 
 interface ExperienceProps {
   darkMode: boolean;
@@ -18,7 +19,7 @@ interface ExperienceProps {
     }>;
     gradient: string;
     color: string;
-    companyLogo: string;
+    companyLogo: string | PictureSource;
   };
   index: number;
 }
@@ -48,6 +49,12 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
             />
           </div>
 
+          {/* Hover Border Effect */}
+          <div
+            className="absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+            style={{ borderColor: exp.color }}
+          />
+
           {/* Side Accent Line */}
           <div className={`absolute left-0 top-0 w-1 h-full ${exp.gradient}`}></div>
 
@@ -56,7 +63,7 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
             <div className="flex items-start gap-4 mb:1 md:mb-4">
               {/* Company Logo */}
               <div className={`w-10 md:w-14 h-10 md:h-14 rounded-lg md:rounded-xl ${exp.gradient} p-0.5 md:p-1 flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 shadow-lg flex-shrink-0`}>
-                <img
+                <Picture
                   draggable={false}
                   loading="lazy"
                   src={exp.companyLogo}
@@ -72,7 +79,7 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
                 </h3>
                 <div className={`flex items-center gap-2 mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   <div className="flex items-center gap-1.5">
-                    <Briefcase className="w-3.5 h-3.5 flex-shrink-0" />
+                    <Briefcase className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
                     <span className="font-medium text-sm">{exp.company}</span>
                   </div>
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${exp.type === 'Remote'
@@ -85,10 +92,10 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
                   </span>
                 </div>
                 <div className={`flex items-center gap-1.5 text-xs ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
                   <span>{exp.location}</span>
                   <span className="mx-1">•</span>
-                  <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
+                  <Calendar className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
                   <span>{exp.year}</span>
                 </div>
               </div>
@@ -113,7 +120,7 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
                       animation: `fadeInLeft 0.4s ease-out ${i * 0.08}s both`,
                     }}
                   >
-                    <ChevronRight className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 transform group-hover/achievement:translate-x-1 transition-transform duration-300 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+                    <ChevronRight className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 transform group-hover/achievement:translate-x-1 transition-transform duration-300 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} aria-hidden="true" />
                     <span className="leading-snug">{achievement}</span>
                   </li>
                 ))}

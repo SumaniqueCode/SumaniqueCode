@@ -2,9 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import Header from "./Header";
 import { useThemeContext } from "../ThemeContext";
 import Footer from "./Footer";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Point {
   x: number;
@@ -20,6 +22,11 @@ const Layout: React.FC = () => {
   const animationRef = useRef<number>(0);
   const pointsRef = useRef<Point[]>([]);
   const mouseRef = useRef({ x: 0, y: 0, active: false });
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -165,6 +172,13 @@ const Layout: React.FC = () => {
 
   return (
     <div className={`relative min-h-screen ${darkMode ? 'text-white' : 'text-gray-900'} transition-colors duration-500`}>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-blue-600 focus:text-white focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
+
       {/* Dark mode overlay */}
       <div
         className={`fixed inset-0 bg-gray-900 transition-[clip-path] duration-800 ease-in-out
@@ -181,7 +195,7 @@ const Layout: React.FC = () => {
       {/* Content container */}
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow relative">
+        <main id="main-content" tabIndex={-1} className="flex-grow relative focus:outline-none">
           {/* Page content */}
           <div className="relative">
             <Outlet />
@@ -191,6 +205,7 @@ const Layout: React.FC = () => {
         </main>
         <Footer />
       </div>
+      <ToastContainer position="top-right" theme={darkMode ? 'dark' : 'light'} />
     </div>
   );
 };

@@ -33,13 +33,14 @@ const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
                                 </div>
                                 <button
                                     onClick={() => copyToClipboard(cmd.command)}
-                                    className={`text-gray-500 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 transition-colors flex-shrink-0 ${darkMode ? 'dark:text-gray-400' : ''}`}
+                                    className={`p-1.5 rounded-md cursor-pointer transition-colors flex-shrink-0 ${darkMode ? 'bg-[var(--color-secondary-dark)] text-gray-300 hover:text-blue-300' : 'bg-[var(--color-secondary)] text-gray-600 hover:text-blue-600'}`}
                                     title="Copy command"
+                                    aria-label={copiedCommand === cmd.command ? "Command copied" : `Copy command: ${cmd.command}`}
                                 >
                                     {copiedCommand === cmd.command ? (
                                         <span className="text-xs text-green-600">Copied!</span>
                                     ) : (
-                                        <Copy size={16} className="md:w-5 md:h-5" />
+                                        <Copy size={16} className="md:w-5 md:h-5" aria-hidden="true" />
                                     )}
                                 </button>
                             </div>
@@ -55,13 +56,14 @@ const CommandTemplate = ({ section, secIdx }: CommandTemplateProps) => {
                                         </div>
                                         <button
                                             onClick={() => copyToClipboard(cmd.alternateCommand || "")}
-                                            className={`text-gray-500 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 transition-colors flex-shrink-0 ${darkMode ? 'dark:text-gray-400' : ''}`}
+                                            className={`p-1.5 rounded-md cursor-pointer transition-colors flex-shrink-0 ${darkMode ? 'bg-[var(--color-secondary-dark)] text-gray-300 hover:text-blue-300' : 'bg-[var(--color-secondary)] text-gray-600 hover:text-blue-600'}`}
                                             title="Copy alternate command"
+                                            aria-label={copiedCommand === cmd.alternateCommand ? "Alternate command copied" : `Copy alternate command: ${cmd.alternateCommand}`}
                                         >
                                             {copiedCommand === cmd.alternateCommand ? (
                                                 <span className="text-xs text-green-600">Copied!</span>
                                             ) : (
-                                                <Copy size={16} className="md:w-5 md:h-5" />
+                                                <Copy size={16} className="md:w-5 md:h-5" aria-hidden="true" />
                                             )}
                                         </button>
                                     </div>

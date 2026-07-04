@@ -19,7 +19,7 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
   }, [location.pathname]);
 
   return (
-    <header className="w-full z-20 border-b-6 rounded-b-2xl shadow-md overflow-hidden">
+    <header className={`w-full sticky top-0 z-20 border-b-6 rounded-b-2xl shadow-md overflow-hidden ${darkMode ? "bg-gray-900 border-white" : "bg-white border-[var(--color-primary)]"}`}>
       {/* Content container */}
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link to='home' className="flex items-center space-x-2">
@@ -34,10 +34,11 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-8" aria-label="Primary navigation">
           {navButtons.map((section) => (
             <Link to={section}
               key={section}
+              aria-current={activeNav === section ? "page" : undefined}
               className={`capitalize ${activeNav === section
                 ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
                 : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
@@ -55,9 +56,11 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
         <button
           className="md:hidden focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             {mobileMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -69,10 +72,11 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="md:hidden py-4 px-6 space-y-3">
+        <nav id="mobile-navigation" className="md:hidden py-4 px-6 space-y-3" aria-label="Mobile navigation">
           {navButtons.map((section) => (
             <Link to={section}
               key={section}
+              aria-current={activeNav === section ? "page" : undefined}
               className={`capitalize block w-full text-left ${activeNav === section
                 ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
                 : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`

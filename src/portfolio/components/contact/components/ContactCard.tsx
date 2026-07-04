@@ -60,7 +60,7 @@ const ContactCard = ({ darkMode, info, index }: ContactProps) => {
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             <div className={`w-12 h-12 rounded-xl ${info.gradient} flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg`}>
-              <Icon className="w-6 h-6 text-white" />
+              <Icon className="w-6 h-6 text-white" aria-hidden="true" />
             </div>
             <div>
               <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -77,7 +77,7 @@ const ContactCard = ({ darkMode, info, index }: ContactProps) => {
                   }`}
               >
                 <span className="group-hover/link:underline">{info.displayValue}</span>
-                <ExternalLink className="w-3 h-3 inline ml-1 opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
+                <ExternalLink className="w-3 h-3 inline ml-1 opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -97,9 +97,9 @@ const ContactCard = ({ darkMode, info, index }: ContactProps) => {
               title="Copy to clipboard"
             >
               {copiedField === info.type ? (
-                <CheckCircle className="w-4 h-4" />
+                <CheckCircle className="w-4 h-4" aria-hidden="true" />
               ) : (
-                <Copy className="w-4 h-4" />
+                <Copy className="w-4 h-4" aria-hidden="true" />
               )}
             </button>
 
