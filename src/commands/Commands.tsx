@@ -5,6 +5,7 @@ import Django from "./components/django/Django";
 import Github from "./components/github/Github";
 import ReactJS from "./components/react/ReactJs";
 import SEO from "@/components/SEO";
+import ShimmerGradientOverlay from "@/components/ShimmerGradientOverlay";
 
 const Commands = () => {
     const stacks = ["github", "laravel", "django", "reactJS",];
@@ -40,12 +41,13 @@ const Commands = () => {
                         aria-selected={activeStack === stack}
                         aria-controls="commands-panel"
                         onClick={() => setActiveSection(stack)}
-                        className={`capitalize cursor-pointer text-base md:text-lg whitespace-nowrap px-4 md:px-2 py-1 rounded-md font-bold ease-in-out duration-300 hover:scale-105 md:hover:scale-105 border-b-2 border-r-2 shadow-sm ${activeStack === stack
+                        className={`relative group overflow-hidden capitalize cursor-pointer text-base md:text-lg whitespace-nowrap px-4 md:px-2 py-1 rounded-md font-bold ease-in-out duration-300 hover:scale-105 md:hover:scale-105 border-b-2 border-r-2 shadow-sm ${activeStack === stack
                             ? darkMode ? "bg-[var(--color-primary-dark)] text-white" : "bg-[var(--color-primary)] text-white"
                             : darkMode ? "bg-gray-800 text-white" : "bg-white text-blue-600"
                             }`}
                     >
-                        {stack}
+                        <ShimmerGradientOverlay variant="blue" className="rounded-md" runOnce />
+                        <span className="relative z-10">{stack}</span>
                     </button>
                 ))}
             </nav>

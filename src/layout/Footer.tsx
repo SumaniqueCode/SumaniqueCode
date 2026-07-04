@@ -19,9 +19,9 @@ const Footer = () => {
   const { darkMode } = useThemeContext();
 
   return (
-    <footer className={`border-t-6 mt-8 ${darkMode ? "border-gray-800" : "border-gray-200"}`}>
-      <div className="max-w-6xl mx-auto px-4 py-10 md:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className={`border-t-6 ${darkMode ? "border-gray-800" : "border-gray-200"}`}>
+      <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/home" className="inline-flex items-center gap-2">
@@ -40,7 +40,7 @@ const Footer = () => {
             <h2 className={`text-sm font-semibold uppercase tracking-wide mb-4 ${darkMode ? "text-white" : "text-gray-900"}`}>
               Quick Links
             </h2>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5">
               {quickLinks.map((link) => (
                 <li key={link.to}>
                   <Link
@@ -59,7 +59,7 @@ const Footer = () => {
             <h2 className={`text-sm font-semibold uppercase tracking-wide mb-4 ${darkMode ? "text-white" : "text-gray-900"}`}>
               Contact
             </h2>
-            <ul className="space-y-2.5 mb-4">
+            <ul className="space-y-1.5 mb-4">
               <li>
                 <a
                   href="mailto:helpmeforhelp@gmail.com"
@@ -93,7 +93,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className={`mt-10 pt-6 border-t text-center ${darkMode ? "border-gray-800" : "border-gray-200"}`}>
+        <div className={`mt-6 pt-4 border-t text-center ${darkMode ? "border-gray-800" : "border-gray-200"}`}>
           <p className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
             &copy; {new Date().getFullYear()} Suman Regmi. All Rights Reserved.
           </p>
