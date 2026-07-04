@@ -252,8 +252,8 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
         <div className={`absolute w-[328px] h-[328px] rounded-full z-0 transition-opacity duration-500 ${bothLoaded ? 'opacity-100' : 'opacity-0'}`}>
           {typeof background === 'object' ? (
             <picture>
-              <source srcSet={background.avif} type="image/avif" />
-              <source srcSet={background.webp} type="image/webp" />
+              <source srcSet={background.avif} sizes="328px" type="image/avif" />
+              <source srcSet={background.webp} sizes="328px" type="image/webp" />
               <img draggable={false} loading="eager" fetchPriority="high" src={background.fallback} alt="Profile Background" className="w-full h-full object-cover" onLoad={() => setBgLoaded(true)} />
             </picture>
           ) : (
@@ -263,8 +263,8 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
         <div className={`absolute w-[328px] h-[328px] rounded-full z-6 transition-opacity duration-500 ${bothLoaded ? 'opacity-100' : 'opacity-0'}`}>
           {typeof profile === 'object' ? (
             <picture>
-              <source srcSet={profile.avif} type="image/avif" />
-              <source srcSet={profile.webp} type="image/webp" />
+              <source srcSet={profile.avif} sizes="328px" type="image/avif" />
+              <source srcSet={profile.webp} sizes="328px" type="image/webp" />
               <img draggable={false} loading="eager" fetchPriority="high" src={profile.fallback} alt="Profile" className="w-full h-full object-cover" onLoad={() => setProfileLoaded(true)} />
             </picture>
           ) : (
