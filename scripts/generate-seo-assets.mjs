@@ -18,9 +18,13 @@ const run = async () => {
   };
 
   // Circular favicons / app icons (brand photo, transparent corners)
+  // Google's favicon requirements (https://developers.google.com/search/docs/appearance/favicon-in-search)
+  // want a square image sized as a multiple of 48px, referenced via a direct <link rel="icon">.
   const circularSizes = [
     { file: "favicon-16x16.png", size: 16 },
     { file: "favicon-32x32.png", size: 32 },
+    { file: "favicon-48x48.png", size: 48 },
+    { file: "favicon-96x96.png", size: 96 },
     { file: "icon-192.png", size: 192 },
     { file: "icon-512.png", size: 512 },
   ];
@@ -41,10 +45,10 @@ const run = async () => {
     .toFile(path.join(PUBLIC_DIR, "apple-touch-icon.png"));
   console.log("wrote apple-touch-icon.png (circular on white)");
 
-  // ICO fallback favicon (circular, 32x32)
-  const favicon32 = await makeCircular(32);
-  await sharp(favicon32).toFormat("png").toFile(path.join(PUBLIC_DIR, "favicon.ico"));
-  console.log("wrote favicon.ico (32x32 circular png-as-ico)");
+  // ICO fallback favicon (circular, 48x48 to match Google's favicon size guidance)
+  const favicon48 = await makeCircular(48);
+  await sharp(favicon48).toFormat("png").toFile(path.join(PUBLIC_DIR, "favicon.ico"));
+  console.log("wrote favicon.ico (48x48 circular png-as-ico)");
 
   // Open Graph / Twitter share image (1200x630)
   const OG_W = 1200;

@@ -20,7 +20,7 @@ const Landing = () => {
     <div className="container w-9/10 mx-auto px-2 md:px-4 pb-12">
       <SEO
         title="Suman Regmi | Full Stack Developer"
-        description="Full Stack Web Developer specializing in React, Django, and Laravel. Explore professional experience, projects, and web development command references."
+        description="Suman Regmi is a Full Stack Web Developer with 4+ years of experience building React, Django, and Laravel applications. Explore his projects, experience, and skills."
         path="/home"
         type="profile"
       />
