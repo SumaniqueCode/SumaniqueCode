@@ -31,7 +31,7 @@ const Commands = () => {
             <nav
                 role="tablist"
                 aria-label="Technology stacks"
-                className={`flex md:flex-col overflow-x-auto md:overflow-visible w-full md:w-48 lg:w-64 my-2 py-2 gap-2 scrollbar-hide sticky top-[96px] self-start z-10 ${darkMode ? "bg-gray-900" : "bg-white"}`}
+                className={`flex md:flex-col overflow-x-auto md:overflow-visible w-full md:w-48 lg:w-64 py-2 gap-2 scrollbar-hide sticky top-[86px] self-start z-30 ${darkMode ? "bg-gray-900" : "bg-white"}`}
             >
                 {stacks.map(stack => (
                     <button

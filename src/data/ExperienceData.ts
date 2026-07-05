@@ -15,9 +15,9 @@ export const experiences = [
         companyLogo: optimizedGoretoxLogo,
         achievements: [
             "Developed React components using shadcn/ui and handled time-zone based logic.",
-            "Built RESTful APIs with Django Rest Framework and integrated PostgreSQL for storage.",
+            "Built RESTful APIs with Django Rest Framework and PostgreSQL for storage.",
             "Implemented Token-based authentication, RBAC, and secure Stripe payment integrations.",
-            "Optimized performance using Redis for caching and Celery for background task processing."
+            "Optimized performance using Redis for caching and Celery for background task."
         ],
         skills: [
             {

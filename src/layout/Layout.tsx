@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ChatbotWidget from '../components/chatbot/ChatbotWidget';
 
 interface Point {
   x: number;
@@ -206,6 +207,7 @@ const Layout: React.FC = () => {
         <Footer />
       </div>
       <ToastContainer position="top-right" theme={darkMode ? 'dark' : 'light'} />
+      <ChatbotWidget />
     </div>
   );
 };

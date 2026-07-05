@@ -7,23 +7,23 @@ export const projects = [
     id: 1,
     name: "GoretoX",
     description:
-      "GoretoX is a microservice-based web application developed for an EdTech company, featuring a modern, responsive design with focus on performance and SEO optimization. The platform provides a seamless user experience with intuitive navigation, real-time data updates, and secure payment integrations. Built with a focus on scalability, it uses a modular architecture that allows for easy expansion and maintenance.",
+      "GoretoX is a mentorship marketplace that connects individuals with verified mentors for personal growth and professional development. Users can discover and browse mentor profiles, book sessions, and pay securely through the platform. Built as a microservice-based web application with a modern, responsive design, it focuses on performance, SEO optimization, and a seamless user experience.",
     images: [
       optimizedGoretoxLanding, optimizedGoretoxMentors, optimizedGoretoxExplore, optimizedGoretoxContact, optimizedGoretoxAbout, optimizedGoretoxWhyGoretox,
       optimizedGoretoxMentorsOverview, optimizedGoretoxWhy, optimizedGoretoxLandingOverview, optimizedGoretoxBlogs
     ],
     thumbnail: optimizedGoretoxLanding,
     features: [
+      "Verified Mentor Discovery",
       "Microservice Architecture",
       "Responsive Design",
       "SEO Optimization",
       "Secure Payments",
-      "Real-time Updates",
     ],
     challenges:
-      "Designing and implementing a scalable microservice architecture while ensuring smooth integration between services was a major challenge. Implementing secure payment processing with Stripe and optimizing for performance required careful planning and execution.",
+      "Designing and implementing a scalable microservice architecture to support mentor discovery and matching, while ensuring smooth integration between services, was a major challenge. Implementing secure payment processing with Stripe for mentorship session bookings and optimizing for performance required careful planning and execution.",
     outcome:
-      "The platform successfully provided a performant and scalable solution that improved user engagement and streamlined business operations.",
+      "The platform successfully connects mentees with verified mentors, providing a performant and scalable solution that improved user engagement and streamlined the mentor discovery and booking process.",
     techs: ["React", "Django", "Tailwind CSS", "PostgreSQL", "Redis", "Stripe"],
     codelink: "#",
     livelink: "https://goretox.com/",

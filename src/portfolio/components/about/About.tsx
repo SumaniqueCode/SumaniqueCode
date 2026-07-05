@@ -2,6 +2,7 @@ import ProfileWithShinyBorder from './ProfileWithShinyBorder'
 import { optimizedPp1, optimizedPpbg1 } from '@/assets/images/logos'
 import Button from '@/components/Button'
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { aboutBio } from '@/data/AboutData'
 
 interface aboutProps {
     darkMode: boolean
@@ -24,16 +25,11 @@ const About = ({ darkMode }: aboutProps) => {
                 <ProfileWithShinyBorder darkMode={darkMode} background={optimizedPpbg1} profile={optimizedPp1} />
 
                 <div className="md:w-2/3" >
-                    <p className=" text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
-                        Hello! I'm a passionate full-stack developer with 4 years of experience building web applications.
-                        I specialize in React, Laravel, Django and other modern web technologies as per the requirements.
-                        My journey in software development started during my bachelor in computer application studies,
-                        and I've been hooked on creating elegant solutions to complex problems ever since.
-                    </p>
-                    <p className="text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
-                        I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends.
-                        When I am not coding, you can find me exploring new technologies or helping others learn and solve the problems they encounter.
-                    </p>
+                    {aboutBio.map((paragraph, index) => (
+                        <p key={index} className="text-md md:text-lg mb-2 md:mb-4 lg:mb-6">
+                            {paragraph}
+                        </p>
+                    ))}
                     <div className="flex flex-wrap gap-4 mt-4 md:mt-8">
                         <Button
                             variant="outlined"

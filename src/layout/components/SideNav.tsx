@@ -16,10 +16,10 @@ const SideNav = ({ darkMode, sideNavs, activeSection, scrollToSection }: navProp
                         key={section}
                         onClick={() => scrollToSection(section)}
                         aria-current={activeSection === section ? "true" : undefined}
-                        className={`capitalize text-lg cursor-pointer ${activeSection === section
+                        className={`capitalize text-md cursor-pointer ${activeSection === section
                             ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-bold`
                             : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
-                            } hover:scale-110 ease-in-out duration-400 font-semibold`}
+                            } hover:scale-105 ease-in-out duration-400 font-semibold`}
                     >
                         {section}
                     </button>

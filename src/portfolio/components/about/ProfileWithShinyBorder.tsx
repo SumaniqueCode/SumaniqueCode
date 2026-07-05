@@ -16,7 +16,6 @@ interface PremiumProfileBorderProps {
 const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileBorderProps) => {
   const [bgLoaded, setBgLoaded] = useState(false);
   const [profileLoaded, setProfileLoaded] = useState(false);
-  const bothLoaded = bgLoaded && profileLoaded;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const particlesRef = useRef<any[]>([]);
@@ -249,7 +248,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
     <SlideInLeft>
       <div className="relative w-[320px] h-[320px] flex items-center justify-center">
         <canvas ref={canvasRef} width={320} height={320} className="inset-0 z-4 mt-7" />
-        <div className={`absolute w-[328px] h-[328px] rounded-full z-0 transition-opacity duration-500 ${bothLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute w-[328px] h-[328px] rounded-full z-0 transition-opacity duration-200 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`}>
           {typeof background === 'object' ? (
             <picture>
               <source srcSet={background.avif} sizes="328px" type="image/avif" />
@@ -260,7 +259,7 @@ const PremiumProfileBorder = ({ darkMode, profile, background }: PremiumProfileB
             <img draggable={false} loading="eager" fetchPriority="high" src={background} alt="Profile Background" className="w-full h-full object-cover" onLoad={() => setBgLoaded(true)} />
           )}
         </div>
-        <div className={`absolute w-[328px] h-[328px] rounded-full z-6 transition-opacity duration-500 ${bothLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute w-[328px] h-[328px] rounded-full z-6 transition-opacity duration-200 ${profileLoaded ? 'opacity-100' : 'opacity-0'}`}>
           {typeof profile === 'object' ? (
             <picture>
               <source srcSet={profile.avif} sizes="328px" type="image/avif" />
