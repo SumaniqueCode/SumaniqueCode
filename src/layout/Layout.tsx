@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { Suspense, useEffect, useLayoutEffect, useRef } from 'react';
 import Header from "./Header";
 import { useThemeContext } from "../ThemeContext";
 import Footer from "./Footer";
@@ -25,7 +25,7 @@ const Layout: React.FC = () => {
   const mouseRef = useRef({ x: 0, y: 0, active: false });
   const location = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location.pathname]);
 
@@ -199,7 +199,9 @@ const Layout: React.FC = () => {
         <main id="main-content" tabIndex={-1} className="flex-grow relative focus:outline-none">
           {/* Page content */}
           <div className="relative">
-            <Outlet />
+            <Suspense fallback={null}>
+              <Outlet />
+            </Suspense>
             <Analytics />
             <SpeedInsights />
           </div>

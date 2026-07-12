@@ -34,19 +34,26 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8" aria-label="Primary navigation">
-          {navButtons.map((section) => (
-            <Link to={section}
-              key={section}
-              aria-current={activeNav === section ? "page" : undefined}
-              className={`capitalize ${activeNav === section
-                ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
-                : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
-                } hover:scale-110 ease-in-out transition-all duration-400 cursor-pointer`}
-            >
-              {section}
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center gap-1" aria-label="Primary navigation">
+          {navButtons.map((section) => {
+            const isActive = activeNav === section;
+            return (
+              <Link to={section}
+                key={section}
+                aria-current={isActive ? "page" : undefined}
+                className={`group relative px-3 py-2 capitalize cursor-pointer transition-colors duration-300 ${isActive
+                  ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
+                  : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
+                  }`}
+              >
+                {section}
+                <span
+                  className={`absolute left-3 right-3 bottom-1 h-0.5 rounded-full origin-left transition-transform duration-500 ease-out ${darkMode ? "bg-blue-400" : "bg-blue-600"
+                    } ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Dark mode toggle */}
@@ -72,19 +79,22 @@ const TopNav = ({ darkMode, navButtons, setMobileMenuOpen, mobileMenuOpen, }: na
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav id="mobile-navigation" className="md:hidden py-4 px-6 space-y-3" aria-label="Mobile navigation">
-          {navButtons.map((section) => (
-            <Link to={section}
-              key={section}
-              aria-current={activeNav === section ? "page" : undefined}
-              className={`capitalize block w-full text-left ${activeNav === section
-                ? `${darkMode ? "text-blue-400" : "text-blue-600"} font-semibold`
-                : `${darkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"}`
-                } hover:scale-115 ease-in-out duration-400 cursor-pointer`}
-            >
-              {section}
-            </Link>
-          ))}
+        <nav id="mobile-navigation" className="md:hidden py-4 px-6 space-y-1" aria-label="Mobile navigation">
+          {navButtons.map((section) => {
+            const isActive = activeNav === section;
+            return (
+              <Link to={section}
+                key={section}
+                aria-current={isActive ? "page" : undefined}
+                className={`capitalize block w-full text-left px-3 py-2 rounded-lg transition-colors duration-300 cursor-pointer ${isActive
+                  ? `${darkMode ? "bg-blue-400/10 text-blue-400" : "bg-blue-50 text-blue-600"} font-semibold`
+                  : `${darkMode ? "text-gray-300 hover:bg-gray-800 hover:text-white" : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"}`
+                  }`}
+              >
+                {section}
+              </Link>
+            );
+          })}
         </nav>
       )}
     </header>
