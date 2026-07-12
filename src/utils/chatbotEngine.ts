@@ -18,13 +18,13 @@ const COMMANDS_INFO =
     "There's a Commands page (/commands) with quick-reference cheat sheets for Git/GitHub, Laravel, Django, and React.js.";
 
 const GREETING =
-    "Hi! I'm Suman's portfolio assistant. Ask me about his projects, skills, work experience, or how to get in touch.";
+    "Hi! I'm Jarvis, Suman's AI assistant. Ask me about his projects, skills, work experience, or how to get in touch.";
 
 const WELLBEING =
     "I'm just a script, so I don't really have good or bad days! I'm here to help you learn about Suman - his projects, skills, experience, or how to reach him.";
 
 const BOT_NAME =
-    "I don't have a name of my own - I'm just Suman's portfolio assistant. Suman's the person I can tell you about!";
+    "I am Jarvis - I'm just Suman's AI assistant. I was created by Suman for solving general user queries about Suman.";
 
 const THANKS =
     "You're welcome! Let me know if you have any other questions about Suman.";

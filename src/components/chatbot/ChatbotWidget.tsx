@@ -14,7 +14,7 @@ import { playReceiveSound, playSendSound } from "../../utils/chatSound";
 const GREETING_MESSAGE: ChatMessage = {
     id: "greeting",
     role: "bot",
-    text: "Hi! I'm Suman's portfolio assistant. Ask me about his projects, skills, work experience, or how to get in touch.",
+    text: "Hi! I'm Jarvis, Suman's AI assistant. Ask me about his projects, skills, work experience, or how to get in touch.",
     timestamp: Date.now(),
 };
 
@@ -116,7 +116,7 @@ const ChatbotWidget = () => {
                                     : "bg-[var(--color-primary)] text-white"
                             }`}
                         >
-                            <span className="font-medium">Portfolio Assistant</span>
+                            <span className="font-medium">Jarvis AI Assistant</span>
                             <div className="flex items-center gap-1">
                                 <button
                                     type="button"
