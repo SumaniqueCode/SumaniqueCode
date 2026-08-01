@@ -1,8 +1,12 @@
 import { MessageSquareMore } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ContactCard from './components/ContactCard';
 import LazySection from '../../../components/LazySection';
 import SectionIcon from '@/components/SectionIcon';
+import { staggerContainer } from '@/components/motionVariants';
 import { contacts } from '../../../data/ContactData';
+
+const cardListVariants = staggerContainer(0.12, 0.1);
 
 interface ContactProps {
   darkMode: boolean;
@@ -11,14 +15,16 @@ interface ContactProps {
 const Contact = ({ darkMode }: ContactProps) => {
   return (
     <section id='contact' className='py-6 md:py-10 relative overflow-hidden'>
-      <LazySection>
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header animates on its own so it doesn't drag the card grid with it -
+            the cards need to be the only thing moving to read as one by one. */}
+        <LazySection>
           <div className="text-center mb-6 md:mb-8">
             <div className="flex items-end justify-center gap-3 mb-3">
               <SectionIcon icon={MessageSquareMore} />
@@ -36,15 +42,20 @@ const Contact = ({ darkMode }: ContactProps) => {
               Let's connect! Feel free to reach out through any of these channels
             </p>
           </div>
+        </LazySection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
-            {contacts.map((info, index) => (
-              <ContactCard darkMode={darkMode} key={index} info={info} index={index} />
-            ))}
-          </div>
-
-        </div>
-      </LazySection>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto"
+          variants={cardListVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {contacts.map((info, index) => (
+            <ContactCard darkMode={darkMode} key={index} info={info} />
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };

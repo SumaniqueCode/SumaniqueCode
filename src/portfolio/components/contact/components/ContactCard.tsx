@@ -1,5 +1,7 @@
 import { CheckCircle, Copy, ExternalLink, LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { riseItem } from "@/components/motionVariants";
 
 interface ContactProps {
   darkMode: boolean;
@@ -12,10 +14,13 @@ interface ContactProps {
     gradient: string;
     color: string;
   };
-  index: number;
 }
 
-const ContactCard = ({ darkMode, info, index }: ContactProps) => {
+/* Each card slides up from below its slot. `show` is inherited from the grid in
+   Contact.tsx, which staggers its children - no per-card delay needed here. */
+const cardVariants = riseItem(48);
+
+const ContactCard = ({ darkMode, info }: ContactProps) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const Icon = info.icon;
 
@@ -32,12 +37,12 @@ const ContactCard = ({ darkMode, info, index }: ContactProps) => {
   };
 
   return (
-    <div
-      className={`group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105 ${darkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white border-gray-200'
+    <motion.div
+      variants={cardVariants}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className={`group relative overflow-hidden rounded-2xl transition-shadow duration-500 ${darkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white border-gray-200'
         } backdrop-blur-sm border shadow-lg hover:shadow-2xl`}
-      style={{
-        animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
-      }}
     >
       {/* Gradient Background on Hover */}
       <div
@@ -119,7 +124,7 @@ const ContactCard = ({ darkMode, info, index }: ContactProps) => {
 
       {/* Side Accent */}
       <div className={`absolute left-0 top-0 w-1 h-full ${info.gradient} opacity-50`}></div>
-    </div>
+    </motion.div>
   );
 };
 
