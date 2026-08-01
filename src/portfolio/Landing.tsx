@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useThemeContext } from "../ThemeContext";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
@@ -9,22 +8,17 @@ import Skills from "./components/skills/Skills";
 import SEO from "@/components/SEO";
 
 const Landing = () => {
-  const sideNavs = ["about", "skills", "projects", "experience", "contact"];
-  const { darkMode, setActiveSection, setSideNavs } = useThemeContext();
-
-  useEffect(() => {
-    setSideNavs(sideNavs);
-  }, []);
+  const { darkMode } = useThemeContext();
 
   return (
-    <div className="container w-9/10 mx-auto px-2 md:px-4 pb-12">
+    <div className="container w-9/10 mx-auto px-2 md:px-4 pb-10">
       <SEO
         title="Suman Regmi | Full Stack Developer"
         description="Suman Regmi is a Full Stack Web Developer with 4+ years of experience building React, Django, and Laravel applications. Explore his projects, experience, and skills."
         path="/home"
         type="profile"
       />
-      <Hero darkMode={darkMode} setActiveSection={setActiveSection} />
+      <Hero darkMode={darkMode} />
         <About darkMode={darkMode} />
         <Skills darkMode={darkMode} />
         <Projects darkMode={darkMode} />

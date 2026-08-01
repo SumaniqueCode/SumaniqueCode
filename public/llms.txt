@@ -1,6 +1,6 @@
 # Suman Regmi
 
-> Full Stack Web Developer specializing in React, Django, and Laravel. This site is a personal portfolio: professional experience, project case studies, technical skills, and reference command sheets for common dev stacks.
+> Full Stack Web Developer specializing in React, Django, and Laravel. This site is a personal portfolio: professional experience, project case studies, and technical skills.
 
 Live site: https://www.sumanr.com.np
 Contact: helpmeforhelp@gmail.com
@@ -11,7 +11,6 @@ LinkedIn: https://www.linkedin.com/in/suman-regmi-0b2440244/
 
 - [Home](https://www.sumanr.com.np/home): Landing page — hero introduction, About Me, Technical Skills, Featured Projects, Professional Experience, and Contact sections.
 - [Projects](https://www.sumanr.com.np/projects): Full list of all portfolio projects with descriptions, tech stacks, and links.
-- [Commands](https://www.sumanr.com.np/commands): Quick-reference command sheets for Git/GitHub, Laravel, Django, and React.js.
 
 ## Projects
 

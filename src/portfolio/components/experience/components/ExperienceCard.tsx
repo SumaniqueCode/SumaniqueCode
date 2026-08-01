@@ -1,6 +1,12 @@
 import { Briefcase, Calendar, MapPin, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import LazySection from "../../../../components/LazySection";
 import Picture, { PictureSource } from "../../../../components/Picture";
+import { staggerContainer, riseItem } from "../../../../components/motionVariants";
+
+/* Matches the project card chips: each technology fades in and rises, one by one. */
+const techListVariants = staggerContainer(0.1, 0.1);
+const techVariants = riseItem(16);
 
 interface ExperienceProps {
   darkMode: boolean;
@@ -58,9 +64,9 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
           {/* Side Accent Line */}
           <div className={`absolute left-0 top-0 w-1 h-full ${exp.gradient}`}></div>
 
-          <div className="relative p-6">
+          <div className="relative p-5">
             {/* Header Section */}
-            <div className="flex items-start gap-4 mb:1 md:mb-4">
+            <div className="flex items-start gap-4 mb-3 md:mb-4">
               {/* Company Logo */}
               <div className={`w-10 md:w-14 h-10 md:h-14 rounded-lg md:rounded-xl ${exp.gradient} p-0.5 md:p-1 flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 shadow-lg flex-shrink-0`}>
                 <Picture
@@ -102,7 +108,7 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
             </div>
 
             {/* Description */}
-            <p className={`mb-2 md:mb-4 text-sm md:leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`mb-3 md:mb-4 text-sm md:leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               {exp.description}
             </p>
 
@@ -132,32 +138,34 @@ const ExperienceCard = ({ darkMode, exp, index }: ExperienceProps) => {
               <h4 className={`text-xs font-semibold mb-2 uppercase tracking-wide ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                 Technologies
               </h4>
-              <LazySection>
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, i) => (
-                    <div
-                      key={i}
-                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-all duration-300 ${darkMode
-                        ? 'bg-gray-700/50 hover:bg-gray-700 text-gray-300'
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                        } group/skill cursor-pointer`}
-                      style={{
-                        animation: `fadeInUp 0.4s ease-out ${i * 0.04}s both`,
+              <motion.div
+                className="flex flex-wrap gap-2"
+                variants={techListVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                {exp.skills.map((skill, i) => (
+                  <motion.div
+                    key={i}
+                    variants={techVariants}
+                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors duration-300 ${darkMode
+                      ? 'bg-gray-700/50 hover:bg-gray-700 text-gray-300'
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                      } group/skill cursor-pointer`}
+                  >
+                    <img
+                      src={skill.logo}
+                      alt={`${skill.name} logo`}
+                      className="w-4 h-4 object-contain transform group-hover/skill:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
                       }}
-                    >
-                      <img
-                        src={skill.logo}
-                        alt={`${skill.name} logo`}
-                        className="w-4 h-4 object-contain transform group-hover/skill:scale-110 transition-transform duration-300"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                      <span className="text-xs font-medium">{skill.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </LazySection>
+                    />
+                    <span className="text-xs font-medium">{skill.name}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
 
             {/* Bottom Accent Line */}

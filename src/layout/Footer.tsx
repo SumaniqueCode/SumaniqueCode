@@ -5,7 +5,6 @@ import { useThemeContext } from "../ThemeContext";
 const quickLinks = [
   { label: "Home", to: "/home" },
   { label: "Projects", to: "/projects" },
-  { label: "Commands", to: "/commands" },
 ];
 
 const socialLinks = [
@@ -20,8 +19,10 @@ const Footer = () => {
 
   return (
     <footer className={`border-t-6 ${darkMode ? "border-gray-800" : "border-gray-200"}`}>
-      <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Extra bottom padding on small screens keeps the bottom bar clear of the
+          fixed chatbot button and scroll-up arrow. */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-4 pt-8 pb-24 md:pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/home" className="inline-flex items-center gap-2">

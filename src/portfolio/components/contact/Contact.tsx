@@ -1,5 +1,7 @@
+import { MessageSquareMore } from 'lucide-react';
 import ContactCard from './components/ContactCard';
 import LazySection from '../../../components/LazySection';
+import SectionIcon from '@/components/SectionIcon';
 import { contacts } from '../../../data/ContactData';
 
 interface ContactProps {
@@ -8,7 +10,7 @@ interface ContactProps {
 
 const Contact = ({ darkMode }: ContactProps) => {
   return (
-    <section id='contact' className='relative overflow-hidden'>
+    <section id='contact' className='py-6 md:py-10 relative overflow-hidden'>
       <LazySection>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -17,38 +19,30 @@ const Contact = ({ darkMode }: ContactProps) => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-4 md:mb-8">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? "text-white" : "text-gray-900" }`}
-            >
-              Get In{" "}
-              <span
-                className={darkMode ? "text-blue-400" : "text-blue-600"}
+          <div className="text-center mb-6 md:mb-8">
+            <div className="flex items-end justify-center gap-3 mb-3">
+              <SectionIcon icon={MessageSquareMore} />
+              <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? "text-white" : "text-gray-900" }`}
               >
-                Touch
-              </span>
-            </h2>
+                Get In{" "}
+                <span
+                  className={darkMode ? "text-blue-400" : "text-blue-600"}
+                >
+                  Touch
+                </span>
+              </h2>
+            </div>
             <p className={`text-base max-w-2xl mx-auto ${darkMode ? "text-gray-400" : "text-gray-600" }`} >
               Let's connect! Feel free to reach out through any of these channels
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
             {contacts.map((info, index) => (
               <ContactCard darkMode={darkMode} key={index} info={info} index={index} />
             ))}
           </div>
 
-          <div className="mt-8 text-center" >
-            <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Available for freelance opportunities and collaborations
-            </p>
-            <div className="mt-4 flex items-center justify-center gap-2">
-              <div className={`w-2 h-2 rounded-full bg-green-500 animate-pulse`}></div>
-              <span className={`text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                Usually responds within 24 hours
-              </span>
-            </div>
-          </div>
         </div>
       </LazySection>
     </section>

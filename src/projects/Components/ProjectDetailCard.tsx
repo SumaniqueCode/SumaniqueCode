@@ -11,15 +11,12 @@ import SEO from '@/components/SEO';
 import { handleProjectLink } from '@/utils/projectLinks';
 
 const ProjectDetailCard = () => {
-  const { darkMode, setSideNavs } = useThemeContext();
+  const { darkMode } = useThemeContext();
   const { id } = useParams();
   const projectId: string | undefined = (id ? parseInt(id, 10) : undefined) + "";
   const project = projects.find((proj) => proj.id.toString() === projectId);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  useEffect(() => {
-    setSideNavs([]);
-  }, []);
   const [lastDirection, setLastDirection] = useState(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [zoom, setZoom] = useState(1);

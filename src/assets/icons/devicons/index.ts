@@ -1,6 +1,7 @@
 export { default as bootstrapIcon } from "./bootstrap-original.svg";
 export { default as css3Icon } from "./css3-original.svg";
 export { default as djangoIcon } from "./django-plain.svg";
+export { default as dockerIcon } from "./docker-original.svg";
 export { default as figmaIcon } from "./figma-original.svg";
 export { default as firebaseIcon } from "./firebase-plain.svg";
 export { default as gitIcon } from "./git-original.svg";
@@ -23,5 +24,6 @@ export { default as githubactionsIcon } from "./githubactions-original.svg";
 export { default as htmxIcon } from "./htmx-original.svg";
 export { default as illustratorIcon } from "./illustrator-original.svg";
 export { default as photoshopIcon } from "./photoshop-original.svg";
+export { default as shadcnuiIcon } from "./shadcnui.svg";
 export { default as sketchIcon } from "./sketch-original.svg";
 export { default as tailwindcssIcon } from "./tailwindcss-original.svg";

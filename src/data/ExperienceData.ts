@@ -9,15 +9,15 @@ export const experiences = [
         type: "Remote",
         company: "GoretoX",
         location: "Virginia, United States",
-        description: "Developing microservice-based web applications using React and Django, focusing on responsive design, performance, and SEO optimization.",
+        description: "Developing and maintaining a microservice-based mentorship marketplace using React and Django, where users discover verified mentors, book sessions across time zones, and pay securely, with an ongoing focus on responsive design, performance, and SEO optimization.",
         gradient: "bg-gradient-to-br from-[#3B82F6] to-[#2563EB]",
         color: "#0041A7",
         companyLogo: optimizedGoretoxLogo,
         achievements: [
-            "Developed React components using shadcn/ui and handled time-zone based logic.",
-            "Built RESTful APIs with Django Rest Framework and PostgreSQL for storage.",
-            "Implemented Token-based authentication, RBAC, and secure Stripe payment integrations.",
-            "Optimized performance using Redis for caching and Celery for background task."
+            "Built React components with shadcn/ui and time-zone logic.",
+            "Built RESTful APIs with Django REST Framework and PostgreSQL.",
+            "Implemented token-based auth, RBAC, and secure Stripe payments.",
+            "Optimized performance with Redis caching and Celery tasks."
         ],
         skills: [
             {

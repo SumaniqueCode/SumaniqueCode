@@ -12,10 +12,7 @@ const FALLBACK_STATEMENT =
     "I don't have anything to add to that, but feel free to ask me about Suman's projects, skills, work experience, or how to get in touch.";
 
 const HELP =
-    "I can answer questions about Suman's projects, skills, work experience, background, the developer command-reference page, or how to contact him. What would you like to know?";
-
-const COMMANDS_INFO =
-    "There's a Commands page (/commands) with quick-reference cheat sheets for Git/GitHub, Laravel, Django, and React.js.";
+    "I can answer questions about Suman's projects, skills, work experience, background, or how to contact him. What would you like to know?";
 
 const GREETING =
     "Hi! I'm Jarvis, Suman's AI assistant. Ask me about his projects, skills, work experience, or how to get in touch.";
@@ -290,10 +287,6 @@ export const getBotResponse = (userInput: string): string => {
 
     if (includesAny(input, ["contact", "email", "reach", "in touch", "hire", "linkedin", "github", "social media", "where are you based", "where are you located", "where are you from", "located", "based", "phone number", "resume", "cv", "freelance", "available for hire", "available for work", "open to opportunities", "looking for a job", "taking new clients", "for hire"])) {
         return listContacts();
-    }
-
-    if (includesAny(input, ["cheat sheet", "command", "commands", "reference sheet"])) {
-        return COMMANDS_INFO;
     }
 
     if (includesAny(input, ["hi", "hello", "hey", "good morning", "good evening"])) {

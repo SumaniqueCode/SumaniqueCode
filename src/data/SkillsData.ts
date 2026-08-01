@@ -1,7 +1,23 @@
-import { bootstrapIcon, djangoIcon, figmaIcon, firebaseIcon, gitIcon, githubactionsIcon, javaIcon, laravelIcon, materialuiIcon, mysqlIcon, nextjsIcon, photoshopIcon, postgresqlIcon, postmanIcon, pythonIcon, reactIcon, reduxIcon, sketchIcon, tailwindcssIcon, typescriptIcon } from "@/assets/icons/devicons";
-import { Monitor, Database, Wrench } from "lucide-react";
+import { bootstrapIcon, djangoIcon, dockerIcon, figmaIcon, firebaseIcon, gitIcon, githubactionsIcon, javaIcon, laravelIcon, materialuiIcon, mysqlIcon, nextjsIcon, photoshopIcon, postgresqlIcon, postmanIcon, pythonIcon, reactIcon, redisIcon, reduxIcon, shadcnuiIcon, sketchIcon, tailwindcssIcon, typescriptIcon } from "@/assets/icons/devicons";
+import { Monitor, Database, Wrench, LucideIcon } from "lucide-react";
 
-export const skills = [
+export interface SkillTech {
+    name: string;
+    logo: string;
+    /** Set for monochrome (black) marks so they stay visible on dark backgrounds. */
+    invertOnDark?: boolean;
+}
+
+export interface SkillGroup {
+    id: number;
+    name: string;
+    techs: SkillTech[];
+    icon: LucideIcon;
+    color: string;
+    gradient: string;
+}
+
+export const skills: SkillGroup[] = [
     {
         id: 1,
         name: "Frontend Tools",
@@ -29,6 +45,12 @@ export const skills = [
             {
                 name: "Tailwind",
                 logo: tailwindcssIcon,
+            },
+            {
+                name: "shadcn/ui",
+                logo: shadcnuiIcon,
+                // Monochrome black mark - needs inverting to stay visible in dark mode.
+                invertOnDark: true,
             },
             {
                 name: "Bootstrap",
@@ -64,6 +86,10 @@ export const skills = [
                 logo: mysqlIcon
             },
             {
+                name: "Redis",
+                logo: redisIcon,
+            },
+            {
                 name: "Firebase",
                 logo: firebaseIcon,
             },
@@ -87,6 +113,10 @@ export const skills = [
             {
                 name: "Java",
                 logo: javaIcon,
+            },
+            {
+                name: "Docker",
+                logo: dockerIcon,
             },
             {
                 name: "CI/CD",

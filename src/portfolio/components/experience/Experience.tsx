@@ -1,5 +1,7 @@
+import { Briefcase } from 'lucide-react';
 import { experiences } from '@/data/ExperienceData';
 import LazySection from '@/components/LazySection';
+import SectionIcon from '@/components/SectionIcon';
 import ExperienceCard from './components/ExperienceCard';
 
 interface ExperienceProps {
@@ -8,7 +10,7 @@ interface ExperienceProps {
 
 const Experience = ({ darkMode }: ExperienceProps) => {
   return (
-    <section id="experience" className=' pt-4 pb-12 relative overflow-hidden'>
+    <section id="experience" className='py-6 md:py-10 relative overflow-hidden'>
       <LazySection>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -18,18 +20,21 @@ const Experience = ({ darkMode }: ExperienceProps) => {
 
         <div className="container mx-auto relative z-10 px-4">
           {/* Section Header */}
-          <div className="text-center mb-8">
-            <h2
-              className={`text-3xl md:text-4xl font-bold mb-3 ${darkMode ? "text-white" : "text-gray-900"
-                }`}
-                          >
-              Professional{" "}
-              <span
-                className={darkMode ? "text-blue-400" : "text-blue-600"}
+          <div className="text-center mb-6 md:mb-8">
+            <div className="flex items-end justify-center gap-3 mb-3">
+              <SectionIcon icon={Briefcase} />
+              <h2
+                className={`text-3xl md:text-4xl font-bold ${darkMode ? "text-white" : "text-gray-900"
+                  }`}
               >
-                Experience
-              </span>
-            </h2>
+                Professional{" "}
+                <span
+                  className={darkMode ? "text-blue-400" : "text-blue-600"}
+                >
+                  Experience
+                </span>
+              </h2>
+            </div>
             <p
               className={`text-base ${darkMode ? "text-gray-400" : "text-gray-600"
                 } max-w-2xl mx-auto`}

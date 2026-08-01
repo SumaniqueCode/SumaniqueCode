@@ -1,15 +1,11 @@
-import { useEffect } from "react";
 import { useThemeContext } from "../ThemeContext";
 import ProjectCard from "./Components/ProjectCard"
 import { projects } from "../data/ProjectData"
 import SEO from "@/components/SEO";
 
 const AllProjects = () => {
-  const sideNavs: string[] = [];
-  const { darkMode, setSideNavs } = useThemeContext()
-  useEffect(() => (
-    setSideNavs(sideNavs)
-  ), []); return (
+  const { darkMode } = useThemeContext()
+  return (
     <section className={'min-h-screen w-9/10 mx-auto py-6 px-2 md:px-4'} >
       <SEO
         title="All Projects | Suman Regmi"

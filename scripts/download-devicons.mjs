@@ -32,6 +32,10 @@ const urls = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sketch/sketch-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+  // shadcn/ui isn't in devicon; simple-icons carries it (monochrome, so it's
+  // flagged `invertOnDark` in SkillsData to stay visible on dark backgrounds).
+  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shadcnui.svg",
 ];
 
 const run = async () => {

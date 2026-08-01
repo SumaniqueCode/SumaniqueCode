@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Github, ExternalLink, ArrowRight, Code2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { staggerContainer, riseItem } from "../../components/motionVariants";
 import LazySection from "../../components/LazySection";
 import Picture, { PictureSource } from "../../components/Picture";
 import Button from "../../components/Button";
@@ -19,6 +21,11 @@ interface ProjectCardProps {
     livelink: string;
   };
 }
+
+/* Chips fade in and rise one by one; the offset stays small since they're only
+   ~24px tall and the card clips overflow. */
+const techListVariants = staggerContainer(0.1, 0.1);
+const techVariants = riseItem(16);
 
 const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -112,30 +119,35 @@ const ProjectCard = ({ darkMode, project }: ProjectCardProps) => {
             </p>
           </LazySection>
 
-          <LazySection>
-            {/* Technologies */}
-            <div className="flex flex-wrap gap-2 mb-5">
-              {project.techs.slice(0, 4).map((tech, index) => (
-                <span
-                  key={tech}
-                  className={`px-3 py-1 rounded-lg text-xs font-medium transition-all duration-300 ${darkMode
-                    ? "bg-blue-900/50 text-blue-300 hover:bg-blue-900"
-                    : "bg-blue-100 text-blue-700 hover:bg-blue-200"
-                    }`}
-                  style={{
-                    animation: `fadeInUp 0.4s ease-out ${index * 0.05}s both`,
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.techs.length > 4 && (
-                <span className={`px-3 py-1 rounded-lg text-xs font-medium ${darkMode ? "bg-[var(--color-secondary-dark)] text-gray-300" : "bg-[var(--color-secondary)] text-gray-700"}`}>
-                  +{project.techs.length - 4}
-                </span>
-              )}
-            </div>
-          </LazySection>
+          {/* Technologies */}
+          <motion.div
+            className="flex flex-wrap gap-2 mb-5"
+            variants={techListVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {project.techs.slice(0, 4).map((tech) => (
+              <motion.span
+                key={tech}
+                variants={techVariants}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors duration-300 ${darkMode
+                  ? "bg-blue-900/50 text-blue-300 hover:bg-blue-900"
+                  : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+                  }`}
+              >
+                {tech}
+              </motion.span>
+            ))}
+            {project.techs.length > 4 && (
+              <motion.span
+                variants={techVariants}
+                className={`px-3 py-1 rounded-lg text-xs font-medium ${darkMode ? "bg-[var(--color-secondary-dark)] text-gray-300" : "bg-[var(--color-secondary)] text-gray-700"}`}
+              >
+                +{project.techs.length - 4}
+              </motion.span>
+            )}
+          </motion.div>
 
           {/* Action Buttons */}
           <div className="mt-auto md:hidden flex items-center justify-between gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
