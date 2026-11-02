@@ -1,4 +1,5 @@
-import React, { Suspense, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { RotateCcw } from 'lucide-react';
 import Header from "./Header";
 import { useThemeContext } from "../ThemeContext";
 import Footer from "./Footer";
@@ -8,6 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ChatbotWidget from '../components/chatbot/ChatbotWidget';
+import IntroExperience from '../experience/IntroExperience';
 
 interface Point {
   x: number;
@@ -19,6 +21,8 @@ interface Point {
 
 const Layout: React.FC = () => {
   const { darkMode } = useThemeContext();
+  const [showIntro, setShowIntro] = useState(true);
+  const [introFromEnd, setIntroFromEnd] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>(0);
   const pointsRef = useRef<Point[]>([]);
@@ -28,6 +32,40 @@ const Layout: React.FC = () => {
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location.pathname]);
+
+  // Pulling up from the very top of the portfolio brings the intro back, entering
+  // at its last section so the journey continues where it left off.
+  useEffect(() => {
+    if (showIntro) return;
+    let pull = 0;
+    let touchY: number | null = null;
+    const reenter = () => {
+      setIntroFromEnd(true);
+      setShowIntro(true);
+    };
+    const onWheel = (e: WheelEvent) => {
+      if (window.scrollY > 2) { pull = 0; return; }
+      if (e.deltaY < 0) {
+        pull += -e.deltaY;
+        if (pull > 50) reenter();
+      } else {
+        pull = 0;
+      }
+    };
+    // Touch equivalent: dragging down while already at the top.
+    const onTouchStart = (e: TouchEvent) => { touchY = window.scrollY <= 2 ? e.touches[0].clientY : null; };
+    const onTouchMove = (e: TouchEvent) => {
+      if (touchY !== null && window.scrollY <= 2 && e.touches[0].clientY - touchY > 90) reenter();
+    };
+    window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+    };
+  }, [showIntro]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -210,6 +248,23 @@ const Layout: React.FC = () => {
       </div>
       <ToastContainer position="top-right" theme={darkMode ? 'dark' : 'light'} />
       <ChatbotWidget />
+
+      {/* Full-screen 3D intro, shown on every load; dismisses to the portfolio */}
+      {showIntro && <IntroExperience startAtEnd={introFromEnd} onComplete={() => setShowIntro(false)} />}
+
+      {/* Replay the intro journey */}
+      {!showIntro && (
+        <button
+          onClick={() => { setIntroFromEnd(false); setShowIntro(true); }}
+          className={`fixed bottom-5 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-colors ${darkMode
+            ? 'border-gray-700 bg-gray-800/80 text-gray-200 hover:border-blue-400 hover:text-blue-400'
+            : 'border-gray-300 bg-white/80 text-gray-700 hover:border-blue-600 hover:text-blue-600'}`}
+          aria-label="Replay 3D intro"
+        >
+          <RotateCcw className="h-4 w-4" />
+          Replay intro
+        </button>
+      )}
     </div>
   );
 };
